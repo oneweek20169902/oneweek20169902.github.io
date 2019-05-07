@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Oneweek</title>
+    <link>https://oneweek20169902.github.io/</link>
+    <description>Recent content on Oneweek</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Tue, 07 May 2019 13:56:12 +0800</lastBuildDate>
+    
+	<atom:link href="https://oneweek20169902.github.io/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Test</title>
+      <link>https://oneweek20169902.github.io/content/test/</link>
+      <pubDate>Tue, 07 May 2019 13:56:12 +0800</pubDate>
+      
+      <guid>https://oneweek20169902.github.io/content/test/</guid>
+      <description>sdfsdfsdfsdf</description>
+    </item>
+    
+    <item>
+      <title>Test</title>
+      <link>https://oneweek20169902.github.io/test/</link>
+      <pubDate>Tue, 07 May 2019 13:54:52 +0800</pubDate>
+      
+      <guid>https://oneweek20169902.github.io/test/</guid>
+      <description>sdflksdfhsldfhalsdfhasdfhaljkshfdaklsdhflaksdf</description>
+    </item>
+    
+    <item>
+      <title>test</title>
+      <link>https://oneweek20169902.github.io/my-first-blod/</link>
+      <pubDate>Fri, 10 Feb 2017 15:01:33 +0800</pubDate>
+      
+      <guid>https://oneweek20169902.github.io/my-first-blod/</guid>
+      <description>Hello Hugo！测试内容</description>
+    </item>
+    
+  </channel>
+</rss>
