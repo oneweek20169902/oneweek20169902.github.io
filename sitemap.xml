@@ -1,52 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-  xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  
-  <url>
-    <loc>https://oneweek20169902.github.io/content/</loc>
-    <lastmod>2019-05-07T13:56:12+08:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://oneweek20169902.github.io/</loc>
-    <lastmod>2019-05-07T13:56:12+08:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://oneweek20169902.github.io/content/test/</loc>
-    <lastmod>2019-05-07T13:56:12+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://oneweek20169902.github.io/test/</loc>
-    <lastmod>2019-05-07T13:54:52+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://oneweek20169902.github.io/my-first-blod/</loc>
-    <lastmod>2017-02-10T15:01:33+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://oneweek20169902.github.io/authors/</loc>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://oneweek20169902.github.io/categories/</loc>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://oneweek20169902.github.io/series/</loc>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://oneweek20169902.github.io/tags/</loc>
-    <priority>0</priority>
-  </url>
-  
-</urlset>
+<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+	
+	<sitemap>
+	   	<loc>https://oneweek20169902.github.io/zh/sitemap.xml</loc>
+		
+	</sitemap>
+	
+	<sitemap>
+	   	<loc>https://oneweek20169902.github.io/en/sitemap.xml</loc>
+		
+	</sitemap>
+	
+</sitemapindex>

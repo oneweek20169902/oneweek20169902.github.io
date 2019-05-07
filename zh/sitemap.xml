@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>https://oneweek20169902.github.io/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://oneweek20169902.github.io/en/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="https://oneweek20169902.github.io/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://oneweek20169902.github.io/authors.html</loc>
+    <priority>0</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://oneweek20169902.github.io/en/authors/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="https://oneweek20169902.github.io/authors.html"
+                />
+  </url>
+  
+  <url>
+    <loc>https://oneweek20169902.github.io/categories.html</loc>
+    <priority>0</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://oneweek20169902.github.io/en/categories/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="https://oneweek20169902.github.io/categories.html"
+                />
+  </url>
+  
+  <url>
+    <loc>https://oneweek20169902.github.io/series.html</loc>
+    <priority>0</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://oneweek20169902.github.io/en/series/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="https://oneweek20169902.github.io/series.html"
+                />
+  </url>
+  
+  <url>
+    <loc>https://oneweek20169902.github.io/tags.html</loc>
+    <priority>0</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://oneweek20169902.github.io/en/tags/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="https://oneweek20169902.github.io/tags.html"
+                />
+  </url>
+  
+</urlset>
