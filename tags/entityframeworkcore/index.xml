@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>EntityFrameworkCore on Li&#39;Blog</title>
+    <link>https://oneweek20169902.github.io/tags/entityframeworkcore.html</link>
+    <description>Recent content in EntityFrameworkCore on Li&#39;Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Tue, 07 May 2019 16:39:11 +0800</lastBuildDate>
+    
+	<atom:link href="https://oneweek20169902.github.io/tags/entityframeworkcore/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>EntityFrameworkCore将数据库Timestamp类型在程序中转为long类型</title>
+      <link>https://oneweek20169902.github.io/post/entityframeworkcore%E5%B0%86%E6%95%B0%E6%8D%AE%E5%BA%93timestamp%E7%B1%BB%E5%9E%8B%E5%9C%A8%E7%A8%8B%E5%BA%8F%E4%B8%AD%E8%BD%AC%E4%B8%BAlong%E7%B1%BB%E5%9E%8B.html</link>
+      <pubDate>Tue, 07 May 2019 16:39:11 +0800</pubDate>
+      
+      <guid>https://oneweek20169902.github.io/post/entityframeworkcore%E5%B0%86%E6%95%B0%E6%8D%AE%E5%BA%93timestamp%E7%B1%BB%E5%9E%8B%E5%9C%A8%E7%A8%8B%E5%BA%8F%E4%B8%AD%E8%BD%AC%E4%B8%BAlong%E7%B1%BB%E5%9E%8B.html</guid>
+      <description>Entity
+public class Entity { public ulong RowVersion { get; set; } // anymore byte[] }  Context
+modelBuilder.Entity&amp;lt;Entity&amp;gt;(entity =&amp;gt; { entity .Property(e =&amp;gt; e.RowVersion) .HasConversion(new NumberToBytesConverter&amp;lt;ulong&amp;gt;()) .IsRowVersion(); });  In Query
+ulong sinceRowVersion; ... .Where(e =&amp;gt; e.RowVersion &amp;gt; sinceRowVersion); ... </description>
+    </item>
+    
+  </channel>
+</rss>

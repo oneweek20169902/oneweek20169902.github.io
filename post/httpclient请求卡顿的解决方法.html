@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang='zh'><head>
+  <meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'>
+<meta name='description' content='var handler = new HttpClientHandler() { AutomaticDecompression = DecompressionMethods.GZip,UseProxy = false }; using (var http = new HttpClient( handler )) { if (headers != null) { foreach (KeyValuePair&lt;string,string&gt; header in headers) { http.DefaultRequestHeaders.Add( header.Key,header.Value ); } } if (timeout &gt; 0) { http.Timeout = new TimeSpan( 0,0,timeout ); } var response = http.GetAsync( address ); if (!response.Result.IsSuccessStatusCode) { return new FunctionResult&lt;TData&gt;() { Code = ApiStatusCode.ServerError,Message = &#34;&#34; }; } var json = response.'>
+<meta name='theme-color' content='#ffcd00'>
+
+<meta property='og:title' content='Httpclient请求卡顿的解决方法 • Li&#39;Blog'>
+<meta property='og:description' content='var handler = new HttpClientHandler() { AutomaticDecompression = DecompressionMethods.GZip,UseProxy = false }; using (var http = new HttpClient( handler )) { if (headers != null) { foreach (KeyValuePair&lt;string,string&gt; header in headers) { http.DefaultRequestHeaders.Add( header.Key,header.Value ); } } if (timeout &gt; 0) { http.Timeout = new TimeSpan( 0,0,timeout ); } var response = http.GetAsync( address ); if (!response.Result.IsSuccessStatusCode) { return new FunctionResult&lt;TData&gt;() { Code = ApiStatusCode.ServerError,Message = &#34;&#34; }; } var json = response.'>
+<meta property='og:url' content='https://oneweek20169902.github.io/post/httpclient%E8%AF%B7%E6%B1%82%E5%8D%A1%E9%A1%BF%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95.html'>
+<meta property='og:site_name' content='Li&#39;Blog'>
+<meta property='og:type' content='article'><meta property='article:section' content='post'><meta property='article:tag' content='DotnetCore'><meta property='article:published_time' content='2019-05-07T16:48:38&#43;08:00'/><meta property='article:modified_time' content='2019-05-07T16:48:38&#43;08:00'/><meta name='twitter:card' content='summary'>
+
+<meta name="generator" content="Hugo 0.55.5" />
+
+  <title>Httpclient请求卡顿的解决方法 • Li&#39;Blog</title>
+  <link rel='canonical' href='https://oneweek20169902.github.io/post/httpclient%E8%AF%B7%E6%B1%82%E5%8D%A1%E9%A1%BF%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95.html'>
+  
+  
+  <link rel='icon' href='/favicon.ico'>
+<link rel='stylesheet' href='/assets/css/main.fb20af92.css'><link rel='stylesheet' href='/css/custom.css'><style>
+:root{--color-accent:#ffcd00;}
+</style>
+
+  
+
+</head>
+<body class='page type-post has-sidebar'>
+
+  <div class='site'><div id='sidebar' class='sidebar'>
+  <a class='screen-reader-text' href='#main-menu'>跳到主页</a>
+
+  <div class='container'><section class='widget widget-about sep-after'>
+  <header>
+    
+    <div class='logo'>
+      <a href='/'>
+        <img src='/images/logo.png'>
+      </a>
+    </div>
+    
+    <h2 class='title site-title '>
+      <a href='/'>
+      Li&#39;Blog
+      </a>
+    </h2>
+    <div class='desc'>
+    知识就像空气，学习如同呼吸。
+    </div>
+  </header>
+
+</section>
+<section class='widget widget-search sep-after'>
+  <header>
+    <h4 class='title widget-title'>Search</h4>
+  </header>
+
+  <form action='/search' id='search-form' class='search-form'>
+    <label>
+      <span class='screen-reader-text'></span>
+      <input id='search-term' class='search-term' type='search' name='q' placeholder='&hellip;'>
+    </label></form>
+
+</section>
+<section class='widget widget-sidebar_menu sep-after'><nav id='sidebar-menu' class='menu sidebar-menu' aria-label='侧边菜单'>
+    <div class='container'>
+      <ul><li class='item'>
+  <a href='/'>Home</a></li></ul>
+    </div>
+  </nav>
+
+</section><section class='widget widget-taxonomy_cloud sep-after'>
+  <header>
+    <h4 class='title widget-title'>标签</h4>
+  </header>
+
+  <div class='container list-container'>
+  <ul class='list taxonomy-cloud'><li>
+        <a href='/tags/dotnetcore.html' style='font-size:1em'>DotnetCore</a>
+      </li><li>
+        <a href='/tags/entityframeworkcore.html' style='font-size:1em'>EntityFrameworkCore</a>
+      </li></ul>
+</div>
+
+
+</section>
+</div>
+
+  <div class='sidebar-overlay'></div>
+</div><div class='main'><nav id='main-menu' class='menu main-menu' aria-label='主菜单'>
+  <div class='container'>
+    <a class='screen-reader-text' href='#content'>跳到文章</a>
+
+<button id='sidebar-toggler' class='sidebar-toggler' aria-controls='sidebar'>
+  <span class='screen-reader-text'>切换侧边栏</span>
+  <span class='open'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <line x1="3" y1="12" x2="21" y2="12" />
+  <line x1="3" y1="6" x2="21" y2="6" />
+  <line x1="3" y1="18" x2="21" y2="18" />
+  
+</svg>
+</span>
+  <span class='close'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <line x1="18" y1="6" x2="6" y2="18" />
+  <line x1="6" y1="6" x2="18" y2="18" />
+  
+</svg>
+</span>
+</button>
+    <ul><li class='item'>
+        <a href='/'>Home</a>
+      </li><li class='item'>
+        <a href='https://github.com/MunifTanjim/minimo'>Repo</a>
+      </li></ul>
+  </div>
+</nav><div class='header-widgets'>
+        <div class='container'>
+    
+    <style>.widget-breadcrumbs li:after{content:'\2f '}</style>
+  <section class='widget widget-breadcrumbs sep-after'>
+    <nav id='breadcrumbs'>
+      <ol><li><a href='/'>Home</a></li><li><a href='/post.html'>Posts</a></li><li><span>Httpclient请求卡顿的解决方法</span></li></ol>
+    </nav>
+  </section></div>
+      </div>
+
+      <header id='header' class='header site-header'>
+        <div class='container sep-after'>
+          <div class='header-info'><p class='site-title title'>Li&#39;Blog</p><p class='desc site-desc'>知识就像空气，学习如同呼吸。</p>
+          </div>
+        </div>
+      </header>
+
+      <main id='content'>
+
+
+<article lang='zh' class='entry'>
+  <header class='header entry-header'>
+  <div class='container sep-after'>
+    <div class='header-info'>
+      <h1 class='title'>Httpclient请求卡顿的解决方法</h1>
+      
+
+    </div>
+    <div class='entry-meta'>
+  <span class='posted-on'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+  <line x1="16" y1="2" x2="16" y2="6"/>
+  <line x1="8" y1="2" x2="8" y2="6"/>
+  <line x1="3" y1="10" x2="21" y2="10"/>
+  
+</svg>
+<span class='screen-reader-text'>发布 </span>
+  <time class='entry-date' datetime='2019-05-07T16:48:38&#43;08:00'>2019-05-07</time>
+</span>
+
+  
+  
+<span class='reading-time'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <circle cx="12" cy="12" r="10"/>
+  <polyline points="12 6 12 12 15 15"/>
+  
+</svg>
+需要1分钟读完
+</span>
+
+
+</div>
+
+
+  </div>
+</header>
+
+  
+  
+
+  <div class='container entry-content'>
+  <hr />
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C#" data-lang="C#"><span style="color:#66d9ef">var</span> handler = <span style="color:#66d9ef">new</span> HttpClientHandler() { AutomaticDecompression = DecompressionMethods.GZip,UseProxy = <span style="color:#66d9ef">false</span> };
+ 
+            <span style="color:#66d9ef">using</span> (<span style="color:#66d9ef">var</span> http = <span style="color:#66d9ef">new</span> HttpClient( handler ))
+            {
+                <span style="color:#66d9ef">if</span> (headers != <span style="color:#66d9ef">null</span>)
+                {
+                    <span style="color:#66d9ef">foreach</span> (KeyValuePair&lt;<span style="color:#66d9ef">string</span>,<span style="color:#66d9ef">string</span>&gt; header <span style="color:#66d9ef">in</span> headers)
+                    {
+                        http.DefaultRequestHeaders.Add( header.Key,header.Value );
+                    }
+                }
+                <span style="color:#66d9ef">if</span> (timeout &gt; <span style="color:#ae81ff">0</span>)
+                {
+                    http.Timeout = <span style="color:#66d9ef">new</span> TimeSpan( <span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">0</span>,timeout );
+                }
+                <span style="color:#66d9ef">var</span> response = http.GetAsync( address );
+                <span style="color:#66d9ef">if</span> (!response.Result.IsSuccessStatusCode)
+                {
+                    <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">new</span> FunctionResult&lt;TData&gt;() { Code = ApiStatusCode.ServerError,Message = <span style="color:#e6db74">&#34;&#34;</span> };
+                }
+                <span style="color:#66d9ef">var</span> json = response.Result.Content.ReadAsStringAsync().Result;
+                <span style="color:#66d9ef">var</span> result = json.FromApiJson&lt;ApiData&lt;TData&gt;&gt;();
+                <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">new</span> FunctionResult&lt;TData&gt; { Code = result.Result.Code,Message = result.Result.Msg,Data = result.Detail };
+            }
+</code></pre></div>
+<pre><code>UseProxy = false必须加上这句，否则http请求会绕一圈
+</code></pre>
+
+</div>
+
+  
+<footer class='entry-footer'>
+  <div class='container sep-before'><div class='categories'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <path d="M22,19a2,2,0,0,1-2,2H4a2,2,0,0,1-2-2V5A2,2,0,0,1,4,3H9l2,3h9a2,2,0,0,1,2,2Z"/>
+  
+</svg>
+<span class='screen-reader-text'>分类: </span><a class='category' href='/categories/dotnetcore.html'>DotnetCore</a></div>
+<div class='tags'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <path d="M20.59,13.41l-7.17,7.17a2,2,0,0,1-2.83,0L2,12V2H12l8.59,8.59A2,2,0,0,1,20.59,13.41Z"/>
+  <line x1="7" y1="7" x2="7" y2="7"/>
+  
+</svg>
+<span class='screen-reader-text'>标签: </span><a class='tag' href='/tags/dotnetcore.html'>DotnetCore</a></div>
+
+  </div>
+</footer>
+
+
+</article>
+
+<nav class='entry-nav'>
+  <div class='container'><div class='prev-entry sep-before'>
+      <a href='/post/entityframeworkcore%E5%B0%86%E6%95%B0%E6%8D%AE%E5%BA%93timestamp%E7%B1%BB%E5%9E%8B%E5%9C%A8%E7%A8%8B%E5%BA%8F%E4%B8%AD%E8%BD%AC%E4%B8%BAlong%E7%B1%BB%E5%9E%8B.html'>
+        <span aria-hidden='true'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <line x1="20" y1="12" x2="4" y2="12"/>
+  <polyline points="10 18 4 12 10 6"/>
+  
+</svg>
+ 上一个</span>
+        <span class='screen-reader-text'>上一篇文章: </span>EntityFrameworkCore将数据库Timestamp类型在程序中转为long类型</a>
+    </div></div>
+</nav>
+
+
+
+
+      </main>
+
+      <footer id='footer' class='footer'>
+        <div class='container sep-before'><section class='widget widget-social_menu sep-after'><nav aria-label='社交菜单'>
+    <ul><li>
+        <a href='https://github.com/oneweek20169902' target='_blank' rel='noopener'>
+          <span class='screen-reader-text'>在新标签打开Github的账户</span><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+  
+</svg>
+</a>
+      </li><li>
+        <a href='mailto:liyingnet0721@gmail.com' target='_blank' rel='noopener'>
+          <span class='screen-reader-text'>通过邮件联系</span><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+  <polyline points="22,6 12,13 2,6"/>
+  
+</svg>
+</a>
+      </li></ul>
+  </nav>
+</section><div class='copyright'>
+  <p> &copy; 2019 李映 </p>
+</div>
+
+        </div>
+      </footer>
+
+    </div>
+  </div><script>window.__assets_js_src="/assets/js/"</script>
+
+<script src='/assets/js/main.9e5c4cf4.js'></script><script src='/js/custom.js'></script>
+
+</body>
+
+</html>
+
