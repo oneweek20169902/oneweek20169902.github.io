@@ -3,21 +3,6 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://oneweek20169902.github.io/en/authors/</loc>
-    <priority>0</priority>
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh"
-                href="https://oneweek20169902.github.io/authors.html"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://oneweek20169902.github.io/en/authors/"
-                />
-  </url>
-  
-  <url>
     <loc>https://oneweek20169902.github.io/en/categories/</loc>
     <priority>0</priority>
     <xhtml:link
@@ -74,6 +59,21 @@
                 rel="alternate"
                 hreflang="en"
                 href="https://oneweek20169902.github.io/en/tags/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://oneweek20169902.github.io/en/%E6%9D%8E%E6%98%A0/</loc>
+    <priority>0</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="https://oneweek20169902.github.io/%E6%9D%8E%E6%98%A0.html"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://oneweek20169902.github.io/en/%E6%9D%8E%E6%98%A0/"
                 />
   </url>
   
