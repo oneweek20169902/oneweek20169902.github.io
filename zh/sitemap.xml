@@ -3,136 +3,136 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://oneweek20169902.github.io/</loc>
+    <loc>https://github.com/oneweek20169902/oneweek20169902.github.io.git/</loc>
     <lastmod>2019-05-07T17:47:59+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://oneweek20169902.github.io/en/"
+                href="https://github.com/oneweek20169902/oneweek20169902.github.io.git/en/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
-                href="https://oneweek20169902.github.io/"
+                href="https://github.com/oneweek20169902/oneweek20169902.github.io.git/"
                 />
   </url>
   
   <url>
-    <loc>https://oneweek20169902.github.io/post/cap%E5%8E%9F%E5%88%99%E5%92%8Cbase%E5%AE%9A%E7%90%86.html</loc>
+    <loc>https://github.com/oneweek20169902/oneweek20169902.github.io.git/post/cap%E5%8E%9F%E5%88%99%E5%92%8Cbase%E5%AE%9A%E7%90%86.html</loc>
     <lastmod>2019-05-07T17:47:59+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://oneweek20169902.github.io/categories.html</loc>
-    <lastmod>2019-05-07T17:47:59+08:00</lastmod>
-    <priority>0</priority>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://oneweek20169902.github.io/en/categories/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh"
-                href="https://oneweek20169902.github.io/categories.html"
-                />
-  </url>
-  
-  <url>
-    <loc>https://oneweek20169902.github.io/post.html</loc>
-    <lastmod>2019-05-07T17:47:59+08:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://oneweek20169902.github.io/tags.html</loc>
+    <loc>https://github.com/oneweek20169902/oneweek20169902.github.io.git/categories.html</loc>
     <lastmod>2019-05-07T17:47:59+08:00</lastmod>
     <priority>0</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://oneweek20169902.github.io/en/tags/"
+                href="https://github.com/oneweek20169902/oneweek20169902.github.io.git/en/categories/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
-                href="https://oneweek20169902.github.io/tags.html"
+                href="https://github.com/oneweek20169902/oneweek20169902.github.io.git/categories.html"
                 />
   </url>
   
   <url>
-    <loc>https://oneweek20169902.github.io/tags/verb.html</loc>
+    <loc>https://github.com/oneweek20169902/oneweek20169902.github.io.git/post.html</loc>
     <lastmod>2019-05-07T17:47:59+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://oneweek20169902.github.io/categories/verb.html</loc>
+    <loc>https://github.com/oneweek20169902/oneweek20169902.github.io.git/tags.html</loc>
+    <lastmod>2019-05-07T17:47:59+08:00</lastmod>
+    <priority>0</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://github.com/oneweek20169902/oneweek20169902.github.io.git/en/tags/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="https://github.com/oneweek20169902/oneweek20169902.github.io.git/tags.html"
+                />
+  </url>
+  
+  <url>
+    <loc>https://github.com/oneweek20169902/oneweek20169902.github.io.git/tags/verb.html</loc>
     <lastmod>2019-05-07T17:47:59+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://oneweek20169902.github.io/tags/dotnetcore.html</loc>
+    <loc>https://github.com/oneweek20169902/oneweek20169902.github.io.git/categories/verb.html</loc>
+    <lastmod>2019-05-07T17:47:59+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://github.com/oneweek20169902/oneweek20169902.github.io.git/tags/dotnetcore.html</loc>
     <lastmod>2019-05-07T16:48:38+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://oneweek20169902.github.io/categories/dotnetcore.html</loc>
+    <loc>https://github.com/oneweek20169902/oneweek20169902.github.io.git/categories/dotnetcore.html</loc>
     <lastmod>2019-05-07T16:48:38+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://oneweek20169902.github.io/post/httpclient%E8%AF%B7%E6%B1%82%E5%8D%A1%E9%A1%BF%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95.html</loc>
+    <loc>https://github.com/oneweek20169902/oneweek20169902.github.io.git/post/httpclient%E8%AF%B7%E6%B1%82%E5%8D%A1%E9%A1%BF%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95.html</loc>
     <lastmod>2019-05-07T16:48:38+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://oneweek20169902.github.io/tags/entityframeworkcore.html</loc>
+    <loc>https://github.com/oneweek20169902/oneweek20169902.github.io.git/tags/entityframeworkcore.html</loc>
     <lastmod>2019-05-07T16:39:11+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://oneweek20169902.github.io/categories/entityframeworkcore.html</loc>
+    <loc>https://github.com/oneweek20169902/oneweek20169902.github.io.git/categories/entityframeworkcore.html</loc>
     <lastmod>2019-05-07T16:39:11+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://oneweek20169902.github.io/post/entityframeworkcore%E5%B0%86%E6%95%B0%E6%8D%AE%E5%BA%93timestamp%E7%B1%BB%E5%9E%8B%E5%9C%A8%E7%A8%8B%E5%BA%8F%E4%B8%AD%E8%BD%AC%E4%B8%BAlong%E7%B1%BB%E5%9E%8B.html</loc>
+    <loc>https://github.com/oneweek20169902/oneweek20169902.github.io.git/post/entityframeworkcore%E5%B0%86%E6%95%B0%E6%8D%AE%E5%BA%93timestamp%E7%B1%BB%E5%9E%8B%E5%9C%A8%E7%A8%8B%E5%BA%8F%E4%B8%AD%E8%BD%AC%E4%B8%BAlong%E7%B1%BB%E5%9E%8B.html</loc>
     <lastmod>2019-05-07T16:39:11+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://oneweek20169902.github.io/series.html</loc>
+    <loc>https://github.com/oneweek20169902/oneweek20169902.github.io.git/series.html</loc>
     <priority>0</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://oneweek20169902.github.io/en/series/"
+                href="https://github.com/oneweek20169902/oneweek20169902.github.io.git/en/series/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
-                href="https://oneweek20169902.github.io/series.html"
+                href="https://github.com/oneweek20169902/oneweek20169902.github.io.git/series.html"
                 />
   </url>
   
   <url>
-    <loc>https://oneweek20169902.github.io/%E6%9D%8E%E6%98%A0.html</loc>
+    <loc>https://github.com/oneweek20169902/oneweek20169902.github.io.git/%E6%9D%8E%E6%98%A0.html</loc>
     <priority>0</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://oneweek20169902.github.io/en/%E6%9D%8E%E6%98%A0/"
+                href="https://github.com/oneweek20169902/oneweek20169902.github.io.git/en/%E6%9D%8E%E6%98%A0/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
-                href="https://oneweek20169902.github.io/%E6%9D%8E%E6%98%A0.html"
+                href="https://github.com/oneweek20169902/oneweek20169902.github.io.git/%E6%9D%8E%E6%98%A0.html"
                 />
   </url>
   

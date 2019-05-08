@@ -2,20 +2,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Home on Li&#39;Blog</title>
-    <link>https://oneweek20169902.github.io/</link>
+    <link>https://github.com/oneweek20169902/oneweek20169902.github.io.git/</link>
     <description>Recent content in Home on Li&#39;Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Tue, 07 May 2019 17:47:59 +0800</lastBuildDate>
     
-	<atom:link href="https://oneweek20169902.github.io/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://github.com/oneweek20169902/oneweek20169902.github.io.git/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>CAP原则和BASE定理</title>
-      <link>https://oneweek20169902.github.io/post/cap%E5%8E%9F%E5%88%99%E5%92%8Cbase%E5%AE%9A%E7%90%86.html</link>
+      <link>https://github.com/oneweek20169902/oneweek20169902.github.io.git/post/cap%E5%8E%9F%E5%88%99%E5%92%8Cbase%E5%AE%9A%E7%90%86.html</link>
       <pubDate>Tue, 07 May 2019 17:47:59 +0800</pubDate>
       
-      <guid>https://oneweek20169902.github.io/post/cap%E5%8E%9F%E5%88%99%E5%92%8Cbase%E5%AE%9A%E7%90%86.html</guid>
+      <guid>https://github.com/oneweek20169902/oneweek20169902.github.io.git/post/cap%E5%8E%9F%E5%88%99%E5%92%8Cbase%E5%AE%9A%E7%90%86.html</guid>
       <description> 简介  CAP原则又称CAP定力，指的是在一个分布式系统中，Consistency(一致性)、Available(可用性)、Partition tolerance(分区容错性)，三者不可得兼。
  分布式系统的CAP理论：理论首先把分布式系统中的三个特性进行了如下归纳：
  一致性&amp;copy;:在分布式系统中的所有数据备份，在同一时刻是否是同样的值。(等同于所有节点访问同一份最新的数据副本) 可用性(A):在集群中的一部分节点故障后，集群整体是否还能响应客户端的读写请求。(对数据更新具备高可用性) 分区容错性(P):以实际效果而言，分区相当于对通信的时限要求。系统如果不能再时限内达成数据性一致性，就意味着发生了分区的情况，必须就当前操作在C和A直接作出选择。  </description>
@@ -23,19 +23,19 @@
     
     <item>
       <title>Httpclient请求卡顿的解决方法</title>
-      <link>https://oneweek20169902.github.io/post/httpclient%E8%AF%B7%E6%B1%82%E5%8D%A1%E9%A1%BF%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95.html</link>
+      <link>https://github.com/oneweek20169902/oneweek20169902.github.io.git/post/httpclient%E8%AF%B7%E6%B1%82%E5%8D%A1%E9%A1%BF%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95.html</link>
       <pubDate>Tue, 07 May 2019 16:48:38 +0800</pubDate>
       
-      <guid>https://oneweek20169902.github.io/post/httpclient%E8%AF%B7%E6%B1%82%E5%8D%A1%E9%A1%BF%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95.html</guid>
+      <guid>https://github.com/oneweek20169902/oneweek20169902.github.io.git/post/httpclient%E8%AF%B7%E6%B1%82%E5%8D%A1%E9%A1%BF%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95.html</guid>
       <description>var handler = new HttpClientHandler() { AutomaticDecompression = DecompressionMethods.GZip,UseProxy = false }; using (var http = new HttpClient( handler )) { if (headers != null) { foreach (KeyValuePair&amp;lt;string,string&amp;gt; header in headers) { http.DefaultRequestHeaders.Add( header.Key,header.Value ); } } if (timeout &amp;gt; 0) { http.Timeout = new TimeSpan( 0,0,timeout ); } var response = http.GetAsync( address ); if (!response.Result.IsSuccessStatusCode) { return new FunctionResult&amp;lt;TData&amp;gt;() { Code = ApiStatusCode.ServerError,Message = &amp;#34;&amp;#34; }; } var json = response.</description>
     </item>
     
     <item>
       <title>EntityFrameworkCore将数据库Timestamp类型在程序中转为long类型</title>
-      <link>https://oneweek20169902.github.io/post/entityframeworkcore%E5%B0%86%E6%95%B0%E6%8D%AE%E5%BA%93timestamp%E7%B1%BB%E5%9E%8B%E5%9C%A8%E7%A8%8B%E5%BA%8F%E4%B8%AD%E8%BD%AC%E4%B8%BAlong%E7%B1%BB%E5%9E%8B.html</link>
+      <link>https://github.com/oneweek20169902/oneweek20169902.github.io.git/post/entityframeworkcore%E5%B0%86%E6%95%B0%E6%8D%AE%E5%BA%93timestamp%E7%B1%BB%E5%9E%8B%E5%9C%A8%E7%A8%8B%E5%BA%8F%E4%B8%AD%E8%BD%AC%E4%B8%BAlong%E7%B1%BB%E5%9E%8B.html</link>
       <pubDate>Tue, 07 May 2019 16:39:11 +0800</pubDate>
       
-      <guid>https://oneweek20169902.github.io/post/entityframeworkcore%E5%B0%86%E6%95%B0%E6%8D%AE%E5%BA%93timestamp%E7%B1%BB%E5%9E%8B%E5%9C%A8%E7%A8%8B%E5%BA%8F%E4%B8%AD%E8%BD%AC%E4%B8%BAlong%E7%B1%BB%E5%9E%8B.html</guid>
+      <guid>https://github.com/oneweek20169902/oneweek20169902.github.io.git/post/entityframeworkcore%E5%B0%86%E6%95%B0%E6%8D%AE%E5%BA%93timestamp%E7%B1%BB%E5%9E%8B%E5%9C%A8%E7%A8%8B%E5%BA%8F%E4%B8%AD%E8%BD%AC%E4%B8%BAlong%E7%B1%BB%E5%9E%8B.html</guid>
       <description>Entity
 public class Entity { public ulong RowVersion { get; set; } // anymore byte[] }  Context
 modelBuilder.Entity&amp;lt;Entity&amp;gt;(entity =&amp;gt; { entity .Property(e =&amp;gt; e.RowVersion) .HasConversion(new NumberToBytesConverter&amp;lt;ulong&amp;gt;()) .IsRowVersion(); });  In Query
