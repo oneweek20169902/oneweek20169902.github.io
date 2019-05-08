@@ -38,8 +38,7 @@ kbd{
     box-shadow: inset 0 -2px 0 #c6cbd1;
     background-color: white;
 }
-    
-/* 添加自动序号样式 */
+
 .entry-content {
     counter-reset: h2
 }
@@ -91,3 +90,9 @@ h6.md-focus.md-heading:before {
     counter-increment: h6;
     content: counter(h2) "." counter(h3) "." counter(h4) "." counter(h5) "." counter(h6) ". "
 }
+.container {
+    width: 100%;
+    max-width: 1024px;
+    padding: 0 20px;
+    margin: 0 auto;
+    }
