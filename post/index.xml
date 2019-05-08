@@ -42,14 +42,5 @@ modelBuilder.Entity&amp;lt;Entity&amp;gt;(entity =&amp;gt; { entity .Property(e 
 ulong sinceRowVersion; ... .Where(e =&amp;gt; e.RowVersion &amp;gt; sinceRowVersion); ... </description>
     </item>
     
-    <item>
-      <title>Centos7发布linux</title>
-      <link>https://github.com/oneweek20169902/oneweek20169902.github.io.git/post/centos7%E5%8F%91%E5%B8%83linux.html</link>
-      <pubDate>Tue, 07 May 2019 16:37:46 +0800</pubDate>
-      
-      <guid>https://github.com/oneweek20169902/oneweek20169902.github.io.git/post/centos7%E5%8F%91%E5%B8%83linux.html</guid>
-      <description></description>
-    </item>
-    
   </channel>
 </rss>
