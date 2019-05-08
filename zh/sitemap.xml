@@ -61,20 +61,14 @@
   </url>
   
   <url>
-    <loc>https://oneweek20169902.github.io/categories/verb.html</loc>
-    <lastmod>2019-05-07T17:47:59+08:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://oneweek20169902.github.io/tags/verb.html</loc>
     <lastmod>2019-05-07T17:47:59+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://oneweek20169902.github.io/categories/dotnetcore.html</loc>
-    <lastmod>2019-05-07T16:48:38+08:00</lastmod>
+    <loc>https://oneweek20169902.github.io/categories/verb.html</loc>
+    <lastmod>2019-05-07T17:47:59+08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -85,18 +79,24 @@
   </url>
   
   <url>
+    <loc>https://oneweek20169902.github.io/categories/dotnetcore.html</loc>
+    <lastmod>2019-05-07T16:48:38+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://oneweek20169902.github.io/post/httpclient%E8%AF%B7%E6%B1%82%E5%8D%A1%E9%A1%BF%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95.html</loc>
     <lastmod>2019-05-07T16:48:38+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://oneweek20169902.github.io/categories/entityframeworkcore.html</loc>
+    <loc>https://oneweek20169902.github.io/tags/entityframeworkcore.html</loc>
     <lastmod>2019-05-07T16:39:11+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://oneweek20169902.github.io/tags/entityframeworkcore.html</loc>
+    <loc>https://oneweek20169902.github.io/categories/entityframeworkcore.html</loc>
     <lastmod>2019-05-07T16:39:11+08:00</lastmod>
     <priority>0</priority>
   </url>
