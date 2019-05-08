@@ -13,18 +13,18 @@ ulong sinceRowVersion; ... .Where(e =&gt; e.RowVersion &gt; sinceRowVersion); ..
 public class Entity { public ulong RowVersion { get; set; } // anymore byte[] }  Context
 modelBuilder.Entity&lt;Entity&gt;(entity =&gt; { entity .Property(e =&gt; e.RowVersion) .HasConversion(new NumberToBytesConverter&lt;ulong&gt;()) .IsRowVersion(); });  In Query
 ulong sinceRowVersion; ... .Where(e =&gt; e.RowVersion &gt; sinceRowVersion); ... '>
-<meta property='og:url' content='https://github.com/oneweek20169902/oneweek20169902.github.io.git/post/entityframeworkcore%E5%B0%86%E6%95%B0%E6%8D%AE%E5%BA%93timestamp%E7%B1%BB%E5%9E%8B%E5%9C%A8%E7%A8%8B%E5%BA%8F%E4%B8%AD%E8%BD%AC%E4%B8%BAlong%E7%B1%BB%E5%9E%8B.html'>
+<meta property='og:url' content='https://oneweek20169902.github.io/post/entityframeworkcore%E5%B0%86%E6%95%B0%E6%8D%AE%E5%BA%93timestamp%E7%B1%BB%E5%9E%8B%E5%9C%A8%E7%A8%8B%E5%BA%8F%E4%B8%AD%E8%BD%AC%E4%B8%BAlong%E7%B1%BB%E5%9E%8B.html'>
 <meta property='og:site_name' content='Li&#39;Blog'>
 <meta property='og:type' content='article'><meta property='article:section' content='post'><meta property='article:tag' content='EntityFrameworkCore'><meta property='article:published_time' content='2019-05-07T16:39:11&#43;08:00'/><meta property='article:modified_time' content='2019-05-07T16:39:11&#43;08:00'/><meta name='twitter:card' content='summary'>
 
 <meta name="generator" content="Hugo 0.55.5" />
 
   <title>EntityFrameworkCore将数据库Timestamp类型在程序中转为long类型 • Li&#39;Blog</title>
-  <link rel='canonical' href='https://github.com/oneweek20169902/oneweek20169902.github.io.git/post/entityframeworkcore%E5%B0%86%E6%95%B0%E6%8D%AE%E5%BA%93timestamp%E7%B1%BB%E5%9E%8B%E5%9C%A8%E7%A8%8B%E5%BA%8F%E4%B8%AD%E8%BD%AC%E4%B8%BAlong%E7%B1%BB%E5%9E%8B.html'>
+  <link rel='canonical' href='https://oneweek20169902.github.io/post/entityframeworkcore%E5%B0%86%E6%95%B0%E6%8D%AE%E5%BA%93timestamp%E7%B1%BB%E5%9E%8B%E5%9C%A8%E7%A8%8B%E5%BA%8F%E4%B8%AD%E8%BD%AC%E4%B8%BAlong%E7%B1%BB%E5%9E%8B.html'>
   
   
-  <link rel='icon' href='/oneweek20169902/oneweek20169902.github.io.git/favicon.ico'>
-<link rel='stylesheet' href='/oneweek20169902/oneweek20169902.github.io.git/assets/css/main.fb20af92.css'><link rel='stylesheet' href='/oneweek20169902/oneweek20169902.github.io.git/css/custom.css'><style>
+  <link rel='icon' href='/favicon.ico'>
+<link rel='stylesheet' href='/assets/css/main.fb20af92.css'><link rel='stylesheet' href='/css/custom.css'><style>
 :root{--color-accent:#ffcd00;}
 </style>
 
@@ -40,13 +40,13 @@ ulong sinceRowVersion; ... .Where(e =&gt; e.RowVersion &gt; sinceRowVersion); ..
   <header>
     
     <div class='logo'>
-      <a href='/oneweek20169902/oneweek20169902.github.io.git/'>
-        <img src='/oneweek20169902/oneweek20169902.github.io.git/images/logo.png'>
+      <a href='/'>
+        <img src='/images/logo.png'>
       </a>
     </div>
     
     <h2 class='title site-title '>
-      <a href='/oneweek20169902/oneweek20169902.github.io.git/'>
+      <a href='/'>
       Li&#39;Blog
       </a>
     </h2>
@@ -61,7 +61,7 @@ ulong sinceRowVersion; ... .Where(e =&gt; e.RowVersion &gt; sinceRowVersion); ..
     <h4 class='title widget-title'>Search</h4>
   </header>
 
-  <form action='/oneweek20169902/oneweek20169902.github.io.git/search' id='search-form' class='search-form'>
+  <form action='/search' id='search-form' class='search-form'>
     <label>
       <span class='screen-reader-text'></span>
       <input id='search-term' class='search-term' type='search' name='q' placeholder='&hellip;'>
@@ -71,7 +71,7 @@ ulong sinceRowVersion; ... .Where(e =&gt; e.RowVersion &gt; sinceRowVersion); ..
 <section class='widget widget-sidebar_menu sep-after'><nav id='sidebar-menu' class='menu sidebar-menu' aria-label='侧边菜单'>
     <div class='container'>
       <ul><li class='item'>
-  <a href='/oneweek20169902/oneweek20169902.github.io.git/'>Home</a></li></ul>
+  <a href='/'>Home</a></li></ul>
     </div>
   </nav>
 
@@ -82,11 +82,11 @@ ulong sinceRowVersion; ... .Where(e =&gt; e.RowVersion &gt; sinceRowVersion); ..
 
   <div class='container list-container'>
   <ul class='list taxonomy-cloud'><li>
-        <a href='/oneweek20169902/oneweek20169902.github.io.git/tags/dotnetcore.html' style='font-size:1em'>DotnetCore</a>
+        <a href='/tags/dotnetcore.html' style='font-size:1em'>DotnetCore</a>
       </li><li>
-        <a href='/oneweek20169902/oneweek20169902.github.io.git/tags/entityframeworkcore.html' style='font-size:1em'>EntityFrameworkCore</a>
+        <a href='/tags/entityframeworkcore.html' style='font-size:1em'>EntityFrameworkCore</a>
       </li><li>
-        <a href='/oneweek20169902/oneweek20169902.github.io.git/tags/verb.html' style='font-size:1em'>VERB</a>
+        <a href='/tags/verb.html' style='font-size:1em'>VERB</a>
       </li></ul>
 </div>
 
@@ -118,7 +118,7 @@ ulong sinceRowVersion; ... .Where(e =&gt; e.RowVersion &gt; sinceRowVersion); ..
 </span>
 </button>
     <ul><li class='item'>
-        <a href='/oneweek20169902/oneweek20169902.github.io.git/'>Home</a>
+        <a href='/'>Home</a>
       </li><li class='item'>
         <a href=''>Blog</a>
       </li><li class='item'>
@@ -133,7 +133,7 @@ ulong sinceRowVersion; ... .Where(e =&gt; e.RowVersion &gt; sinceRowVersion); ..
     <style>.widget-breadcrumbs li:after{content:'\2f '}</style>
   <section class='widget widget-breadcrumbs sep-after'>
     <nav id='breadcrumbs'>
-      <ol><li><a href='/oneweek20169902/oneweek20169902.github.io.git/'>Home</a></li><li><a href='/oneweek20169902/oneweek20169902.github.io.git/post.html'>Posts</a></li><li><span>EntityFrameworkCore将数据库Timestamp类型在程序中转为long类型</span></li></ol>
+      <ol><li><a href='/'>Home</a></li><li><a href='/post.html'>Posts</a></li><li><span>EntityFrameworkCore将数据库Timestamp类型在程序中转为long类型</span></li></ol>
     </nav>
   </section></div>
       </div>
@@ -222,14 +222,14 @@ ulong sinceRowVersion; ... .Where(e =&gt; e.RowVersion &gt; sinceRowVersion); ..
   <path d="M22,19a2,2,0,0,1-2,2H4a2,2,0,0,1-2-2V5A2,2,0,0,1,4,3H9l2,3h9a2,2,0,0,1,2,2Z"/>
   
 </svg>
-<span class='screen-reader-text'>分类: </span><a class='category' href='/oneweek20169902/oneweek20169902.github.io.git/categories/entityframeworkcore.html'>EntityFrameworkCore</a></div>
+<span class='screen-reader-text'>分类: </span><a class='category' href='/categories/entityframeworkcore.html'>EntityFrameworkCore</a></div>
 <div class='tags'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
   
   <path d="M20.59,13.41l-7.17,7.17a2,2,0,0,1-2.83,0L2,12V2H12l8.59,8.59A2,2,0,0,1,20.59,13.41Z"/>
   <line x1="7" y1="7" x2="7" y2="7"/>
   
 </svg>
-<span class='screen-reader-text'>标签: </span><a class='tag' href='/oneweek20169902/oneweek20169902.github.io.git/tags/entityframeworkcore.html'>EntityFrameworkCore</a></div>
+<span class='screen-reader-text'>标签: </span><a class='tag' href='/tags/entityframeworkcore.html'>EntityFrameworkCore</a></div>
 
   </div>
 </footer>
@@ -239,7 +239,7 @@ ulong sinceRowVersion; ... .Where(e =&gt; e.RowVersion &gt; sinceRowVersion); ..
 
 <nav class='entry-nav'>
   <div class='container'><div class='next-entry sep-before'>
-      <a href='/oneweek20169902/oneweek20169902.github.io.git/post/httpclient%E8%AF%B7%E6%B1%82%E5%8D%A1%E9%A1%BF%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95.html'>
+      <a href='/post/httpclient%E8%AF%B7%E6%B1%82%E5%8D%A1%E9%A1%BF%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95.html'>
         <span class='screen-reader-text'>下一篇文章: </span>Httpclient请求卡顿的解决方法<span aria-hidden='true'>下一个 <svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
   
   <line x1="4" y1="12" x2="20" y2="12"/>
@@ -285,9 +285,9 @@ ulong sinceRowVersion; ... .Where(e =&gt; e.RowVersion &gt; sinceRowVersion); ..
       </footer>
 
     </div>
-  </div><script>window.__assets_js_src="/oneweek20169902/oneweek20169902.github.io.git/assets/js/"</script>
+  </div><script>window.__assets_js_src="/assets/js/"</script>
 
-<script src='/oneweek20169902/oneweek20169902.github.io.git/assets/js/main.9e5c4cf4.js'></script><script src='/oneweek20169902/oneweek20169902.github.io.git/js/custom.js'></script>
+<script src='/assets/js/main.9e5c4cf4.js'></script><script src='/js/custom.js'></script>
 
 </body>
 
