@@ -186,7 +186,7 @@
 
   <div class='container entry-content'>
   <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C#" data-lang="C#"><span style="color:#66d9ef">var</span> handler = <span style="color:#66d9ef">new</span> HttpClientHandler() { AutomaticDecompression = DecompressionMethods.GZip,UseProxy = <span style="color:#66d9ef">false</span> };
- 
+
             <span style="color:#66d9ef">using</span> (<span style="color:#66d9ef">var</span> http = <span style="color:#66d9ef">new</span> HttpClient( handler ))
             {
                 <span style="color:#66d9ef">if</span> (headers != <span style="color:#66d9ef">null</span>)
@@ -210,8 +210,12 @@
                 <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">new</span> FunctionResult&lt;TData&gt; { Code = result.Result.Code,Message = result.Result.Msg,Data = result.Detail };
             }
 </code></pre></div>
-<pre><code>UseProxy = false必须加上这句，否则http请求会绕一圈
+<pre><code>UseProxy = false必须加上这句，否则请求http请求会通过代理转发当前请求，导致请求会延迟2s左右。
 </code></pre>
+
+<blockquote>
+<p><a href="https://docs.microsoft.com/en-us/aspnet/core/host-and-deploy/proxy-load-balancer?view=aspnetcore-2.2" target="_blank">https://docs.microsoft.com/en-us/aspnet/core/host-and-deploy/proxy-load-balancer?view=aspnetcore-2.2</a></p>
+</blockquote>
 
 </div>
 

@@ -73,6 +73,11 @@
   </url>
   
   <url>
+    <loc>https://oneweek20169902.github.io/about.html</loc>
+    <lastmod>2019-05-07T17:35:45+08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://oneweek20169902.github.io/tags/dotnetcore.html</loc>
     <lastmod>2019-05-07T16:48:38+08:00</lastmod>
     <priority>0</priority>
@@ -104,6 +109,21 @@
   <url>
     <loc>https://oneweek20169902.github.io/post/entityframeworkcore%E5%B0%86%E6%95%B0%E6%8D%AE%E5%BA%93timestamp%E7%B1%BB%E5%9E%8B%E5%9C%A8%E7%A8%8B%E5%BA%8F%E4%B8%AD%E8%BD%AC%E4%B8%BAlong%E7%B1%BB%E5%9E%8B.html</loc>
     <lastmod>2019-05-07T16:39:11+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://oneweek20169902.github.io/post/centos7%E5%8F%91%E5%B8%83linux.html</loc>
+    <lastmod>2019-05-07T16:37:46+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://oneweek20169902.github.io/.html</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://oneweek20169902.github.io/page.html</loc>
+    <priority>0</priority>
   </url>
   
   <url>
