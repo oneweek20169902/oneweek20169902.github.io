@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>hugo on Li&#39;Blog</title>
+    <link>https://oneweek20169902.github.io/tags/hugo.html</link>
+    <description>Recent content in hugo on Li&#39;Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Mon, 13 May 2019 10:47:35 +0800</lastBuildDate>
+    
+	<atom:link href="https://oneweek20169902.github.io/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Hugo命令清单</title>
+      <link>https://oneweek20169902.github.io/post/hugo%E7%94%9F%E6%88%90%E9%9D%99%E6%80%81%E6%96%87%E4%BB%B6.html</link>
+      <pubDate>Mon, 13 May 2019 10:47:35 +0800</pubDate>
+      
+      <guid>https://oneweek20169902.github.io/post/hugo%E7%94%9F%E6%88%90%E9%9D%99%E6%80%81%E6%96%87%E4%BB%B6.html</guid>
+      <description> 查看版本 hugo version
+创建文件 hugo new 文件夹/文件名称.md，如 hugo new post/hugo生成静态文件.md
+编译生成静态文件 hugo --theme=主题名称 --buildDrafts --baseUrl=&amp;quot;https://github用户名.github.io/&amp;quot; 如 hugo --theme=minimo --buildDrafts --baseUrl=&amp;quot;https://oneweek20169902.github.io/&amp;quot;
+运行调试 hugo server
+常用参数介绍 --bind=&amp;quot;127.0.0.1&amp;quot; 服务监听 IP 地址； -p, --port=1313 服务监听端口； -w, --watch[=true] 监听站点目录，发现文件变更自动编译； -D, --buildDrafts 包括被标记为草稿的文章； -E, --buildExpired 包括已过期的文章； -F, --buildFuture 包括将在未来发布的文章； -b, --baseURL=&amp;quot;www.datals.com&amp;quot; 服务监听域名； --log[=false]: 开启日志； --logFile=&amp;quot;/var/log/hugo.log&amp;quot;: log 输出路径； -t, --theme=&amp;quot;&amp;quot; 指定主题； -v, --verbose[=false]: 输出详细信息  </description>
+    </item>
+    
+  </channel>
+</rss>

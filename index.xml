@@ -5,10 +5,43 @@
     <link>https://oneweek20169902.github.io/</link>
     <description>Recent content in Home on Li&#39;Blog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Tue, 07 May 2019 17:47:59 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 13 May 2019 10:47:35 +0800</lastBuildDate>
     
 	<atom:link href="https://oneweek20169902.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Hugo命令清单</title>
+      <link>https://oneweek20169902.github.io/post/hugo%E7%94%9F%E6%88%90%E9%9D%99%E6%80%81%E6%96%87%E4%BB%B6.html</link>
+      <pubDate>Mon, 13 May 2019 10:47:35 +0800</pubDate>
+      
+      <guid>https://oneweek20169902.github.io/post/hugo%E7%94%9F%E6%88%90%E9%9D%99%E6%80%81%E6%96%87%E4%BB%B6.html</guid>
+      <description> 查看版本 hugo version
+创建文件 hugo new 文件夹/文件名称.md，如 hugo new post/hugo生成静态文件.md
+编译生成静态文件 hugo --theme=主题名称 --buildDrafts --baseUrl=&amp;quot;https://github用户名.github.io/&amp;quot; 如 hugo --theme=minimo --buildDrafts --baseUrl=&amp;quot;https://oneweek20169902.github.io/&amp;quot;
+运行调试 hugo server
+常用参数介绍 --bind=&amp;quot;127.0.0.1&amp;quot; 服务监听 IP 地址； -p, --port=1313 服务监听端口； -w, --watch[=true] 监听站点目录，发现文件变更自动编译； -D, --buildDrafts 包括被标记为草稿的文章； -E, --buildExpired 包括已过期的文章； -F, --buildFuture 包括将在未来发布的文章； -b, --baseURL=&amp;quot;www.datals.com&amp;quot; 服务监听域名； --log[=false]: 开启日志； --logFile=&amp;quot;/var/log/hugo.log&amp;quot;: log 输出路径； -t, --theme=&amp;quot;&amp;quot; 指定主题； -v, --verbose[=false]: 输出详细信息  </description>
+    </item>
+    
+    <item>
+      <title>常用git命令整理</title>
+      <link>https://oneweek20169902.github.io/post/%E5%B8%B8%E7%94%A8git%E5%91%BD%E4%BB%A4.html</link>
+      <pubDate>Mon, 13 May 2019 10:35:15 +0800</pubDate>
+      
+      <guid>https://oneweek20169902.github.io/post/%E5%B8%B8%E7%94%A8git%E5%91%BD%E4%BB%A4.html</guid>
+      <description>新建代码仓 # 在当前目录新建一个Git代码库$ git init# 新建一个目录，将其初始化为Git代码库$ git init [project-name]# 下载一个项目和它的整个代码历史$ git clone [url] 配置 Git 的设置文件为.gitconfig，它可以在用户主目录下（全局配置），也可以在项目目录下（项目配置）。
+# 显示当前的Git配置$ git config --list# 编辑Git配置文件$ git config -e [--global]# 设置提交代码时的用户信息$ git config [--global] user.name&amp;#34;[name]&amp;#34;$ git config [--global] user.email&amp;#34;[email address]&amp;#34; 增加/删除文件 # 添加指定文件到暂存区$ git add [file1] [file2] ...# 添加指定目录到暂存区，包括子目录$ git add [dir]# 添加当前目录的所有文件到暂存区$ git add .# 添加每个变化前，都会要求确认# 对于同一个文件的多处变化，可以实现分次提交$ git add -p# 删除工作区文件，并且将这次删除放入暂存区$ git rm [file1] [file2] ...# 停止追踪指定文件，但该文件会保留在工作区$ git rm --cached [file]# 改名文件，并且将这个改名放入暂存区$ git mv [file-original] [file-renamed] 代码提交 # 提交暂存区到仓库区$ git commit -m [message]# 提交暂存区的指定文件到仓库区$ git commit [file1] [file2] .</description>
+    </item>
+    
+    <item>
+      <title>Prettier格式化配合</title>
+      <link>https://oneweek20169902.github.io/post/prettier%E6%A0%BC%E5%BC%8F%E5%8C%96%E9%85%8D%E5%90%88.html</link>
+      <pubDate>Mon, 13 May 2019 10:31:39 +0800</pubDate>
+      
+      <guid>https://oneweek20169902.github.io/post/prettier%E6%A0%BC%E5%BC%8F%E5%8C%96%E9%85%8D%E5%90%88.html</guid>
+      <description>HTML/CSS/JS/LESS 文件的 prettier 格式化规则
+{ // 使能每一种语言默认格式化规则  &amp;#34;[html]&amp;#34;: { &amp;#34;editor.defaultFormatter&amp;#34;: &amp;#34;esbenp.prettier-vscode&amp;#34; }, &amp;#34;[css]&amp;#34;: { &amp;#34;editor.defaultFormatter&amp;#34;: &amp;#34;esbenp.prettier-vscode&amp;#34; }, &amp;#34;[less]&amp;#34;: { &amp;#34;editor.defaultFormatter&amp;#34;: &amp;#34;esbenp.prettier-vscode&amp;#34; }, &amp;#34;[javascript]&amp;#34;: { &amp;#34;editor.defaultFormatter&amp;#34;: &amp;#34;esbenp.prettier-vscode&amp;#34; }, /* prettier的配置 */ &amp;#34;prettier.printWidth&amp;#34;: 100, // 超过最大值换行  &amp;#34;prettier.tabWidth&amp;#34;: 4, // 缩进字节数  &amp;#34;prettier.useTabs&amp;#34;: false, // 缩进不使用tab，使用空格  &amp;#34;prettier.semi&amp;#34;: true, // 句尾添加分号  &amp;#34;prettier.singleQuote&amp;#34;: true, // 使用单引号代替双引号  &amp;#34;prettier.proseWrap&amp;#34;: &amp;#34;preserve&amp;#34;, // 默认值。因为使用了一些折行敏感型的渲染器（如GitHub comment）而按照markdown文本样式进行折行  &amp;#34;prettier.arrowParens&amp;#34;: &amp;#34;avoid&amp;#34;, // (x) =&amp;gt; {} 箭头函数参数只有一个时是否要有小括号。avoid：省略括号  &amp;#34;prettier.</description>
+    </item>
     
     <item>
       <title>CAP原则和BASE定理</title>

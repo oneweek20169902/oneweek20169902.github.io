@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>vs code on Li&#39;Blog</title>
+    <link>https://oneweek20169902.github.io/tags/vs-code.html</link>
+    <description>Recent content in vs code on Li&#39;Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Mon, 13 May 2019 10:31:39 +0800</lastBuildDate>
+    
+	<atom:link href="https://oneweek20169902.github.io/tags/vs-code/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Prettier格式化配合</title>
+      <link>https://oneweek20169902.github.io/post/prettier%E6%A0%BC%E5%BC%8F%E5%8C%96%E9%85%8D%E5%90%88.html</link>
+      <pubDate>Mon, 13 May 2019 10:31:39 +0800</pubDate>
+      
+      <guid>https://oneweek20169902.github.io/post/prettier%E6%A0%BC%E5%BC%8F%E5%8C%96%E9%85%8D%E5%90%88.html</guid>
+      <description>HTML/CSS/JS/LESS 文件的 prettier 格式化规则
+{ // 使能每一种语言默认格式化规则  &amp;#34;[html]&amp;#34;: { &amp;#34;editor.defaultFormatter&amp;#34;: &amp;#34;esbenp.prettier-vscode&amp;#34; }, &amp;#34;[css]&amp;#34;: { &amp;#34;editor.defaultFormatter&amp;#34;: &amp;#34;esbenp.prettier-vscode&amp;#34; }, &amp;#34;[less]&amp;#34;: { &amp;#34;editor.defaultFormatter&amp;#34;: &amp;#34;esbenp.prettier-vscode&amp;#34; }, &amp;#34;[javascript]&amp;#34;: { &amp;#34;editor.defaultFormatter&amp;#34;: &amp;#34;esbenp.prettier-vscode&amp;#34; }, /* prettier的配置 */ &amp;#34;prettier.printWidth&amp;#34;: 100, // 超过最大值换行  &amp;#34;prettier.tabWidth&amp;#34;: 4, // 缩进字节数  &amp;#34;prettier.useTabs&amp;#34;: false, // 缩进不使用tab，使用空格  &amp;#34;prettier.semi&amp;#34;: true, // 句尾添加分号  &amp;#34;prettier.singleQuote&amp;#34;: true, // 使用单引号代替双引号  &amp;#34;prettier.proseWrap&amp;#34;: &amp;#34;preserve&amp;#34;, // 默认值。因为使用了一些折行敏感型的渲染器（如GitHub comment）而按照markdown文本样式进行折行  &amp;#34;prettier.arrowParens&amp;#34;: &amp;#34;avoid&amp;#34;, // (x) =&amp;gt; {} 箭头函数参数只有一个时是否要有小括号。avoid：省略括号  &amp;#34;prettier.</description>
+    </item>
+    
+  </channel>
+</rss>
