@@ -5,10 +5,19 @@
     <link>https://oneweek20169902.github.io/categories/tools.html</link>
     <description>Recent content in Tools on Li&#39;Blog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Mon, 13 May 2019 10:47:35 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 20 May 2019 10:02:03 +0800</lastBuildDate>
     
 	<atom:link href="https://oneweek20169902.github.io/categories/tools/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Reshaper快捷键汇总</title>
+      <link>https://oneweek20169902.github.io/post/reshaper%E5%BF%AB%E6%8D%B7%E9%94%AE%E6%B1%87%E6%80%BB.html</link>
+      <pubDate>Mon, 20 May 2019 10:02:03 +0800</pubDate>
+      
+      <guid>https://oneweek20169902.github.io/post/reshaper%E5%BF%AB%E6%8D%B7%E9%94%AE%E6%B1%87%E6%80%BB.html</guid>
+      <description> 编辑 Ctrl + Space 代码完成 Ctrl + Shift + Space 代码完成 Ctrl + Alt + Space 代码完成 Ctrl + P 显示参数信息 Alt + Insert 生成构造函数，属性，重载成员函数，实现接口 Ctrl + Alt + J 生成 if,try..catch,#region 块 Ctrl + / 注释及取消//注释 Ctrl + Shift + / 注释及取消/\*\*/注释 Ctrl + W 增量选择块 Ctrl + Shift + W 增量反选 Alt + Enter 显示错误的修正方法 Ctrl + Alt + F 格式化代码 Ctrl + Alt + O 根据指示修改优化 Ctrl + D 复制当前行或选定的块  查找 Alt + F7 查找变量，方法的引用 Alt + Shift + F7 在设定范围中查找 Ctrl + Shift + F7 高亮显示 Ctrl + Alt + Up / Down 定位到下/前一个引用 Ctrl + Alt + F7 快速定位引用位置 Ctrl + Shift + F4 关闭查找结果 tab Ctrl + Alt + U 定位到查找结果  导航 Ctrl + N 定位到类型 Ctrl + Shift + N 根据文件名定位 Ctrl + E 最近文件列表 Ctrl + Shift +Backspace 上次编辑位置 Ctrl + B 跳到变量申明处 Ctrl + Alt + B 跳到继承类或接口处 Ctrl + U 调到基类 Ctrl + Shift + T 跳到类型申明处 Alt + Up / Down 跳到下/上一个方法 Ctrl + F12 F2 / Shift + F2 下/上一个高亮度显示的错误 Ctrl + Shift + E Stack Trace Refactoring F6 将类移入另外的命名空间 Shift + F6 方法更名 Ctrl + F6 更改签名 Ctrl + Alt + N Ctrl + Alt + M 将选定块抽取为一个方法 Ctrl + Alt + V 更改变量名称和类型  </description>
+    </item>
     
     <item>
       <title>Hugo命令清单</title>
