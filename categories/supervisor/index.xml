@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Supervisor on Li&#39;Blog</title>
+    <link>https://oneweek20169902.github.io/categories/supervisor.html</link>
+    <description>Recent content in Supervisor on Li&#39;Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Tue, 09 Jul 2019 15:53:12 +0800</lastBuildDate>
+    
+	<atom:link href="https://oneweek20169902.github.io/categories/supervisor/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>使用Supervisor管理进程</title>
+      <link>https://oneweek20169902.github.io/post/%E4%BD%BF%E7%94%A8supervisor%E7%AE%A1%E7%90%86%E8%BF%9B%E7%A8%8B.html</link>
+      <pubDate>Tue, 09 Jul 2019 15:53:12 +0800</pubDate>
+      
+      <guid>https://oneweek20169902.github.io/post/%E4%BD%BF%E7%94%A8supervisor%E7%AE%A1%E7%90%86%E8%BF%9B%E7%A8%8B.html</guid>
+      <description>Supervisor (http://supervisord.org) 是一个用 Python 写的进程管理工具，可以很方便的用来启动、重启、关闭进程（不仅仅是 Python 进程）。除了对单个进程的控制，还可以同时启动、关闭多个进程，比如很不幸的服务器出问题导致所有应用程序都被杀死，此时可以用 supervisor 同时启动所有应用程序而不是一个一个地敲命令启动。
+安装 Supervisor 可以运行在 Linux、Mac OS X 上。如前所述，supervisor 是 Python 编写的，所以安装起来也很方便，可以直接用 pip : sudo pip install supervisor
+supervisord 配置 Supervisor 相当强大，提供了很丰富的功能，不过我们可能只需要用到其中一小部分。安装完成之后，可以编写配置文件，来满足自己的需求。为了方便，我们把配置分成两部分：supervisord（supervisor 是一个 C/S 模型的程序，这是 server 端，对应的有 client 端：supervisorctl）和应用程序（即我们要管理的程序）。
+首先来看 supervisord 的配置文件。安装完 supervisor 之后，可以运行 echo_supervisord_conf 命令输出默认的配置项，也可以重定向到一个配置文件里： echo_supervisord_conf &amp;gt; /etc/supervisord.conf 去除里面大部分注释和“不相关”的部分，我们可以先看这些配置：
+[unix_http_server]file=/tmp/supervisor.sock ; UNIX socket 文件，supervisorctl 会使用;chmod=0700 ; socket 文件的 mode，默认是 0700;chown=nobody:nogroup ; socket 文件的 owner，格式： uid:gid;[inet_http_server] ; HTTP 服务器，提供 web 管理界面;port=127.0.0.1:9001 ; Web 管理后台运行的 IP 和端口，如果开放到公网，需要注意安全性;username=user ; 登录管理后台的用户名;password=123 ; 登录管理后台的密码[supervisord]logfile=/tmp/supervisord.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,1206 @@
+<!DOCTYPE html>
+<html lang='zh'><head>
+  <meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'>
+<meta name='description' content='1 前言 1.1 编写目的 为了保证大家编写出的程序都使用统一的风格，以方便阅读和后期维护。
+编码规范对于程序员而言尤为重要，主要有以下几个原因：
+ 一个软件的生命周期中，80%的花费在于维护。
+ 几乎没有任何一个软件，在其整个生命周期中，均有最初的人员来维护。
+ 编码规范可以改善软件的可读性，可以让程序员尽快而彻底的理解新的代码。
+ 编码规范可以保证代码阅读者在阅读代码时产生尽可能少的歧义。
+ 编码规范可以使我们的代码统一、美观，可以一眼看出我们是专业的团队。
+  编码规范的核心出发点是
+ 让其他人能够快速，准确的知道代码的作用并且确保不会出现歧义（其他人包括一段时间后的自己）
+ 让我们的代码看着更加清晰、美观、专业、统一。
+  2 命名规范 任何标识符的名字都应该可以简单、清楚、正确的表示出该标识符的作用。
+同时我们要将尽可能多的信息装入到标识符的名字当中去，以便阅读代码的人可以快速的读懂代码。
+2.1 命名约定 我们在命名标识符时（包括参数，常量，变量），应该使用单词的首字母大小写来区分一个标识符中的多个单词，如 UserName。
+2.1.1 PascalCasing PascalCasing包含一个到多个单词，每一个单词第一个字母大写，其余字母均小写。例如：HelloWorld、SetName 等。
+除了参数、变量、常量外，所有命名空间、类、函数、接口、属性、事件、枚举等名称的命名，使用 Pascal 风格。
+2.1.2 camelCasing camelCasing包含一个到多个单词，第一个单词首字母小写，其余单词首字母大写。例如：name、productId 等。
+参数与变量的命名使用 camelCasing。
+2.1.3 UPPER_CAPS UPPER_CAPS包含一个到多个单词， 单词的所有字母都大写，单词与单词之间使用“_”连接，该风格目前在 C#中只用于 const 常量。
+如：public const string DEFAULT_PAGE = &quot;DEFAULT_PAGE&quot;;
+2.1.4 私有变量的命名 Private 的私有变量使用下划线”\_”&#43;camelCasing 的大小写规则，以便快速 确认该变量的作用域。
+如：private int \_userId;
+2.1.5 首字母缩写词的大小写 首字母的缩写词是由一个短语的字母组成的，如Xml(Extensible Markup Language)**，**IO(Input andOutput)。它和单词的缩写是有区别的，单词缩写仅仅是把一个单词的长度变短。'>
+<meta name='theme-color' content='#ffcd00'>
+
+<meta property='og:title' content='C#编码规范 • Li&#39;Blog'>
+<meta property='og:description' content='1 前言 1.1 编写目的 为了保证大家编写出的程序都使用统一的风格，以方便阅读和后期维护。
+编码规范对于程序员而言尤为重要，主要有以下几个原因：
+ 一个软件的生命周期中，80%的花费在于维护。
+ 几乎没有任何一个软件，在其整个生命周期中，均有最初的人员来维护。
+ 编码规范可以改善软件的可读性，可以让程序员尽快而彻底的理解新的代码。
+ 编码规范可以保证代码阅读者在阅读代码时产生尽可能少的歧义。
+ 编码规范可以使我们的代码统一、美观，可以一眼看出我们是专业的团队。
+  编码规范的核心出发点是
+ 让其他人能够快速，准确的知道代码的作用并且确保不会出现歧义（其他人包括一段时间后的自己）
+ 让我们的代码看着更加清晰、美观、专业、统一。
+  2 命名规范 任何标识符的名字都应该可以简单、清楚、正确的表示出该标识符的作用。
+同时我们要将尽可能多的信息装入到标识符的名字当中去，以便阅读代码的人可以快速的读懂代码。
+2.1 命名约定 我们在命名标识符时（包括参数，常量，变量），应该使用单词的首字母大小写来区分一个标识符中的多个单词，如 UserName。
+2.1.1 PascalCasing PascalCasing包含一个到多个单词，每一个单词第一个字母大写，其余字母均小写。例如：HelloWorld、SetName 等。
+除了参数、变量、常量外，所有命名空间、类、函数、接口、属性、事件、枚举等名称的命名，使用 Pascal 风格。
+2.1.2 camelCasing camelCasing包含一个到多个单词，第一个单词首字母小写，其余单词首字母大写。例如：name、productId 等。
+参数与变量的命名使用 camelCasing。
+2.1.3 UPPER_CAPS UPPER_CAPS包含一个到多个单词， 单词的所有字母都大写，单词与单词之间使用“_”连接，该风格目前在 C#中只用于 const 常量。
+如：public const string DEFAULT_PAGE = &quot;DEFAULT_PAGE&quot;;
+2.1.4 私有变量的命名 Private 的私有变量使用下划线”\_”&#43;camelCasing 的大小写规则，以便快速 确认该变量的作用域。
+如：private int \_userId;
+2.1.5 首字母缩写词的大小写 首字母的缩写词是由一个短语的字母组成的，如Xml(Extensible Markup Language)**，**IO(Input andOutput)。它和单词的缩写是有区别的，单词缩写仅仅是把一个单词的长度变短。'>
+<meta property='og:url' content='https://oneweek20169902.github.io/post/c#%E7%BC%96%E7%A0%81%E8%A7%84%E8%8C%83.html'>
+<meta property='og:site_name' content='Li&#39;Blog'>
+<meta property='og:type' content='article'><meta property='article:section' content='post'><meta property='article:tag' content='C#'><meta property='article:published_time' content='2019-05-20T13:58:28&#43;08:00'/><meta property='article:modified_time' content='2019-05-20T13:58:28&#43;08:00'/><meta name='twitter:card' content='summary'>
+
+<meta name="generator" content="Hugo 0.55.5" />
+
+  <title>C#编码规范 • Li&#39;Blog</title>
+  <link rel='canonical' href='https://oneweek20169902.github.io/post/c#%E7%BC%96%E7%A0%81%E8%A7%84%E8%8C%83.html'>
+  
+  
+  <link rel='icon' href='/favicon.ico'>
+<link rel='stylesheet' href='/assets/css/main.fb20af92.css'><link rel='stylesheet' href='/css/custom.css'><style>
+:root{--color-accent:#ffcd00;}
+</style>
+
+  
+
+</head>
+<body class='page type-post has-sidebar'>
+
+  <div class='site'><div id='sidebar' class='sidebar'>
+  <a class='screen-reader-text' href='#main-menu'>跳到主页</a>
+
+  <div class='container'><section class='widget widget-about sep-after'>
+  <header>
+    
+    <div class='logo'>
+      <a href='/'>
+        <img src='/images/logo.png'>
+      </a>
+    </div>
+    
+    <h2 class='title site-title '>
+      <a href='/'>
+      Li&#39;Blog
+      </a>
+    </h2>
+    <div class='desc'>
+    知识就像空气，学习如同呼吸。
+    </div>
+  </header>
+
+</section>
+<section class='widget widget-search sep-after'>
+  <header>
+    <h4 class='title widget-title'>Search</h4>
+  </header>
+
+  <form action='/search' id='search-form' class='search-form'>
+    <label>
+      <span class='screen-reader-text'></span>
+      <input id='search-term' class='search-term' type='search' name='q' placeholder='&hellip;'>
+    </label></form>
+
+</section>
+<section class='widget widget-sidebar_menu sep-after'><nav id='sidebar-menu' class='menu sidebar-menu' aria-label='侧边菜单'>
+    <div class='container'>
+      <ul><li class='item'>
+  <a href='/'>Home</a></li></ul>
+    </div>
+  </nav>
+
+</section><section class='widget widget-taxonomy_cloud sep-after'>
+  <header>
+    <h4 class='title widget-title'>标签</h4>
+  </header>
+
+  <div class='container list-container'>
+  <ul class='list taxonomy-cloud'><li>
+        <a href='/tags/c#.html' style='font-size:1em'>C#</a>
+      </li><li>
+        <a href='/tags/dotnetcore.html' style='font-size:1em'>DotnetCore</a>
+      </li><li>
+        <a href='/tags/entityframeworkcore.html' style='font-size:1em'>EntityFrameworkCore</a>
+      </li><li>
+        <a href='/tags/git.html' style='font-size:1em'>git</a>
+      </li><li>
+        <a href='/tags/hugo.html' style='font-size:1em'>hugo</a>
+      </li><li>
+        <a href='/tags/linux.html' style='font-size:1em'>Linux</a>
+      </li><li>
+        <a href='/tags/reshaper.html' style='font-size:1em'>Reshaper</a>
+      </li><li>
+        <a href='/tags/verb.html' style='font-size:1em'>VERB</a>
+      </li><li>
+        <a href='/tags/vs-code.html' style='font-size:1em'>vs code</a>
+      </li></ul>
+</div>
+
+
+</section>
+</div>
+
+  <div class='sidebar-overlay'></div>
+</div><div class='main'><nav id='main-menu' class='menu main-menu' aria-label='主菜单'>
+  <div class='container'>
+    <a class='screen-reader-text' href='#content'>跳到文章</a>
+
+<button id='sidebar-toggler' class='sidebar-toggler' aria-controls='sidebar'>
+  <span class='screen-reader-text'>切换侧边栏</span>
+  <span class='open'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <line x1="3" y1="12" x2="21" y2="12" />
+  <line x1="3" y1="6" x2="21" y2="6" />
+  <line x1="3" y1="18" x2="21" y2="18" />
+  
+</svg>
+</span>
+  <span class='close'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <line x1="18" y1="6" x2="6" y2="18" />
+  <line x1="6" y1="6" x2="18" y2="18" />
+  
+</svg>
+</span>
+</button>
+    <ul><li class='item'>
+        <a href='/'>Home</a>
+      </li><li class='item'>
+        <a href=''>Blog</a>
+      </li><li class='item'>
+        <a href='tags'>Tags</a>
+      </li><li class='item'>
+        <a href='about'>About</a>
+      </li></ul>
+  </div>
+</nav><div class='header-widgets'>
+        <div class='container'>
+    
+    <style>.widget-breadcrumbs li:after{content:'\2f '}</style>
+  <section class='widget widget-breadcrumbs sep-after'>
+    <nav id='breadcrumbs'>
+      <ol><li><a href='/'>Home</a></li><li><a href='/post.html'>Posts</a></li><li><span>C#编码规范</span></li></ol>
+    </nav>
+  </section></div>
+      </div>
+
+      <header id='header' class='header site-header'>
+        <div class='container sep-after'>
+          <div class='header-info'><p class='site-title title'>Li&#39;Blog</p><p class='desc site-desc'>知识就像空气，学习如同呼吸。</p>
+          </div>
+        </div>
+      </header>
+
+      <main id='content'>
+
+
+<article lang='zh' class='entry'>
+  <header class='header entry-header'>
+  <div class='container sep-after'>
+    <div class='header-info'>
+      <h1 class='title'>C#编码规范</h1>
+      
+
+    </div>
+    <div class='entry-meta'>
+  <span class='posted-on'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+  <line x1="16" y1="2" x2="16" y2="6"/>
+  <line x1="8" y1="2" x2="8" y2="6"/>
+  <line x1="3" y1="10" x2="21" y2="10"/>
+  
+</svg>
+<span class='screen-reader-text'>发布 </span>
+  <time class='entry-date' datetime='2019-05-20T13:58:28&#43;08:00'>2019-05-20</time>
+</span>
+
+  
+  
+<span class='reading-time'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <circle cx="12" cy="12" r="10"/>
+  <polyline points="12 6 12 12 15 15"/>
+  
+</svg>
+需要6分钟读完
+</span>
+
+
+</div>
+
+
+  </div>
+</header>
+
+  
+  
+<details class='container entry-toc'>
+  <summary class='title'>
+    <span>内容目录</span>
+  </summary>
+  <nav id="TableOfContents">
+<ul>
+<li><a href="#1-前言">1 前言</a>
+<ul>
+<li><a href="#1-1-编写目的">1.1 编写目的</a></li>
+</ul></li>
+<li><a href="#2-命名规范">2 命名规范</a>
+<ul>
+<li><a href="#2-1-命名约定">2.1 命名约定</a>
+<ul>
+<li><a href="#2-1-1-pascalcasing">2.1.1 PascalCasing</a></li>
+<li><a href="#2-1-2-camelcasing">2.1.2 camelCasing</a></li>
+<li><a href="#2-1-3-upper-caps">2.1.3 UPPER_CAPS</a></li>
+<li><a href="#2-1-4-私有变量的命名">2.1.4 私有变量的命名</a></li>
+<li><a href="#2-1-5-首字母缩写词的大小写">2.1.5 首字母缩写词的大小写</a></li>
+<li><a href="#2-1-6-复合词的大小写">2.1.6 复合词的大小写</a></li>
+<li><a href="#2-1-7-在带单位的值的变量后加上-camelcasing-单位">2.1.7 在带单位的值的变量后加上”_camelCasing 单位”</a></li>
+<li><a href="#2-1-8-不要使用匈牙利命名法">2.1.8 不要使用匈牙利命名法</a></li>
+<li><a href="#2-1-9-使用英语语序命名标识符">2.1.9 使用英语语序命名标识符</a></li>
+<li><a href="#2-1-10-尽量不要使用单词缩写-除非它是众所周知的">2.1.10 尽量不要使用单词缩写，除非它是众所周知的</a></li>
+</ul></li>
+<li><a href="#2-1-命名选择">2.1 命名选择</a>
+<ul>
+<li><a href="#2-2-1-名字一定要能够表达出标识符的含意">2.2.1 名字一定要能够表达出标识符的含意</a></li>
+<li><a href="#2-2-2-选择意义单一明确的名字">2.2.2 选择意义单一明确的名字</a></li>
+<li><a href="#2-2-3-使用不会产生歧义的名字">2.2.3 使用不会产生歧义的名字</a></li>
+<li><a href="#2-2-4-命名要与使用者的期望相匹配">2.2.4 命名要与使用者的期望相匹配</a></li>
+<li><a href="#3-2-2-不要用注释来粉饰糟糕的代码">3.2.2 不要用注释来粉饰糟糕的代码</a></li>
+<li><a href="#3-2-3-日志式注释">3.2.3 日志式注释</a></li>
+<li><a href="#3-2-4-个人签名">3.2.4 个人签名</a></li>
+<li><a href="#3-2-5-位置标识">3.2.5 位置标识</a></li>
+<li><a href="#3-2-6-注释掉的代码">3.2.6 注释掉的代码</a></li>
+</ul></li>
+<li><a href="#3-3-需要的注释">3.3 需要的注释</a>
+<ul>
+<li><a href="#3-3-1-记录你对代码有价值的见解">3.3.1 记录你对代码有价值的见解</a></li>
+<li><a href="#3-3-2-为代码中的不足写注释">3.3.2 为代码中的不足写注释</a></li>
+<li><a href="#3-3-3-对意料之中的疑问添加注释">3.3.3 对意料之中的疑问添加注释</a></li>
+<li><a href="#3-3-4-公布可能的陷阱">3.3.4 公布可能的陷阱</a></li>
+<li><a href="#3-3-5-对于代码块总结性的注释">3.3.5 对于代码块总结性的注释</a></li>
+</ul></li>
+<li><a href="#3-4-如何写好注释">3.4 如何写好注释</a>
+<ul>
+<li><a href="#3-4-1-避免使用不明确的代词">3.4.1 避免使用不明确的代词</a></li>
+<li><a href="#3-4-2-精确描述方法的行为">3.4.2 精确描述方法的行为</a></li>
+<li><a href="#3-4-3-用输入输出的例子来说明特殊的情况">3.4.3 用输入输出的例子来说明特殊的情况</a></li>
+<li><a href="#4-4-4-适当的使用具名函数">4.4.4 适当的使用具名函数</a></li>
+<li><a href="#3-4-5-使用通用专有名词">3.4.5 使用通用专有名词</a></li>
+<li><a href="#3-4-6-采用目录编号描述复杂逻辑">3.4.6 采用目录编号描述复杂逻辑</a></li>
+<li><a href="#3-4-7-更新代码时记得更新注释">3.4.7 更新代码时记得更新注释</a></li>
+<li><a href="#3-4-8-只有能让别人读懂的注释才是合格的注释">3.4.8 只有能让别人读懂的注释才是合格的注释</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#4-格式">4 格式</a>
+<ul>
+<li><a href="#长度">长度</a></li>
+<li><a href="#使用-vs-的-format-document-功能">使用 VS 的 Format Document 功能</a></li>
+</ul></li>
+<li><a href="#5-reference">5 Reference</a></li>
+</ul>
+</nav>
+</details>
+
+
+  <div class='container entry-content'>
+  
+
+<h1 id="1-前言">1 前言</h1>
+
+<h2 id="1-1-编写目的">1.1 编写目的</h2>
+
+<p>为了保证大家编写出的程序都使用统一的风格，以方便阅读和后期维护。</p>
+
+<p>编码规范对于程序员而言尤为重要，主要有以下几个原因：</p>
+
+<ol>
+<li><p>一个软件的生命周期中，80%的花费在于维护。</p></li>
+
+<li><p>几乎没有任何一个软件，在其整个生命周期中，均有最初的人员来维护。</p></li>
+
+<li><p>编码规范可以改善软件的可读性，可以让程序员尽快而彻底的理解新的代码。</p></li>
+
+<li><p>编码规范可以保证代码阅读者在阅读代码时产生尽可能少的歧义。</p></li>
+
+<li><p>编码规范可以使我们的代码统一、美观，可以一眼看出我们是专业的团队。</p></li>
+</ol>
+
+<p>编码规范的核心出发点是</p>
+
+<ol>
+<li><p>让其他人能够快速，准确的知道代码的作用并且确保不会出现歧义（其他人包括一段时间后的自己）</p></li>
+
+<li><p>让我们的代码看着更加清晰、美观、专业、统一。</p></li>
+</ol>
+
+<h1 id="2-命名规范">2 命名规范</h1>
+
+<p>任何标识符的名字都应该可以简单、清楚、正确的表示出该标识符的作用。</p>
+
+<p>同时我们要将尽可能多的信息装入到标识符的名字当中去，以便阅读代码的人可以快速的读懂代码。</p>
+
+<h2 id="2-1-命名约定">2.1 命名约定</h2>
+
+<p>我们在命名标识符时（包括参数，常量，变量），应该使用单词的首字母大小写来区分一个标识符中的多个单词，如 UserName。</p>
+
+<h3 id="2-1-1-pascalcasing">2.1.1 PascalCasing</h3>
+
+<p><code>PascalCasing</code>包含一个到多个单词，每一个单词第一个字母大写，其余字母均小写。例如：<code>HelloWorld</code>、<code>SetName</code>
+等。</p>
+
+<p>除了参数、变量、常量外，所有命名空间、类、函数、接口、属性、事件、枚举等名称的命名，使用 <code>Pascal</code>
+风格。</p>
+
+<h3 id="2-1-2-camelcasing">2.1.2 camelCasing</h3>
+
+<p><code>camelCasing</code>包含一个到多个单词，第一个单词首字母小写，其余单词首字母大写。例如：<code>name</code>、<code>productId</code>
+等。</p>
+
+<p>参数与变量的命名使用 <code>camelCasing</code>。</p>
+
+<h3 id="2-1-3-upper-caps">2.1.3 UPPER_CAPS</h3>
+
+<p><code>UPPER_CAPS</code>包含一个到多个单词， 单词的所有字母都大写，单词与单词之间使用“_”连接，该风格目前在 C#中只用于 const
+常量。</p>
+
+<p>如：<code>public const string DEFAULT_PAGE = &quot;DEFAULT_PAGE&quot;;</code></p>
+
+<h3 id="2-1-4-私有变量的命名">2.1.4 私有变量的命名</h3>
+
+<p>Private 的私有变量使用下划线<code>”\_”+camelCasing</code> 的大小写规则，以便快速
+确认该变量的作用域。</p>
+
+<p>如：<code>private int \_userId;</code></p>
+
+<h3 id="2-1-5-首字母缩写词的大小写">2.1.5 首字母缩写词的大小写</h3>
+
+<p>首字母的缩写词是由一个短语的字母组成的，如<code>Xml(Extensible Markup Language)**，**IO(Input andOutput)</code>。它和单词的缩写是有区别的，单词缩写仅仅是把一个单词的长度变短。</p>
+
+<ol>
+<li>把两个字母的首字母写词全部大写，除非它是 <code>camelCasing</code> 的第一个单词。</li>
+</ol>
+
+<blockquote>
+<p><code>using System.IO;</code> &gt; <code>public void StartIO(Stream ioStream)</code></p>
+</blockquote>
+
+<ol>
+<li>由三个或以上的字母组成的首字母缩写词，只有第一个字母大写，如 <code>Xml</code>，<code>Html</code> 除非首字母是 <code>camelCa</code> 标识符的第一个单词。</li>
+</ol>
+
+<blockquote>
+<p><code>using System.Xml;</code></p>
+
+<p><code>public void ProcessXmlNode(XmlNode xmlNode)</code></p>
+</blockquote>
+
+<h3 id="2-1-6-复合词的大小写">2.1.6 复合词的大小写</h3>
+
+<p>不要把复合词中的首字母大写。复合词要当成一个单词来处理。</p>
+
+<p>如 <code>endpoint，callback，metadata，namespace</code> 等都是正确的写法。</p>
+
+<h3 id="2-1-7-在带单位的值的变量后加上-camelcasing-单位">2.1.7 在带单位的值的变量后加上”_camelCasing 单位”</h3>
+
+<p>将单位加入标识符命名中，可以使使用听着快速准确的知道传入数据的单位，减少错误的发生。</p>
+
+<p>如 <code>public void CreateCache(int cacheSize)</code></p>
+
+<p>传入的数据是 bytes，KB，MB 还是 GB？</p>
+
+<p>改成<code>public void CreateCache(int cacheSize_mb)</code></p>
+
+<p>一目了然，并且会减少调用者传入数据错误的可能。</p>
+
+<p>其它一些没有单位的函数以及带桉树的版本。</p>
+
+<p><img src="media/1e076b8d3855e517e97ec89467067744.png" alt="" /></p>
+
+<h3 id="2-1-8-不要使用匈牙利命名法">2.1.8 不要使用匈牙利命名法</h3>
+
+<p>匈牙利命名法是指用小写形式的数据类型缩写来作为变量名的前缀。如：<code>strName</code>，<code>intCount</code>。</p>
+
+<p>这种命名法在 <code>C</code> 和 <code>C++</code>时间和流行，可以帮助程序员记住自己的类型。</p>
+
+<p>但在 <code>C\#</code> 中需要禁用，除非你有足够的理由，因为<strong>：</strong></p>
+
+<ol>
+<li><p><code>C\#</code>都是强类型的，现在的 IDE(如 Visual
+Studio)可以自动检测出当前变量的类型以及错误。</p></li>
+
+<li><p>开发初期经常需要修改变量的类型，使用匈牙利命名法维护很困难。</p></li>
+</ol>
+
+<h3 id="2-1-9-使用英语语序命名标识符">2.1.9 使用英语语序命名标识符</h3>
+
+<p>人子啊阅读代码时，能更快的理解符合其阅读习惯的命名。</p>
+
+<p>如 <code>VerticalAlignment</code> 比 <code>AlignmentVertical</code> 能让人更快的知道该变量的含意。</p>
+
+<h3 id="2-1-10-尽量不要使用单词缩写-除非它是众所周知的">2.1.10 尽量不要使用单词缩写，除非它是众所周知的</h3>
+
+<h2 id="2-1-命名选择">2.1 命名选择</h2>
+
+<h3 id="2-2-1-名字一定要能够表达出标识符的含意">2.2.1 名字一定要能够表达出标识符的含意</h3>
+
+<p>标识符名字必须要表达出该标识符的意义，绝对不可以使用无意义的
+v1,v2…vn 之类的命名。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C#" data-lang="C#"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> CloneChars(<span style="color:#66d9ef">char</span><span style="color:#a6e22e">[]</span> cl1, <span style="color:#66d9ef">char</span><span style="color:#a6e22e">[]</span> cl2)
+{
+    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">var</span> i = <span style="color:#ae81ff">0</span>; i <span style="color:#960050;background-color:#1e0010">\</span>&lt; cl1.Count(); i++)
+    {
+        cl2<span style="color:#a6e22e">[i]</span> = cl1<span style="color:#a6e22e">[i]</span>;
+    }
+}
+</code></pre></div>
+<p>代码的调用者不用看着函数是无法知道 <code>cl1</code> 还是 <code>cl2</code> 是要拷贝的 <code>char</code> 数组，他必须进到这个函数去看完整个逻辑才可以调用。而且在看的过程中 <code>cl2[i] = cl1[i]；</code>也需要他花几秒钟来思考是做什么的。</p>
+
+<p>如果改成了有意义的名字：<code>source</code>和 <code>target</code>
+那么这个方法调用者一看名字就知道使用方法了。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C#" data-lang="C#"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> CloneChars(<span style="color:#66d9ef">char</span><span style="color:#a6e22e">[]</span> source, <span style="color:#66d9ef">char</span><span style="color:#a6e22e">[]</span> target)
+{
+    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">var</span> i = <span style="color:#ae81ff">0</span>; i <span style="color:#960050;background-color:#1e0010">\</span>&lt; source.Count(); i++)
+    {
+        target<span style="color:#a6e22e">[i]</span> = source<span style="color:#a6e22e">[i]</span>;
+    }
+}
+</code></pre></div>
+<h3 id="2-2-2-选择意义单一明确的名字">2.2.2 选择意义单一明确的名字</h3>
+
+<p>在命名时要使用专业的单词，避免使用“空洞”的单词</p>
+
+<p>如：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C#" data-lang="C#"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">interface</span> BinaryTree
+{
+    <span style="color:#66d9ef">int</span> Size();
+}
+</code></pre></div>
+<p>看到这行代码你回想到 Size 会返回什么，树的高度，节点数还是贼内存的空间？</p>
+
+<p>我们可以 更单一明确的词来告诉读者这个方法具体含义，如</p>
+
+<p><code>Height,NodesNum,Memory_Bytes</code></p>
+
+<h3 id="2-2-3-使用不会产生歧义的名字">2.2.3 使用不会产生歧义的名字</h3>
+
+<p><img src="media/02ea9ab5487237120dd69a7682c18d08.png" alt="" /></p>
+
+<p>在给标识符命名时，一定不能产生歧义，代码中很多错误都是由于命名时的歧义造成的。例如：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C#" data-lang="C#"><span style="color:#66d9ef">const</span> <span style="color:#66d9ef">int</span> ORDER_TOO_BIG_LIMIT = <span style="color:#ae81ff">10</span>;
+
+<span style="color:#66d9ef">if</span>(orderService.ClientAppQueryOrders().Count<span style="color:#960050;background-color:#1e0010">\</span>&gt;= ORDER_TOO_BIG_LIMIT)
+{
+    <span style="color:#66d9ef">return</span> NoContent();
+}
+</code></pre></div>
+<p>这段代码有个很经典的”大小差异缺陷”。在判断订单的上限时，我是应该使用”&gt;”还是应该使用”&gt;=”，我是无法从代码中判断出来的，所以这个地方很容易出 <code>bug</code>。如果我们换成 <code>const</code>
+<code>int MAX_LIMIT = 10;</code> 那我马上就可以判定出这里要使用”&gt;”。</p>
+
+<h3 id="2-2-4-命名要与使用者的期望相匹配">2.2.4 命名要与使用者的期望相匹配</h3>
+
+<p>有些名字之所以让人误解是因为代码阅读者对它门有先入为主的印象，就算你本意并非如此。这种情况下，你最好是选用一个与使用者期望所匹配的名字。</p>
+
+<p>如很多程序员都习惯把 Get 开始的方法当中”轻量级访问器”，他只是简单的返回成员的变量。</p>
+
+<p>可以看到以下代码</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C#" data-lang="C#"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">BinaryTree</span>
+{
+
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">int</span> GetNodesCount();
+
+}
+<span style="color:#960050;background-color:#1e0010">```</span>C<span style="color:#960050;background-color:#1e0010">#</span>
+<span style="color:#960050;background-color:#1e0010">会以为只是返回内部</span> <span style="color:#960050;background-color:#1e0010">`</span><span style="color:#66d9ef">private</span> <span style="color:#66d9ef">int</span> _nodesCount;<span style="color:#960050;background-color:#1e0010">`</span> <span style="color:#960050;background-color:#1e0010">私有变量的访问器。</span>
+
+<span style="color:#960050;background-color:#1e0010">但如果实际你的代码可能是一个非常耗时的代码，内部实现是广度优先遍历所有的树节点。还要去数据库查找父节点和子节点的关系，然后累加。</span>
+
+<span style="color:#960050;background-color:#1e0010">那么这么一个耗时的方法可能由于你的命名，导致了被调用者反复多次的调用，导致整个系统性能下降。</span>
+
+<span style="color:#960050;background-color:#1e0010">如果你将命名改为</span> <span style="color:#960050;background-color:#1e0010">`</span>ComputeNodesCount<span style="color:#960050;background-color:#1e0010">`</span>
+<span style="color:#960050;background-color:#1e0010">那么调用者就会知道这是个耗时的操作，需要缓存调用结果并减少调用。</span>
+
+<span style="color:#960050;background-color:#1e0010">###</span> <span style="color:#ae81ff">2.2</span>.<span style="color:#ae81ff">5</span> <span style="color:#960050;background-color:#1e0010">为名字附加更多的信息</span>
+
+!<span style="color:#a6e22e">[]</span>(media/e0d21b21ca93b6bca4674f1b871f7db6.png)
+
+<span style="color:#960050;background-color:#1e0010">一个变量就像一个小注释，尽管空间不大，但不管你在命名挤进任何额外的信息，每次有人看到命名时都会看到这些信息。</span>
+
+<span style="color:#960050;background-color:#1e0010">例子：当你从网页接收了请求的表单，里面可能还有不安全的代码，如注入语句等，这时你在命名时需要体现该数据不安全，可以使用</span> <span style="color:#960050;background-color:#1e0010">`</span>unsafeFormData<span style="color:#960050;background-color:#1e0010">`，当调用安全检查方法后可以将其改为</span> <span style="color:#960050;background-color:#1e0010">`</span>safeFormData=HandleUnsafeData(unsafeFormData)<span style="color:#960050;background-color:#1e0010">`。这样代码阅读者就知道可以放心的使用该变量了。</span>
+
+<span style="color:#960050;background-color:#1e0010">下表给出了更多需要给名字附加额外的信息的例子</span>
+
+!<span style="color:#a6e22e">[]</span>(media/<span style="color:#ae81ff">561d157309761683</span>efe45cfea8dbd35d.png)
+
+<span style="color:#960050;background-color:#1e0010">###</span> <span style="color:#ae81ff">2.2</span>.<span style="color:#ae81ff">6</span> <span style="color:#960050;background-color:#1e0010">不要卖弄风骚</span>
+
+<span style="color:#960050;background-color:#1e0010">使用最常用，众所周知的单词。不要再代码命名时卖弄你的学识，</span>
+<span style="color:#960050;background-color:#1e0010">你的代码快速准确的表达出你的想法真正的牛人。</span>
+
+<span style="color:#960050;background-color:#1e0010">如</span> <span style="color:#960050;background-color:#1e0010">`</span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">string</span> ConvertXml2Html(<span style="color:#66d9ef">string</span> sourcePath)<span style="color:#960050;background-color:#1e0010">`</span>
+
+<span style="color:#960050;background-color:#1e0010">有些人在看到这个方法的时候怎么想也想不明白这个</span> <span style="color:#ae81ff">2</span> <span style="color:#960050;background-color:#1e0010">是做什么用的，是把一个</span> xml <span style="color:#960050;background-color:#1e0010">文件变成两个</span> <span style="color:#960050;background-color:#1e0010">`</span>html<span style="color:#960050;background-color:#1e0010">`</span>?
+
+<span style="color:#960050;background-color:#1e0010">熟悉英语文化的人可能知道这是</span> To <span style="color:#960050;background-color:#1e0010">的俚语表达。如果你不能保证所有阅读你代码的人都知道</span> <span style="color:#ae81ff">2</span> <span style="color:#960050;background-color:#1e0010">是</span> To <span style="color:#960050;background-color:#1e0010">的缩写，那么请使用</span>
+<span style="color:#960050;background-color:#1e0010">`</span>ConvertXmlToHtml<span style="color:#960050;background-color:#1e0010">`</span> <span style="color:#960050;background-color:#1e0010">命名。</span>
+
+<span style="color:#960050;background-color:#1e0010">##</span> <span style="color:#ae81ff">2.3</span> <span style="color:#960050;background-color:#1e0010">特定场景下的命名最佳实践</span>
+
+<span style="color:#960050;background-color:#1e0010">###</span> <span style="color:#ae81ff">2.3</span>.<span style="color:#ae81ff">1</span> <span style="color:#960050;background-color:#1e0010">命名空间</span>
+
+<span style="color:#ae81ff">1.</span>  <span style="color:#960050;background-color:#1e0010">要使用</span> <span style="color:#960050;background-color:#1e0010">`</span>PascalCasing<span style="color:#960050;background-color:#1e0010">`，并用点号来分隔名字空间中的各个部分。如</span> <span style="color:#960050;background-color:#1e0010">`</span>Microsoft.Office.PowerPoint<span style="color:#960050;background-color:#1e0010">`</span>
+
+<span style="color:#ae81ff">2.</span>  <span style="color:#960050;background-color:#1e0010">要用公司作为命名空间的前缀，这样就可以避免与另外一家公司使用相同的名字。</span>
+
+<span style="color:#ae81ff">3.</span>  <span style="color:#960050;background-color:#1e0010">要用稳定的，与版本无关的产品名称作为命名空间的第二层。</span>
+
+<span style="color:#ae81ff">4.</span>  <span style="color:#960050;background-color:#1e0010">不要使用公司的组织架构来决定命名空间的层次结构，因为内部组织结构经常改变。</span>
+
+<span style="color:#ae81ff">5.</span>  <span style="color:#960050;background-color:#1e0010">不要使用相同的名字来命名命名空间和该空间的类型。例如，不要先将命名空间命为</span> Debug<span style="color:#960050;background-color:#1e0010">，然后又在该空间提供</span> debug <span style="color:#960050;background-color:#1e0010">类。大部分编译器包括</span> VS <span style="color:#960050;background-color:#1e0010">要求用户在这样的类型前加上完整的限定符。</span>
+
+<span style="color:#960050;background-color:#1e0010">###</span> <span style="color:#ae81ff">2.3</span>.<span style="color:#ae81ff">2</span> <span style="color:#960050;background-color:#1e0010">要让接口的名字以字母</span> I <span style="color:#960050;background-color:#1e0010">开头</span>
+
+<span style="color:#960050;background-color:#1e0010">如</span> <span style="color:#960050;background-color:#1e0010">`</span>IComponent<span style="color:#960050;background-color:#1e0010">，</span>IDisposal<span style="color:#960050;background-color:#1e0010">`</span> <span style="color:#960050;background-color:#1e0010">大家一看就知道是接口。</span>
+
+<span style="color:#960050;background-color:#1e0010">同时要确保如果一个类是一个接口的标准实现，那么这个类和接口应该只差一个”</span>I<span style="color:#960050;background-color:#1e0010">”前缀。</span>
+
+<span style="color:#960050;background-color:#1e0010">###</span> <span style="color:#ae81ff">2.3</span>.<span style="color:#ae81ff">3</span> <span style="color:#960050;background-color:#1e0010">派生类的末尾使用基类名称</span>
+
+<span style="color:#960050;background-color:#1e0010">例如，从</span> <span style="color:#960050;background-color:#1e0010">`</span>Stream<span style="color:#960050;background-color:#1e0010">`</span> <span style="color:#960050;background-color:#1e0010">继承的</span> <span style="color:#960050;background-color:#1e0010">`</span>Framework <span style="color:#960050;background-color:#1e0010">`类型以</span> <span style="color:#960050;background-color:#1e0010">`</span>Stream<span style="color:#960050;background-color:#1e0010">`</span> <span style="color:#960050;background-color:#1e0010">结尾，从</span> <span style="color:#960050;background-color:#1e0010">`</span>Exception<span style="color:#960050;background-color:#1e0010">`</span> <span style="color:#960050;background-color:#1e0010">继承的类型以</span> <span style="color:#960050;background-color:#1e0010">`</span>Exception<span style="color:#960050;background-color:#1e0010">`</span> <span style="color:#960050;background-color:#1e0010">结尾。</span>
+
+<span style="color:#960050;background-color:#1e0010">###</span> <span style="color:#ae81ff">2.3</span>.<span style="color:#ae81ff">4</span> <span style="color:#960050;background-color:#1e0010">泛型类型的参数命名</span>
+
+<span style="color:#ae81ff">1.</span>  <span style="color:#960050;background-color:#1e0010">使用描述性的名字来命名泛型类型参数，并且在前面加上</span> T <span style="color:#960050;background-color:#1e0010">前缀，如下面都是很好的命名</span>
+
+&gt; <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">delegate</span> TOutput Converter<span style="color:#960050;background-color:#1e0010">\</span>&lt;TInput, TOutput<span style="color:#960050;background-color:#1e0010">\</span>&gt;(TInput <span style="color:#66d9ef">from</span>);
+
+<span style="color:#ae81ff">1.</span>  <span style="color:#960050;background-color:#1e0010">如果只有一个类型参数，可以只用一个字母</span> T <span style="color:#960050;background-color:#1e0010">来表示泛型</span>
+
+&gt; <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Nullable</span><span style="color:#960050;background-color:#1e0010">\</span>&lt;T<span style="color:#960050;background-color:#1e0010">\</span>&gt;
+
+&gt; <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">List</span><span style="color:#960050;background-color:#1e0010">\</span>&lt;T<span style="color:#960050;background-color:#1e0010">\</span>&gt;
+
+<span style="color:#ae81ff">1.</span>  <span style="color:#960050;background-color:#1e0010">如果泛型参数有约束，那么需要在泛型类型参数名中需要显示出该约束</span>
+
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">interface</span> ISessionChannel<span style="color:#960050;background-color:#1e0010">\</span>&lt;TSession<span style="color:#960050;background-color:#1e0010">\</span>&gt; <span style="color:#66d9ef">where</span> TSession : ISession
+
+<span style="color:#960050;background-color:#1e0010">###</span> <span style="color:#ae81ff">2.3</span>.<span style="color:#ae81ff">5</span> <span style="color:#960050;background-color:#1e0010">枚举类型的命名</span>
+
+<span style="color:#ae81ff">1.</span>  <span style="color:#960050;background-color:#1e0010">要用单数名词而不是复数命名枚举类型，如</span> <span style="color:#960050;background-color:#1e0010">要用</span> ConsoleColor <span style="color:#960050;background-color:#1e0010">而不是</span> ConsoleColors
+
+<span style="color:#960050;background-color:#1e0010">```</span>C<span style="color:#960050;background-color:#1e0010">#</span>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">enum</span> ConsoleColor
+
+{
+
+Red,
+Yellow,
+Blue
+}
+<span style="color:#960050;background-color:#1e0010">```</span>
+<span style="color:#ae81ff">1.</span>  <span style="color:#960050;background-color:#1e0010">不要给枚举加”</span>Enum<span style="color:#960050;background-color:#1e0010">”、”</span>Flag<span style="color:#960050;background-color:#1e0010">”等后缀。</span>
+
+&gt; ColorEnum<span style="color:#960050;background-color:#1e0010">，</span>ColorFlag <span style="color:#960050;background-color:#1e0010">都不好，因为本身就是枚举，再加上就是没有意义的重复。</span>
+
+<span style="color:#960050;background-color:#1e0010">###</span> <span style="color:#ae81ff">2.3</span>.<span style="color:#ae81ff">6</span> <span style="color:#960050;background-color:#1e0010">要用动词和动词短语命名方法</span>
+
+<span style="color:#960050;background-color:#1e0010">###</span> <span style="color:#ae81ff">2.3</span>.<span style="color:#ae81ff">7</span> <span style="color:#960050;background-color:#1e0010">属性的命名</span>
+
+<span style="color:#ae81ff">1.</span>  <span style="color:#960050;background-color:#1e0010">要用名词，名词短语或形容词来命名属性</span>
+
+<span style="color:#ae81ff">2.</span>  <span style="color:#960050;background-color:#1e0010">要用描述集合中具体内容的短语的复数形式来命名属性集合，而不要用短语的单数形式加”</span>List<span style="color:#960050;background-color:#1e0010">”、”</span>Array<span style="color:#960050;background-color:#1e0010">”或”</span>Collection<span style="color:#960050;background-color:#1e0010">”后缀</span>
+
+&gt; <span style="color:#75715e">//Good Naming
+</span><span style="color:#75715e"></span>
+&gt; <span style="color:#66d9ef">public</span> NodeCollection Nodes { <span style="color:#66d9ef">get</span>; <span style="color:#66d9ef">set</span>; }
+
+&gt; <span style="color:#75715e">//Bad Naming
+</span><span style="color:#75715e"></span>
+&gt; <span style="color:#66d9ef">public</span> NodeCollection NodesCollection { <span style="color:#66d9ef">get</span>; <span style="color:#66d9ef">set</span>; }
+
+<span style="color:#ae81ff">1.</span>  <span style="color:#960050;background-color:#1e0010">要用肯定性的短语命名布尔属性。最好在前面选择性的加入”</span>Is<span style="color:#960050;background-color:#1e0010">”、”</span>Can<span style="color:#960050;background-color:#1e0010">”、”</span>Has<span style="color:#960050;background-color:#1e0010">”等前缀。</span>CanSeek <span style="color:#960050;background-color:#1e0010">比</span> CantSeek <span style="color:#960050;background-color:#1e0010">和</span> Seekble <span style="color:#960050;background-color:#1e0010">都更准确和容易理解。</span>
+
+<span style="color:#960050;background-color:#1e0010">###</span> <span style="color:#ae81ff">2.3</span>.<span style="color:#ae81ff">8</span> <span style="color:#960050;background-color:#1e0010">事件的命名</span>
+
+<span style="color:#ae81ff">1.</span>  <span style="color:#960050;background-color:#1e0010">要用动词或动词短语命名事件。</span>
+
+&gt; <span style="color:#960050;background-color:#1e0010">如：</span>Clicked<span style="color:#960050;background-color:#1e0010">、</span>Painting<span style="color:#960050;background-color:#1e0010">、</span>DroppedDown <span style="color:#960050;background-color:#1e0010">等等。</span>
+
+<span style="color:#ae81ff">1.</span>  <span style="color:#960050;background-color:#1e0010">要用现在进行时</span>(ing)<span style="color:#960050;background-color:#1e0010">和过去时</span>(ed)<span style="color:#960050;background-color:#1e0010">来赋予事件发生之前和之后的概念。而不是使用</span> Before <span style="color:#960050;background-color:#1e0010">和</span> After.
+
+&gt; <span style="color:#960050;background-color:#1e0010">如窗口关闭前的</span> close <span style="color:#960050;background-color:#1e0010">事件应该命名为</span> Closing<span style="color:#960050;background-color:#1e0010">，而在窗口关闭之后发生应该命名为</span> Closed<span style="color:#960050;background-color:#1e0010">。</span>
+
+<span style="color:#960050;background-color:#1e0010">###</span> <span style="color:#ae81ff">2.3</span>.<span style="color:#ae81ff">9</span> <span style="color:#960050;background-color:#1e0010">字段的命名</span>
+
+<span style="color:#ae81ff">1.</span>  <span style="color:#960050;background-color:#1e0010">禁止使用实例共有的字段和受保护字段，请使用属性代替。</span>
+
+<span style="color:#ae81ff">2.</span>  <span style="color:#960050;background-color:#1e0010">一般只使用静态字段</span>
+
+<span style="color:#ae81ff">3.</span>  <span style="color:#960050;background-color:#1e0010">要使用名词、名词短语或形容词命名字段</span>
+
+<span style="color:#ae81ff">4.</span>  <span style="color:#960050;background-color:#1e0010">不要给字段加前缀如”</span>g*<span style="color:#960050;background-color:#1e0010">”、”</span>s*<span style="color:#960050;background-color:#1e0010">”来表示静态字段。因为字段和属性是非常相似的，所以要遵循相同的命名规范。</span>
+
+<span style="color:#960050;background-color:#1e0010">#</span> <span style="color:#ae81ff">3</span> <span style="color:#960050;background-color:#1e0010">注释</span>
+
+<span style="color:#960050;background-color:#1e0010">注释毫无疑问是让别人以最快速度了解你代码的最快途径，但写注释的目的绝不仅仅是”解释了代码做什么”，更重要的尽量帮助代码阅读者对代码了解和作者一样多。</span>
+
+<span style="color:#960050;background-color:#1e0010">当你写代码时，你脑海里会有很多有价值的信息，但当其它人读你代码时，这些信息已经丢失，他们所见到的只是眼前代码。</span>
+
+<span style="color:#960050;background-color:#1e0010">##</span> <span style="color:#ae81ff">3.1</span> <span style="color:#960050;background-color:#1e0010">注释约定</span>
+
+<span style="color:#960050;background-color:#1e0010">如果</span> IDE <span style="color:#960050;background-color:#1e0010">提供注释格式，则尽量使用</span> IDE <span style="color:#960050;background-color:#1e0010">提供的格式，否则使用”</span><span style="color:#75715e">//”来注释。
+</span><span style="color:#75715e"></span><span style="color:#960050;background-color:#1e0010">类、属性和方法的舒适在</span> Visual Studio <span style="color:#960050;background-color:#1e0010">中都使用输入”</span><span style="color:#75715e">///”自动生成的格式。
+</span><span style="color:#75715e"></span>
+<span style="color:#960050;background-color:#1e0010">###</span> <span style="color:#ae81ff">3.1</span>.<span style="color:#ae81ff">1</span> <span style="color:#960050;background-color:#1e0010">类注释约定</span>
+
+<span style="color:#75715e">/// \&lt;summary\&gt;
+</span><span style="color:#75715e"></span>
+<span style="color:#75715e">/// 类说明
+</span><span style="color:#75715e"></span>
+<span style="color:#75715e">/// \&lt;/summary\&gt;
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">BinaryTree</span>
+
+<span style="color:#960050;background-color:#1e0010">###</span> <span style="color:#ae81ff">3.1</span>.<span style="color:#ae81ff">2</span> <span style="color:#960050;background-color:#1e0010">类属性注释约定</span>
+
+<span style="color:#75715e">/// \&lt;summary\&gt;
+</span><span style="color:#75715e"></span>
+<span style="color:#75715e">/// 属性说明
+</span><span style="color:#75715e"></span>
+<span style="color:#75715e">/// \&lt;/summary\&gt;
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">int</span> NodesCount { <span style="color:#66d9ef">get</span>; <span style="color:#66d9ef">set</span>; }
+
+<span style="color:#960050;background-color:#1e0010">###</span> <span style="color:#ae81ff">3.1</span>.<span style="color:#ae81ff">3</span> <span style="color:#960050;background-color:#1e0010">方法注释约定</span>
+
+<span style="color:#75715e">/// \&lt;summary\&gt;
+</span><span style="color:#75715e"></span>
+<span style="color:#75715e">/// 方法说明
+</span><span style="color:#75715e"></span>
+<span style="color:#75715e">/// \&lt;/summary\&gt;
+</span><span style="color:#75715e"></span>
+<span style="color:#75715e">/// \&lt;param name=&#34;parentNode&#34;\&gt;参数说明\&lt;/param\&gt;
+</span><span style="color:#75715e"></span>
+<span style="color:#75715e">/// \&lt;returns\&gt;返回值说明\&lt;/returns\&gt;
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">int</span> ComputeChildNodesCount(BinaryNode parentNode)
+
+<span style="color:#960050;background-color:#1e0010">###</span> <span style="color:#ae81ff">3.1</span>.<span style="color:#ae81ff">4</span> <span style="color:#960050;background-color:#1e0010">代码间注释约定</span>
+
+<span style="color:#ae81ff">1.</span>  <span style="color:#960050;background-color:#1e0010">单行注释，注释行数\</span>&lt;<span style="color:#ae81ff">3</span> <span style="color:#960050;background-color:#1e0010">行是使用</span>
+
+&gt; <span style="color:#75715e">//单行注释
+</span><span style="color:#75715e"></span>
+<span style="color:#ae81ff">1.</span>  <span style="color:#960050;background-color:#1e0010">多行注释，\</span>&gt;<span style="color:#ae81ff">2</span> <span style="color:#960050;background-color:#1e0010">注释行数\</span>&lt;=<span style="color:#ae81ff">10</span> <span style="color:#960050;background-color:#1e0010">时使用</span>
+
+&gt; /<span style="color:#960050;background-color:#1e0010">\</span>*<span style="color:#960050;background-color:#1e0010">\</span>*
+
+&gt; <span style="color:#960050;background-color:#1e0010">\</span>*<span style="color:#960050;background-color:#1e0010">多行注释</span>
+
+&gt; <span style="color:#960050;background-color:#1e0010">\</span>*<span style="color:#960050;background-color:#1e0010">多行注释</span>
+
+&gt; <span style="color:#960050;background-color:#1e0010">\</span>* <span style="color:#960050;background-color:#1e0010">\</span>*<span style="color:#960050;background-color:#1e0010">\</span>*/
+
+<span style="color:#ae81ff">1.</span>  <span style="color:#960050;background-color:#1e0010">注释块，\</span>&gt;<span style="color:#ae81ff">10</span> <span style="color:#960050;background-color:#1e0010">注释行数时那个，用</span> <span style="color:#ae81ff">50</span> <span style="color:#960050;background-color:#1e0010">个</span> <span style="color:#960050;background-color:#1e0010">\</span>*
+
+&gt; /<span style="color:#960050;background-color:#1e0010">\</span>*<span style="color:#960050;background-color:#1e0010">\</span>*<span style="color:#960050;background-color:#1e0010">\</span>*<span style="color:#960050;background-color:#1e0010">\</span>*<span style="color:#960050;background-color:#1e0010">\</span>*<span style="color:#960050;background-color:#1e0010">\</span>*<span style="color:#960050;background-color:#1e0010">\</span>*<span style="color:#960050;background-color:#1e0010">\</span>*<span style="color:#960050;background-color:#1e0010">\</span>*<span style="color:#960050;background-color:#1e0010">\</span>*<span style="color:#960050;background-color:#1e0010">\</span>*<span style="color:#960050;background-color:#1e0010">\</span>*<span style="color:#960050;background-color:#1e0010">\</span>*<span style="color:#960050;background-color:#1e0010">\</span>*<span style="color:#960050;background-color:#1e0010">\</span>*<span style="color:#960050;background-color:#1e0010">\</span>*<span style="color:#960050;background-color:#1e0010">\</span>*<span style="color:#960050;background-color:#1e0010">\</span>*<span style="color:#960050;background-color:#1e0010">\</span>*<span style="color:#960050;background-color:#1e0010">\</span>*<span style="color:#960050;background-color:#1e0010">\</span>*<span style="color:#960050;background-color:#1e0010">\</span>*<span style="color:#960050;background-color:#1e0010">\</span>*<span style="color:#960050;background-color:#1e0010">\</span>*<span style="color:#960050;background-color:#1e0010">\</span>*<span style="color:#960050;background-color:#1e0010">\</span>*<span style="color:#960050;background-color:#1e0010">\</span>*<span style="color:#960050;background-color:#1e0010">\</span>*<span style="color:#960050;background-color:#1e0010">\</span>*<span style="color:#960050;background-color:#1e0010">\</span>*<span style="color:#960050;background-color:#1e0010">\</span>*<span style="color:#960050;background-color:#1e0010">\</span>*<span style="color:#960050;background-color:#1e0010">\</span>*<span style="color:#960050;background-color:#1e0010">\</span>*<span style="color:#960050;background-color:#1e0010">\</span>*<span style="color:#960050;background-color:#1e0010">\</span>*<span style="color:#960050;background-color:#1e0010">\</span>*<span style="color:#960050;background-color:#1e0010">\</span>*<span style="color:#960050;background-color:#1e0010">\</span>*<span style="color:#960050;background-color:#1e0010">\</span>*<span style="color:#960050;background-color:#1e0010">\</span>*<span style="color:#960050;background-color:#1e0010">\</span>*<span style="color:#960050;background-color:#1e0010">\</span>*<span style="color:#960050;background-color:#1e0010">\</span>*<span style="color:#960050;background-color:#1e0010">\</span>*<span style="color:#960050;background-color:#1e0010">\</span>*<span style="color:#960050;background-color:#1e0010">\</span>*<span style="color:#960050;background-color:#1e0010">\</span>*<span style="color:#960050;background-color:#1e0010">\</span>*<span style="color:#960050;background-color:#1e0010">\</span>*<span style="color:#960050;background-color:#1e0010">\</span>*
+
+&gt; <span style="color:#960050;background-color:#1e0010">\</span>* <span style="color:#960050;background-color:#1e0010">代码块注释</span> <span style="color:#ae81ff">1</span>
+
+&gt; <span style="color:#960050;background-color:#1e0010">\</span>* <span style="color:#960050;background-color:#1e0010">代码块注释</span> <span style="color:#ae81ff">2</span>
+
+&gt; <span style="color:#960050;background-color:#1e0010">\</span>* ......
+
+&gt; <span style="color:#960050;background-color:#1e0010">\</span>* <span style="color:#960050;background-color:#1e0010">代码块注释</span> <span style="color:#ae81ff">10</span>
+
+&gt; <span style="color:#960050;background-color:#1e0010">\</span>* <span style="color:#960050;background-color:#1e0010">代码块注释</span> <span style="color:#ae81ff">11</span>
+
+&gt; <span style="color:#960050;background-color:#1e0010">\</span>*<span style="color:#960050;background-color:#1e0010">\</span>*<span style="color:#960050;background-color:#1e0010">\</span>*<span style="color:#960050;background-color:#1e0010">\</span>*<span style="color:#960050;background-color:#1e0010">\</span>*<span style="color:#960050;background-color:#1e0010">\</span>*<span style="color:#960050;background-color:#1e0010">\</span>*<span style="color:#960050;background-color:#1e0010">\</span>*<span style="color:#960050;background-color:#1e0010">\</span>*<span style="color:#960050;background-color:#1e0010">\</span>*<span style="color:#960050;background-color:#1e0010">\</span>*<span style="color:#960050;background-color:#1e0010">\</span>*<span style="color:#960050;background-color:#1e0010">\</span>*<span style="color:#960050;background-color:#1e0010">\</span>*<span style="color:#960050;background-color:#1e0010">\</span>*<span style="color:#960050;background-color:#1e0010">\</span>*<span style="color:#960050;background-color:#1e0010">\</span>*<span style="color:#960050;background-color:#1e0010">\</span>*<span style="color:#960050;background-color:#1e0010">\</span>*<span style="color:#960050;background-color:#1e0010">\</span>*<span style="color:#960050;background-color:#1e0010">\</span>*<span style="color:#960050;background-color:#1e0010">\</span>*<span style="color:#960050;background-color:#1e0010">\</span>*<span style="color:#960050;background-color:#1e0010">\</span>*<span style="color:#960050;background-color:#1e0010">\</span>*<span style="color:#960050;background-color:#1e0010">\</span>*<span style="color:#960050;background-color:#1e0010">\</span>*<span style="color:#960050;background-color:#1e0010">\</span>*<span style="color:#960050;background-color:#1e0010">\</span>*<span style="color:#960050;background-color:#1e0010">\</span>*<span style="color:#960050;background-color:#1e0010">\</span>*<span style="color:#960050;background-color:#1e0010">\</span>*<span style="color:#960050;background-color:#1e0010">\</span>*<span style="color:#960050;background-color:#1e0010">\</span>*<span style="color:#960050;background-color:#1e0010">\</span>*<span style="color:#960050;background-color:#1e0010">\</span>*<span style="color:#960050;background-color:#1e0010">\</span>*<span style="color:#960050;background-color:#1e0010">\</span>*<span style="color:#960050;background-color:#1e0010">\</span>*<span style="color:#960050;background-color:#1e0010">\</span>*<span style="color:#960050;background-color:#1e0010">\</span>*<span style="color:#960050;background-color:#1e0010">\</span>*<span style="color:#960050;background-color:#1e0010">\</span>*<span style="color:#960050;background-color:#1e0010">\</span>*<span style="color:#960050;background-color:#1e0010">\</span>*<span style="color:#960050;background-color:#1e0010">\</span>*<span style="color:#960050;background-color:#1e0010">\</span>*<span style="color:#960050;background-color:#1e0010">\</span>*<span style="color:#960050;background-color:#1e0010">\</span>*<span style="color:#960050;background-color:#1e0010">\</span>*<span style="color:#960050;background-color:#1e0010">\</span>*/
+
+<span style="color:#960050;background-color:#1e0010">###</span> <span style="color:#ae81ff">3.1</span>.<span style="color:#ae81ff">5</span> <span style="color:#960050;background-color:#1e0010">强制注释的约定</span>
+
+<span style="color:#ae81ff">1.</span>  <span style="color:#960050;background-color:#1e0010">以下两种情况我们需要在所有的类、类属性和方法都必须按照上述格式编写注释</span>
+
+    <span style="color:#ae81ff">1.</span>  <span style="color:#960050;background-color:#1e0010">我们需要提供代码注释自动生成的</span> API <span style="color:#960050;background-color:#1e0010">文档</span>
+
+!<span style="color:#a6e22e">[]</span>(media/<span style="color:#ae81ff">35</span>bff930b3e471b68683793a7089dfff.png)
+
+<span style="color:#ae81ff">1.</span>  <span style="color:#960050;background-color:#1e0010">目前编写的是公共核心模块</span>
+
+<span style="color:#ae81ff">2.</span>  <span style="color:#960050;background-color:#1e0010">如果公司对注释没有特殊要求，那么按照下文中讨论的只在需要的地方加注释，不要加无谓的注释。</span>
+
+<span style="color:#960050;background-color:#1e0010">###</span> <span style="color:#ae81ff">3.1</span>.<span style="color:#ae81ff">6</span> <span style="color:#960050;background-color:#1e0010">常用注释标识的约定</span>
+
+<span style="color:#960050;background-color:#1e0010">这里约定下以后团队常用集中注释标识及含义：</span>
+
+<span style="color:#75715e">//TODO: 我还没有处理的事情
+</span><span style="color:#75715e"></span>
+<span style="color:#75715e">//FIXME: 已知的问题
+</span><span style="color:#75715e"></span>
+<span style="color:#75715e">//HACK: 对一个问题不得不采用比较粗糙的解决方案
+</span><span style="color:#75715e"></span>
+<span style="color:#75715e">//XXX: 危险！这里有重要的问题
+</span><span style="color:#75715e"></span>
+<span style="color:#960050;background-color:#1e0010">请团队成员自行在</span> Visual Studio <span style="color:#960050;background-color:#1e0010">中配置</span> FIXME <span style="color:#960050;background-color:#1e0010">和</span> XXX <span style="color:#960050;background-color:#1e0010">为高优先级的</span> Comments
+
+<span style="color:#960050;background-color:#1e0010">步骤：工具</span> <span style="color:#960050;background-color:#1e0010">→</span> <span style="color:#960050;background-color:#1e0010">环境</span> <span style="color:#960050;background-color:#1e0010">→</span> <span style="color:#960050;background-color:#1e0010">任务列表</span> <span style="color:#960050;background-color:#1e0010">→</span> <span style="color:#960050;background-color:#1e0010">添加</span> <span style="color:#960050;background-color:#1e0010">→</span> <span style="color:#960050;background-color:#1e0010">确定</span>
+
+!<span style="color:#a6e22e">[]</span>(media/a1114d6b0fe81754c4cd0a1f9c00d48a.png)
+
+<span style="color:#960050;background-color:#1e0010">配置完成后，我们就能在任务列表窗口中的说明选项中看到代码中存在的任务了。</span>
+
+!<span style="color:#a6e22e">[]</span>(media/<span style="color:#ae81ff">134</span>b9fdb8e05104995b567048b0767fc.png)
+
+<span style="color:#960050;background-color:#1e0010">###</span> <span style="color:#ae81ff">3.1</span>.<span style="color:#ae81ff">7</span> <span style="color:#960050;background-color:#1e0010">关于何时使用“</span><span style="color:#75715e">///”和“//”的约定
+</span><span style="color:#75715e"></span>
+<span style="color:#ae81ff">1.</span>  <span style="color:#960050;background-color:#1e0010">对于需要让调用者知道的信息，使用”</span><span style="color:#75715e">///”注释，以便让调用者能在调用时查看到。
+</span><span style="color:#75715e"></span>
+<span style="color:#ae81ff">2.</span>  <span style="color:#960050;background-color:#1e0010">对于代码内部实现机械，需要维护者知道的注释，使用”</span><span style="color:#75715e">//”。减少调用者阅读时间。
+</span><span style="color:#75715e"></span>
+<span style="color:#960050;background-color:#1e0010">##</span> <span style="color:#ae81ff">3.2</span> <span style="color:#960050;background-color:#1e0010">不需要的注释</span>
+
+<span style="color:#960050;background-color:#1e0010">阅读注释会占用阅读真实代码的时间，并且每条注释都会占用屏幕上的空间。所以我们约定所加的注释必须是有意义的注释，否则不要浪费时间和空间。</span>
+
+<span style="color:#960050;background-color:#1e0010">区别要不要写注释的核心思想就是：不要为那些能快速从代码本身就推断出的事实写注释。</span>
+
+<span style="color:#960050;background-color:#1e0010">###</span> <span style="color:#ae81ff">3.2</span>.<span style="color:#ae81ff">1</span> <span style="color:#960050;background-color:#1e0010">不要为了注释而注释</span>
+
+<span style="color:#960050;background-color:#1e0010">有些人可能以前的公司对于注释要求很高，如”何时些注释”章节中的要求。所以很多人为了写注释而注释。</span>
+
+<span style="color:#960050;background-color:#1e0010">再没有特殊要求的情况下我们要禁止下面这种没有意义的注释</span>
+
+<span style="color:#960050;background-color:#1e0010">```</span>C<span style="color:#960050;background-color:#1e0010">#</span>
+<span style="color:#75715e">/// \&lt;summary\&gt;
+</span><span style="color:#75715e"></span>
+<span style="color:#75715e">/// 树操作定义
+</span><span style="color:#75715e"></span>
+<span style="color:#75715e">/// \&lt;/summary\&gt;
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">BinaryTree</span>
+
+{
+
+<span style="color:#75715e">/// \&lt;summary\&gt;
+</span><span style="color:#75715e">/// 节点总数
+</span><span style="color:#75715e">/// \&lt;/summary\&gt;
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">int</span> NodesCount { <span style="color:#66d9ef">get</span>; <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">set</span>; }
+
+<span style="color:#75715e">/// \&lt;summary\&gt;
+</span><span style="color:#75715e">/// 树所有节点列表
+</span><span style="color:#75715e">/// \&lt;/summary\&gt;
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">public</span> List<span style="color:#960050;background-color:#1e0010">\</span>&lt;BinaryNode<span style="color:#960050;background-color:#1e0010">\</span>&gt; Nodes { <span style="color:#66d9ef">get</span>; <span style="color:#66d9ef">set</span>; }
+
+<span style="color:#75715e">/// \&lt;summary\&gt;
+</span><span style="color:#75715e">/// 新增节点
+</span><span style="color:#75715e">/// \&lt;/summary\&gt;
+</span><span style="color:#75715e">/// \&lt;param name=&#34;node&#34;\&gt;插入树中的节点\&lt;/param\&gt;
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> InsertNode(BinaryNode node)
+
+}
+</code></pre></div>
+<h3 id="3-2-2-不要用注释来粉饰糟糕的代码">3.2.2 不要用注释来粉饰糟糕的代码</h3>
+
+<p>写注释常见的动机之一就是试图来使用槽糕的代码能让别人看懂。对于这种”拐杖式注释”我们不需要，我们要做的是把代码改的能够更具有”自我说明性”</p>
+
+<p>记住：”好代码&gt;坏代码+好注释”</p>
+
+<h3 id="3-2-3-日志式注释">3.2.3 日志式注释</h3>
+
+<p>有人喜欢在每次编辑代码时，都在模块处加一条注释。这类注释就像是一种记录每次修改的日志。在很久以前这种记录对于维护还有意义。但是对于
+现在的源码控制来说，这些记录完全是冗余的，需要完全废除。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C#" data-lang="C#"><span style="color:#75715e">/********************************************************************************
+</span><span style="color:#75715e">\* 2019-1-1:Fix Bug-12345: Add new method to calculate nodes count
+</span><span style="color:#75715e">\* ......
+</span><span style="color:#75715e">\* 2019-5-1:Task-00001: Create BinaryTree class
+</span><span style="color:#75715e">********************************************************************************/</span>
+</code></pre></div>
+<h3 id="3-2-4-个人签名">3.2.4 个人签名</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C#" data-lang="C#"><span style="color:#75715e">//Added By XXXX
+</span></code></pre></div>
+<p>有人认为这种注释有助于不了解这段代码含义的人和他讨论。事实上确实是这条注释放在哪年复一年，后来的代码和原作者写的源代码越来越不一样，和 XXXX 也越来没关系。</p>
+
+<h3 id="3-2-5-位置标识">3.2.5 位置标识</h3>
+
+<p>有人喜欢在代码注释里加入位置标识以方便查找代码的位置。</p>
+
+<p>现在 IDE 都集成了这些功能，如 VS 中可以使用 Bookmark。</p>
+
+<p>不要将这类注释加到代码中。</p>
+
+<h3 id="3-2-6-注释掉的代码">3.2.6 注释掉的代码</h3>
+
+<p>直接把代码注释掉是非常令人讨厌的做饭。</p>
+
+<p>其他人不敢删掉这些代码，他们会想代码依然在这一定是有原因的，而且这段代码很重要，不能删除。而且每个阅读代码的人都回去看一下这些被注释的代码中是否有他们需要注意的信息。</p>
+
+<p>这些注释掉的代码会堆积在一起，散发着腐烂的恶臭。</p>
+
+<h2 id="3-3-需要的注释">3.3 需要的注释</h2>
+
+<h3 id="3-3-1-记录你对代码有价值的见解">3.3.1 记录你对代码有价值的见解</h3>
+
+<p>你应该在代码中加入你对代码有价值的见解注释</p>
+
+<p>如：</p>
+
+<p>//出乎意料的是，对于这些数据用二叉树比哈希表要快 40%</p>
+
+<p>//哈希运算的代价比左右比要大的多</p>
+
+<p>这段注释会告诉读者一些重要的性能信息，防止他们做无所谓的优化。</p>
+
+<h3 id="3-3-2-为代码中的不足写注释">3.3.2 为代码中的不足写注释</h3>
+
+<p>代码始终在演进，并且在代码中肯定会有不足。</p>
+
+<p>要把这些不足记录下来以便后来人完善。</p>
+
+<p>如 当代码需要改进时：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C#" data-lang="C#"><span style="color:#75715e">//**TODO:尝试优化算法**
+</span></code></pre></div>
+<p>如 当代码没有完成时：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C#" data-lang="C#"><span style="color:#75715e">//**TODO:处理 JPG 以外的图片格式**
+</span></code></pre></div>
+<p>你应该随时把代码将来该如何改动的想法用注释的方式记录下来。这种注释给读者带来对代码质量和当前的状态的宝贵见解，甚至会给他们指出如何改进代码的方向。</p>
+
+<h3 id="3-3-3-对意料之中的疑问添加注释">3.3.3 对意料之中的疑问添加注释</h3>
+
+<p>当别人读你的代码的时候，有些部分可能让他们有这样的疑问：“为什么要这样写？”你的工作就是要给这些部分加上注释。</p>
+
+<p>如：</p>
+
+<blockquote>
+<p>// 因为 Connection 的创建很耗费资源和时间，而且需要多线程访问，</p>
+</blockquote>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C#" data-lang="C#"><span style="color:#75715e">// 所以使用多线程单例模式
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> Connection Instance
+{
+    <span style="color:#66d9ef">get</span>
+    {
+        <span style="color:#66d9ef">if</span> (_instance == <span style="color:#66d9ef">null</span>)
+        {
+            <span style="color:#66d9ef">lock</span> (_lock)
+            {
+                <span style="color:#66d9ef">if</span> (_instance == <span style="color:#66d9ef">null</span>)
+                    {
+                        _instance = <span style="color:#66d9ef">new</span> Connection();
+                    }
+            }
+        }
+    <span style="color:#66d9ef">return</span> _instance;
+    }
+}
+</code></pre></div>
+<h3 id="3-3-4-公布可能的陷阱">3.3.4 公布可能的陷阱</h3>
+
+<p><img src="media/acc62ba383c84dafc95d4de6f226f6df.png" alt="" /></p>
+
+<p>当为一个函数或者类写注释时，可以这样问自己：“这段代码有什么出人意料的地方吗？会不会被无用？”。基本上说就是你需要未雨绸缪，预料到别人使用你代码时可能遇到的问题。如：</p>
+
+<p>//XXX:
+因为调用外部邮件服务器发送邮件，所以耗时较长，请使用异步方法调用以防止 UI 卡死。</p>
+
+<p>public void SendEmail(string to, string subject, string body)</p>
+
+<h3 id="3-3-5-对于代码块总结性的注释">3.3.5 对于代码块总结性的注释</h3>
+
+<p>对于代码块总结性注释可以使读者在深入细节之前就能得到该代码块的主旨，甚至有时都可以直接跳过该代码块，从而可以快速准确的把握代码。</p>
+
+<p>如读者看到：//下面代码使用了二分查找算法来快速的根据用户 Id 找到相应用户</p>
+
+<p>那么他就可以快速理解下面代码的逻辑，否则自己看二分查找还是要用些时间的。</p>
+
+<h2 id="3-4-如何写好注释">3.4 如何写好注释</h2>
+
+<p><img src="media/3e50ceb1556f352250480159de81f209.png" alt="" /></p>
+
+<h3 id="3-4-1-避免使用不明确的代词">3.4.1 避免使用不明确的代词</h3>
+
+<p>有些情况下，”it”,”this”等代词指代很容易产生歧义，最好的方式是不要使用将所有可能产生歧义的代词替换成实际指代的词。</p>
+
+<p>如：//Insert the data into the cache,but check if it&rsquo;s too big first.</p>
+
+<p>“it”是指”data”还是”cache”？在读完剩下代码谁也不知道指代的是谁。那还要注释做什么？替换成要指代的词后读者就可以直截了当的知道接下来的代码要做什么了。</p>
+
+<p>//Insert the data into the cache,but check if the data is too big first.</p>
+
+<h3 id="3-4-2-精确描述方法的行为">3.4.2 精确描述方法的行为</h3>
+
+<p>注释一定要精确的描述方法的行为。避免由于注释不准确造成的误调用。</p>
+
+<p>如你写了一个方法统计文件中的行数。</p>
+
+<p>//Return the number of lines in this file</p>
+
+<p>public long CountLinesInFile(string fileName)</p>
+
+<p>上面的注释不是很精确，因为有很多定义行的方式，下面几种情况这个方法的回执午饭根据注释快速的判断出来。</p>
+
+<ol>
+<li><p>“”(空文件)——0 或 1 行？</p></li>
+
+<li><p>“hello”­­——0 或 1 行？</p></li>
+
+<li><p>“hello\n”­­——1 或 2 行？</p></li>
+
+<li><p>“hello\n\r world\r”­­——2、3 或 4 行？</p></li>
+</ol>
+
+<p>假设该方法的实现是统计换行符的(\n)的个数，下面的注释就要比原来的注释鞥好些。</p>
+
+<p>//Count how many newline symbols(&rsquo;\n&rsquo;) are this file</p>
+
+<p>这条注释包含更多的信息。读者可以知道如果没有换行符，这个函数会返回 0.读者还知道回车符(\r)会被忽略。</p>
+
+<h3 id="3-4-3-用输入输出的例子来说明特殊的情况">3.4.3 用输入输出的例子来说明特殊的情况</h3>
+
+<p>对于注释来讲，一个精挑细选的例子比千言万语还要有效，而且更加直白有效，阅读速度更快。</p>
+
+<p>如：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C#" data-lang="C#"><span style="color:#75715e">/// &lt;summary&gt;
+</span><span style="color:#75715e">/// Remove the suffix/prefix of charsToRemove from the input source
+</span><span style="color:#75715e">/// &lt;/summary&gt;
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">string</span> StripPrefixAndSuffix(<span style="color:#66d9ef">string</span> source, <span style="color:#66d9ef">string</span> charsToRemove)
+</code></pre></div>
+<p>这条注释不是很精确，因为它不能回答下面的问题</p>
+
+<ol>
+<li><p>是只有按 <code>charsToRemove</code> 中顺序的字符才会被移除，还是无序的 <code>charsToRemove</code> 也会被移除？</p></li>
+
+<li><p>如果在开头和结尾有多个 <code>charsToRemove</code> 会 ？</p></li>
+</ol>
+
+<p>而一个好例子就可以简单直白的回答这些问题：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C#" data-lang="C#"><span style="color:#75715e">/// &lt;summary&gt;
+</span><span style="color:#75715e">/// Example: StripPrefixAndSuffix(&#34;abbayabbazbaba&#34;,&#34;ab&#34;) returns &#34;yababz&#34;
+</span><span style="color:#75715e">/// &lt;/summary&gt;
+</span></code></pre></div>
+<h3 id="4-4-4-适当的使用具名函数">4.4.4 适当的使用具名函数</h3>
+
+<p>假设你看见这样的函数调用：</p>
+
+<p><code>ConnectMailServer(100,false);</code></p>
+
+<p>因为直接传入的数值和 bool 值，使得这个调用很难理解，在这种情况下可以使用 C#的具名函数以便代码阅读者快速知道这两个参数的含义。</p>
+
+<p>假设函数是这样的：<code>public void ConnectMailServer(int timeout_s, booluseEncryption)</code></p>
+
+<p>那我们可这样使用具名函数：<code>ConnectMailServer(timeout_s: 100, useEncryption:false);</code></p>
+
+<p>代码阅读者一眼就能看出这两个参数的作用。</p>
+
+<p>Tips：Visual Studio 2019 已经自带此功能。</p>
+
+<h3 id="3-4-5-使用通用专有名词">3.4.5 使用通用专有名词</h3>
+
+<p>代码的阅读者和调用者都是程序员，程序员间有大量的专有名词可以用来描述一些模式和解决方案，使用这些词，可以简单命了阐述你代码的含义。</p>
+
+<p>假设你原来的注释这样的：</p>
+
+<p><img src="media/5f15196e3881bb96b29ef2ab76e88f16.png" alt="" /></p>
+
+<p>那么你完全你可以简单的说：</p>
+
+<p><code>//This class acts as a **caching layer** to the database.</code></p>
+
+<p>程序员一看 <code>caching layer</code>
+就明白这个类是做什么的了。而且就算新手不明白，你的注释也很难给他讲明白的，还不如给他个关键词，让他自己去 Google 或向别人请教。这样的效果比你的注释会好的多。</p>
+
+<h3 id="3-4-6-采用目录编号描述复杂逻辑">3.4.6 采用目录编号描述复杂逻辑</h3>
+
+<p>当一个函数内遇有复杂的逻辑时，采用”//”无法直观且准确的描述出代码的逻辑，用以下方式可以很好的解决此情景。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C#" data-lang="C#"><span style="color:#75715e">//1、 ...
+</span><span style="color:#75715e">//1.1、 ...
+</span><span style="color:#75715e">//1.2、 ...
+</span></code></pre></div>
+<h3 id="3-4-7-更新代码时记得更新注释">3.4.7 更新代码时记得更新注释</h3>
+
+<p>再好的注释也会随着内容的更改而变得越来越没有意义，有时候甚至会对读者造成误导，产生不必要的 bug。所以在更改代码后，记得更新所更改代码的注释，使其表达最新代码的含义。</p>
+
+<h3 id="3-4-8-只有能让别人读懂的注释才是合格的注释">3.4.8 只有能让别人读懂的注释才是合格的注释</h3>
+
+<p>当自己不确定自己的注释是否合格，请周围的同事读下你的注释，看他读完注释后说出的想法是否是你想要表达的，是否有信息遗漏和误解等。</p>
+
+<h1 id="4-格式">4 格式</h1>
+
+<p>格式的统一使用可以使代码清晰、美观、方便阅读。为了不影响编码效率，以下只是几点建议：</p>
+
+<h2 id="长度">长度</h2>
+
+<ol>
+<li><p>一个文件最好不要超过 500 行(除 IDE 自动生成的类)。</p></li>
+
+<li><p>一个文件必须只有一个命名空间，严禁将多个命名空间放在一个。</p></li>
+
+<li><p>一个文件最好只有一个类。</p></li>
+
+<li><p>如果超过 500 行，考虑拆分类或者使用 Partial 类将类安装功能拆分。</p></li>
+
+<li><p>一个方法的代码最好不要超过 50 行，如果超过考虑将里面的的逻辑封装成函数。</p>
+
+<ol>
+<li>空格、空行</li>
+</ol></li>
+</ol>
+
+<blockquote>
+<p>空行的使用以代码的清晰为基本原则。空行影响程序的运行，但可以使代码看起来清晰，增加可读性，因此可以适当的使用。</p>
+</blockquote>
+
+<ol>
+<li><p>方法与方法之间有两个空行</p></li>
+
+<li><p>函数内部变量声明与函数内部逻辑之间有一个空行。</p></li>
+
+<li><p>函数内部一个逻辑完成后要有一个空行，然后再写下一个逻辑。</p>
+
+<ol>
+<li>换行</li>
+</ol></li>
+
+<li><p>请团队内所有成员开起 Visual Studio 自动换行功能。</p></li>
+
+<li><p>在不产生严重歧义或增加阅读难度的情况下，尽量控制在 80 列以内，不能超过 120 列，以方便阅读和代码的打印。</p></li>
+
+<li><p>“{”和”}”必须单独在一行上，且上下对齐。</p></li>
+
+<li><p>If,while,do.try-catch-finaly 等语句后必须有{}，即使里面只有一条语句或语句为空，且遵循”{”和”}”必须在单独在一行上上的规定。</p>
+
+<ol>
+<li>Region 的使用</li>
+</ol></li>
+</ol>
+
+<p>Region 的使用可以明确代码块的范围并提供相应注释，因此提倡大家尽量使用。</p>
+
+<p>同时 Region 也可以用来组织代码结构，我们使用以下 Region 约定来使组织类：</p>
+
+<ol>
+<li><p>一个类应该用 Region 划分出 Fields、Properties、Constructor、Private Methods 和
+Protected &amp; Public Methods 五个区域。并按照上述顺序从上到下排列。</p></li>
+
+<li><p>其中 Fields、Properties、Constructor、Private
+Methods 必须放在 Region。而 Protected &amp; Public Methods 必须放在外面。Protected
+&amp; Public Methods
+是代码阅读者查找最频繁的内容，这样做可以方便代码阅读者使用 Ctrl+M,
+O 时能够最快速度定位到自己想要查找的内容。</p></li>
+</ol>
+
+<p>一个好的类结构第一层展开时应该如下图所示：</p>
+
+<p><img src="media/39e33a77a0adc8cc035bcf070c46f36d.png" alt="" /></p>
+
+<h2 id="使用-vs-的-format-document-功能">使用 VS 的 Format Document 功能</h2>
+
+<p>一个类或者方法编写完成后，必须使用 Visual Studio 自带的“Format
+Document”的功能进行排版后才能 Check In.</p>
+
+<h1 id="5-reference">5 Reference</h1>
+
+<ol>
+<li><p><a href="https://docs.microsoft.com/zh-cn/dotnet/standard/design-guidelines/index" target="_blank">C# Coding
+Conventions</a></p></li>
+
+<li><p>NET 设计规范约定惯用法与模式(第 2 版)</p></li>
+
+<li><p>编写可读性代码的艺术</p></li>
+
+<li><p>重构—改善既有代码的设计</p></li>
+
+<li><p>高效程序员的 45 个习惯</p></li>
+
+<li><p>代码整洁之道</p></li>
+</ol>
+
+</div>
+
+  
+<footer class='entry-footer'>
+  <div class='container sep-before'><div class='categories'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <path d="M22,19a2,2,0,0,1-2,2H4a2,2,0,0,1-2-2V5A2,2,0,0,1,4,3H9l2,3h9a2,2,0,0,1,2,2Z"/>
+  
+</svg>
+<span class='screen-reader-text'>分类: </span><a class='category' href='/categories/dotnetcore.html'>DotnetCore</a></div>
+<div class='tags'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <path d="M20.59,13.41l-7.17,7.17a2,2,0,0,1-2.83,0L2,12V2H12l8.59,8.59A2,2,0,0,1,20.59,13.41Z"/>
+  <line x1="7" y1="7" x2="7" y2="7"/>
+  
+</svg>
+<span class='screen-reader-text'>标签: </span></div>
+
+  </div>
+</footer>
+
+
+</article>
+
+<nav class='entry-nav'>
+  <div class='container'><div class='prev-entry sep-before'>
+      <a href='/post/reshaper%E5%BF%AB%E6%8D%B7%E9%94%AE%E6%B1%87%E6%80%BB.html'>
+        <span aria-hidden='true'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <line x1="20" y1="12" x2="4" y2="12"/>
+  <polyline points="10 18 4 12 10 6"/>
+  
+</svg>
+ 上一个</span>
+        <span class='screen-reader-text'>上一篇文章: </span>Reshaper快捷键汇总</a>
+    </div><div class='next-entry sep-before'>
+      <a href='/post/%E4%BD%BF%E7%94%A8supervisor%E7%AE%A1%E7%90%86%E8%BF%9B%E7%A8%8B.html'>
+        <span class='screen-reader-text'>下一篇文章: </span>使用Supervisor管理进程<span aria-hidden='true'>下一个 <svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <line x1="4" y1="12" x2="20" y2="12"/>
+  <polyline points="14 6 20 12 14 18"/>
+  
+</svg>
+</span>
+      </a>
+    </div></div>
+</nav>
+
+
+
+
+      </main>
+
+      <footer id='footer' class='footer'>
+        <div class='container sep-before'><section class='widget widget-social_menu sep-after'><nav aria-label='社交菜单'>
+    <ul><li>
+        <a href='https://github.com/oneweek20169902' target='_blank' rel='noopener'>
+          <span class='screen-reader-text'>在新标签打开Github的账户</span><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+  
+</svg>
+</a>
+      </li><li>
+        <a href='mailto:liyingnet0721@gmail.com' target='_blank' rel='noopener'>
+          <span class='screen-reader-text'>通过邮件联系</span><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+  <polyline points="22,6 12,13 2,6"/>
+  
+</svg>
+</a>
+      </li></ul>
+  </nav>
+</section><div class='copyright'>
+  <p> &copy; 2019 李映 </p>
+</div>
+
+        </div>
+      </footer>
+
+    </div>
+  </div><script>window.__assets_js_src="/assets/js/"</script>
+
+<script src='/assets/js/main.9e5c4cf4.js'></script><script src='/js/custom.js'></script>
+
+</body>
+
+</html>
+

@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang='zh'><head>
+  <meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'>
+<meta name='description' content='Supervisor (http://supervisord.org) 是一个用 Python 写的进程管理工具，可以很方便的用来启动、重启、关闭进程（不仅仅是 Python 进程）。除了对单个进程的控制，还可以同时启动、关闭多个进程，比如很不幸的服务器出问题导致所有应用程序都被杀死，此时可以用 supervisor 同时启动所有应用程序而不是一个一个地敲命令启动。
+安装 Supervisor 可以运行在 Linux、Mac OS X 上。如前所述，supervisor 是 Python 编写的，所以安装起来也很方便，可以直接用 pip : sudo pip install supervisor
+supervisord 配置 Supervisor 相当强大，提供了很丰富的功能，不过我们可能只需要用到其中一小部分。安装完成之后，可以编写配置文件，来满足自己的需求。为了方便，我们把配置分成两部分：supervisord（supervisor 是一个 C/S 模型的程序，这是 server 端，对应的有 client 端：supervisorctl）和应用程序（即我们要管理的程序）。
+首先来看 supervisord 的配置文件。安装完 supervisor 之后，可以运行 echo_supervisord_conf 命令输出默认的配置项，也可以重定向到一个配置文件里： echo_supervisord_conf &gt; /etc/supervisord.conf 去除里面大部分注释和“不相关”的部分，我们可以先看这些配置：
+[unix_http_server]file=/tmp/supervisor.sock ; UNIX socket 文件，supervisorctl 会使用;chmod=0700 ; socket 文件的 mode，默认是 0700;chown=nobody:nogroup ; socket 文件的 owner，格式： uid:gid;[inet_http_server] ; HTTP 服务器，提供 web 管理界面;port=127.0.0.1:9001 ; Web 管理后台运行的 IP 和端口，如果开放到公网，需要注意安全性;username=user ; 登录管理后台的用户名;password=123 ; 登录管理后台的密码[supervisord]logfile=/tmp/supervisord.'>
+<meta name='theme-color' content='#ffcd00'>
+
+<meta property='og:title' content='使用Supervisor管理进程 • Li&#39;Blog'>
+<meta property='og:description' content='Supervisor (http://supervisord.org) 是一个用 Python 写的进程管理工具，可以很方便的用来启动、重启、关闭进程（不仅仅是 Python 进程）。除了对单个进程的控制，还可以同时启动、关闭多个进程，比如很不幸的服务器出问题导致所有应用程序都被杀死，此时可以用 supervisor 同时启动所有应用程序而不是一个一个地敲命令启动。
+安装 Supervisor 可以运行在 Linux、Mac OS X 上。如前所述，supervisor 是 Python 编写的，所以安装起来也很方便，可以直接用 pip : sudo pip install supervisor
+supervisord 配置 Supervisor 相当强大，提供了很丰富的功能，不过我们可能只需要用到其中一小部分。安装完成之后，可以编写配置文件，来满足自己的需求。为了方便，我们把配置分成两部分：supervisord（supervisor 是一个 C/S 模型的程序，这是 server 端，对应的有 client 端：supervisorctl）和应用程序（即我们要管理的程序）。
+首先来看 supervisord 的配置文件。安装完 supervisor 之后，可以运行 echo_supervisord_conf 命令输出默认的配置项，也可以重定向到一个配置文件里： echo_supervisord_conf &gt; /etc/supervisord.conf 去除里面大部分注释和“不相关”的部分，我们可以先看这些配置：
+[unix_http_server]file=/tmp/supervisor.sock ; UNIX socket 文件，supervisorctl 会使用;chmod=0700 ; socket 文件的 mode，默认是 0700;chown=nobody:nogroup ; socket 文件的 owner，格式： uid:gid;[inet_http_server] ; HTTP 服务器，提供 web 管理界面;port=127.0.0.1:9001 ; Web 管理后台运行的 IP 和端口，如果开放到公网，需要注意安全性;username=user ; 登录管理后台的用户名;password=123 ; 登录管理后台的密码[supervisord]logfile=/tmp/supervisord.'>
+<meta property='og:url' content='https://oneweek20169902.github.io/post/%E4%BD%BF%E7%94%A8supervisor%E7%AE%A1%E7%90%86%E8%BF%9B%E7%A8%8B.html'>
+<meta property='og:site_name' content='Li&#39;Blog'>
+<meta property='og:type' content='article'><meta property='article:section' content='post'><meta property='article:tag' content='Linux'><meta property='article:published_time' content='2019-07-09T15:53:12&#43;08:00'/><meta property='article:modified_time' content='2019-07-09T15:53:12&#43;08:00'/><meta name='twitter:card' content='summary'>
+
+<meta name="generator" content="Hugo 0.55.5" />
+
+  <title>使用Supervisor管理进程 • Li&#39;Blog</title>
+  <link rel='canonical' href='https://oneweek20169902.github.io/post/%E4%BD%BF%E7%94%A8supervisor%E7%AE%A1%E7%90%86%E8%BF%9B%E7%A8%8B.html'>
+  
+  
+  <link rel='icon' href='/favicon.ico'>
+<link rel='stylesheet' href='/assets/css/main.fb20af92.css'><link rel='stylesheet' href='/css/custom.css'><style>
+:root{--color-accent:#ffcd00;}
+</style>
+
+  
+
+</head>
+<body class='page type-post has-sidebar'>
+
+  <div class='site'><div id='sidebar' class='sidebar'>
+  <a class='screen-reader-text' href='#main-menu'>跳到主页</a>
+
+  <div class='container'><section class='widget widget-about sep-after'>
+  <header>
+    
+    <div class='logo'>
+      <a href='/'>
+        <img src='/images/logo.png'>
+      </a>
+    </div>
+    
+    <h2 class='title site-title '>
+      <a href='/'>
+      Li&#39;Blog
+      </a>
+    </h2>
+    <div class='desc'>
+    知识就像空气，学习如同呼吸。
+    </div>
+  </header>
+
+</section>
+<section class='widget widget-search sep-after'>
+  <header>
+    <h4 class='title widget-title'>Search</h4>
+  </header>
+
+  <form action='/search' id='search-form' class='search-form'>
+    <label>
+      <span class='screen-reader-text'></span>
+      <input id='search-term' class='search-term' type='search' name='q' placeholder='&hellip;'>
+    </label></form>
+
+</section>
+<section class='widget widget-sidebar_menu sep-after'><nav id='sidebar-menu' class='menu sidebar-menu' aria-label='侧边菜单'>
+    <div class='container'>
+      <ul><li class='item'>
+  <a href='/'>Home</a></li></ul>
+    </div>
+  </nav>
+
+</section><section class='widget widget-taxonomy_cloud sep-after'>
+  <header>
+    <h4 class='title widget-title'>标签</h4>
+  </header>
+
+  <div class='container list-container'>
+  <ul class='list taxonomy-cloud'><li>
+        <a href='/tags/c#.html' style='font-size:1em'>C#</a>
+      </li><li>
+        <a href='/tags/dotnetcore.html' style='font-size:1em'>DotnetCore</a>
+      </li><li>
+        <a href='/tags/entityframeworkcore.html' style='font-size:1em'>EntityFrameworkCore</a>
+      </li><li>
+        <a href='/tags/git.html' style='font-size:1em'>git</a>
+      </li><li>
+        <a href='/tags/hugo.html' style='font-size:1em'>hugo</a>
+      </li><li>
+        <a href='/tags/linux.html' style='font-size:1em'>Linux</a>
+      </li><li>
+        <a href='/tags/reshaper.html' style='font-size:1em'>Reshaper</a>
+      </li><li>
+        <a href='/tags/verb.html' style='font-size:1em'>VERB</a>
+      </li><li>
+        <a href='/tags/vs-code.html' style='font-size:1em'>vs code</a>
+      </li></ul>
+</div>
+
+
+</section>
+</div>
+
+  <div class='sidebar-overlay'></div>
+</div><div class='main'><nav id='main-menu' class='menu main-menu' aria-label='主菜单'>
+  <div class='container'>
+    <a class='screen-reader-text' href='#content'>跳到文章</a>
+
+<button id='sidebar-toggler' class='sidebar-toggler' aria-controls='sidebar'>
+  <span class='screen-reader-text'>切换侧边栏</span>
+  <span class='open'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <line x1="3" y1="12" x2="21" y2="12" />
+  <line x1="3" y1="6" x2="21" y2="6" />
+  <line x1="3" y1="18" x2="21" y2="18" />
+  
+</svg>
+</span>
+  <span class='close'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <line x1="18" y1="6" x2="6" y2="18" />
+  <line x1="6" y1="6" x2="18" y2="18" />
+  
+</svg>
+</span>
+</button>
+    <ul><li class='item'>
+        <a href='/'>Home</a>
+      </li><li class='item'>
+        <a href=''>Blog</a>
+      </li><li class='item'>
+        <a href='tags'>Tags</a>
+      </li><li class='item'>
+        <a href='about'>About</a>
+      </li></ul>
+  </div>
+</nav><div class='header-widgets'>
+        <div class='container'>
+    
+    <style>.widget-breadcrumbs li:after{content:'\2f '}</style>
+  <section class='widget widget-breadcrumbs sep-after'>
+    <nav id='breadcrumbs'>
+      <ol><li><a href='/'>Home</a></li><li><a href='/post.html'>Posts</a></li><li><span>使用Supervisor管理进程</span></li></ol>
+    </nav>
+  </section></div>
+      </div>
+
+      <header id='header' class='header site-header'>
+        <div class='container sep-after'>
+          <div class='header-info'><p class='site-title title'>Li&#39;Blog</p><p class='desc site-desc'>知识就像空气，学习如同呼吸。</p>
+          </div>
+        </div>
+      </header>
+
+      <main id='content'>
+
+
+<article lang='zh' class='entry'>
+  <header class='header entry-header'>
+  <div class='container sep-after'>
+    <div class='header-info'>
+      <h1 class='title'>使用Supervisor管理进程</h1>
+      
+
+    </div>
+    <div class='entry-meta'>
+  <span class='posted-on'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+  <line x1="16" y1="2" x2="16" y2="6"/>
+  <line x1="8" y1="2" x2="8" y2="6"/>
+  <line x1="3" y1="10" x2="21" y2="10"/>
+  
+</svg>
+<span class='screen-reader-text'>发布 </span>
+  <time class='entry-date' datetime='2019-07-09T15:53:12&#43;08:00'>2019-07-09</time>
+</span>
+
+  
+  
+<span class='reading-time'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <circle cx="12" cy="12" r="10"/>
+  <polyline points="12 6 12 12 15 15"/>
+  
+</svg>
+需要2分钟读完
+</span>
+
+
+</div>
+
+
+  </div>
+</header>
+
+  
+  
+<details class='container entry-toc'>
+  <summary class='title'>
+    <span>内容目录</span>
+  </summary>
+  <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#安装">安装</a></li>
+<li><a href="#supervisord-配置">supervisord 配置</a></li>
+<li><a href="#program-配置">program 配置</a></li>
+<li><a href="#使用-supervisorctl">使用 supervisorctl</a></li>
+</ul></li>
+</ul>
+</nav>
+</details>
+
+
+  <div class='container entry-content'>
+  
+
+<p>Supervisor (<a href="http://supervisord.org" target="_blank">http://supervisord.org</a>) 是一个用 Python 写的进程管理工具，可以很方便的用来启动、重启、关闭进程（不仅仅是 Python 进程）。除了对单个进程的控制，还可以同时启动、关闭多个进程，比如很不幸的服务器出问题导致所有应用程序都被杀死，此时可以用 supervisor 同时启动所有应用程序而不是一个一个地敲命令启动。</p>
+
+<h2 id="安装">安装</h2>
+
+<p>Supervisor 可以运行在 Linux、Mac OS X 上。如前所述，supervisor 是 Python 编写的，所以安装起来也很方便，可以直接用 pip :
+<code>sudo pip install supervisor</code></p>
+
+<h2 id="supervisord-配置">supervisord 配置</h2>
+
+<p>Supervisor 相当强大，提供了很丰富的功能，不过我们可能只需要用到其中一小部分。安装完成之后，可以编写配置文件，来满足自己的需求。为了方便，我们把配置分成两部分：supervisord（supervisor 是一个 C/S 模型的程序，这是 server 端，对应的有 client 端：supervisorctl）和应用程序（即我们要管理的程序）。</p>
+
+<p>首先来看 supervisord 的配置文件。安装完 supervisor 之后，可以运行 echo_supervisord_conf 命令输出默认的配置项，也可以重定向到一个配置文件里：
+<code>echo_supervisord_conf &gt; /etc/supervisord.conf</code>
+去除里面大部分注释和“不相关”的部分，我们可以先看这些配置：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-vim" data-lang="vim">[<span style="color:#a6e22e">unix_http_server</span>]<span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#a6e22e">file</span>=<span style="color:#e6db74">/tmp/</span><span style="color:#a6e22e">supervisor</span>.<span style="color:#a6e22e">sock</span>   ; <span style="color:#a6e22e">UNIX</span> <span style="color:#a6e22e">socket</span> <span style="color:#a6e22e">文件</span>，<span style="color:#a6e22e">supervisorctl</span> <span style="color:#a6e22e">会使用</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span>;<span style="color:#a6e22e">chmod</span>=<span style="color:#ae81ff">0700</span>                 ; <span style="color:#a6e22e">socket</span> <span style="color:#a6e22e">文件的</span> <span style="color:#a6e22e">mode</span>，<span style="color:#a6e22e">默认是</span> <span style="color:#ae81ff">0700</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span>;<span style="color:#a6e22e">chown</span>=<span style="color:#a6e22e">nobody</span>:<span style="color:#a6e22e">nogroup</span>       ; <span style="color:#a6e22e">socket</span> <span style="color:#a6e22e">文件的</span> <span style="color:#a6e22e">owner</span>，<span style="color:#a6e22e">格式</span>： <span style="color:#a6e22e">uid</span>:<span style="color:#a6e22e">gid</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span>;[<span style="color:#a6e22e">inet_http_server</span>]         ; <span style="color:#a6e22e">HTTP</span> <span style="color:#a6e22e">服务器</span>，<span style="color:#a6e22e">提供</span> <span style="color:#a6e22e">web</span> <span style="color:#a6e22e">管理界面</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span>;<span style="color:#a6e22e">port</span>=<span style="color:#ae81ff">127</span>.<span style="color:#ae81ff">0</span>.<span style="color:#ae81ff">0</span>.<span style="color:#ae81ff">1</span>:<span style="color:#ae81ff">9001</span>        ; <span style="color:#a6e22e">Web</span> <span style="color:#a6e22e">管理后台运行的</span> <span style="color:#a6e22e">IP</span> <span style="color:#a6e22e">和端口</span>，<span style="color:#a6e22e">如果开放到公网</span>，<span style="color:#a6e22e">需要注意安全性</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span>;<span style="color:#a6e22e">username</span>=<span style="color:#a6e22e">user</span>              ; <span style="color:#a6e22e">登录管理后台的用户名</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span>;<span style="color:#a6e22e">password</span>=<span style="color:#ae81ff">123</span>               ; <span style="color:#a6e22e">登录管理后台的密码</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span>[<span style="color:#a6e22e">supervisord</span>]<span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#a6e22e">logfile</span>=<span style="color:#e6db74">/tmp/</span><span style="color:#a6e22e">supervisord</span>.<span style="color:#a6e22e">log</span> ; <span style="color:#a6e22e">日志文件</span>，<span style="color:#a6e22e">默认是</span> $<span style="color:#a6e22e">CWD</span>/<span style="color:#a6e22e">supervisord</span>.<span style="color:#a6e22e">log</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#a6e22e">logfile_maxbytes</span>=<span style="color:#ae81ff">50</span><span style="color:#a6e22e">MB</span>        ; <span style="color:#a6e22e">日志文件大小</span>，<span style="color:#a6e22e">超出会</span> <span style="color:#a6e22e">rotate</span>，<span style="color:#a6e22e">默认</span> <span style="color:#ae81ff">50</span><span style="color:#a6e22e">MB</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#a6e22e">logfile_backups</span>=<span style="color:#ae81ff">10</span>           ; <span style="color:#a6e22e">日志文件保留备份数量默认</span> <span style="color:#ae81ff">10</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#a6e22e">loglevel</span>=<span style="color:#a6e22e">info</span>                ; <span style="color:#a6e22e">日志级别</span>，<span style="color:#a6e22e">默认</span> <span style="color:#a6e22e">info</span>，<span style="color:#a6e22e">其它</span>: <span style="color:#a6e22e">debug</span>,<span style="color:#a6e22e">warn</span>,<span style="color:#a6e22e">trace</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#a6e22e">pidfile</span>=<span style="color:#e6db74">/tmp/</span><span style="color:#a6e22e">supervisord</span>.<span style="color:#a6e22e">pid</span> ; <span style="color:#a6e22e">pid</span> <span style="color:#a6e22e">文件</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#a6e22e">nodaemon</span>=<span style="color:#a6e22e">false</span>               ; <span style="color:#a6e22e">是否在前台启动</span>，<span style="color:#a6e22e">默认是</span> <span style="color:#a6e22e">false</span>，<span style="color:#a6e22e">即以</span> <span style="color:#a6e22e">daemon</span> <span style="color:#a6e22e">的方式启动</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#a6e22e">minfds</span>=<span style="color:#ae81ff">1024</span>                  ; <span style="color:#a6e22e">可以打开的文件描述符的最小值</span>，<span style="color:#a6e22e">默认</span> <span style="color:#ae81ff">1024</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#a6e22e">minprocs</span>=<span style="color:#ae81ff">200</span>                 ; <span style="color:#a6e22e">可以打开的进程数的最小值</span>，<span style="color:#a6e22e">默认</span> <span style="color:#ae81ff">200</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span>; <span style="color:#a6e22e">the</span> <span style="color:#a6e22e">below</span> <span style="color:#a6e22e">section</span> <span style="color:#a6e22e">must</span> <span style="color:#a6e22e">remain</span> <span style="color:#a6e22e">in</span> <span style="color:#a6e22e">the</span> <span style="color:#a6e22e">config</span> <span style="color:#a6e22e">file</span> <span style="color:#a6e22e">for</span> <span style="color:#a6e22e">RPC</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span>; (<span style="color:#a6e22e">supervisorctl</span>/<span style="color:#a6e22e">web</span> <span style="color:#a6e22e">interface</span>) <span style="color:#a6e22e">to</span> <span style="color:#a6e22e">work</span>, <span style="color:#a6e22e">additional</span> <span style="color:#a6e22e">interfaces</span> <span style="color:#a6e22e">may</span> <span style="color:#a6e22e">be</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span>; <span style="color:#a6e22e">added</span> <span style="color:#a6e22e">by</span> <span style="color:#a6e22e">defining</span> <span style="color:#a6e22e">them</span> <span style="color:#a6e22e">in</span> <span style="color:#a6e22e">separate</span> <span style="color:#a6e22e">rpcinterface</span>: <span style="color:#a6e22e">sections</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span>[<span style="color:#a6e22e">rpcinterface</span>:<span style="color:#a6e22e">supervisor</span>]<span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#a6e22e">supervisor</span>.<span style="color:#a6e22e">rpcinterface_factory</span> = <span style="color:#a6e22e">supervisor</span>.<span style="color:#a6e22e">rpcinterface</span>:<span style="color:#a6e22e">make_main_rpcinterface</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span>[<span style="color:#a6e22e">supervisorctl</span>]<span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#a6e22e">serverurl</span>=<span style="color:#a6e22e">unix</span>:<span style="color:#e6db74">///tmp/</span><span style="color:#a6e22e">supervisor</span>.<span style="color:#a6e22e">sock</span> ; <span style="color:#a6e22e">通过</span> <span style="color:#a6e22e">UNIX</span> <span style="color:#a6e22e">socket</span> <span style="color:#a6e22e">连接</span> <span style="color:#a6e22e">supervisord</span>，<span style="color:#a6e22e">路径与</span> <span style="color:#a6e22e">unix_http_server</span> <span style="color:#a6e22e">部分的</span> <span style="color:#a6e22e">file</span> <span style="color:#a6e22e">一致</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span>;<span style="color:#a6e22e">serverurl</span>=<span style="color:#a6e22e">http</span>:<span style="color:#e6db74">//</span><span style="color:#ae81ff">127</span>.<span style="color:#ae81ff">0</span>.<span style="color:#ae81ff">0</span>.<span style="color:#ae81ff">1</span>:<span style="color:#ae81ff">9001</span> ; <span style="color:#a6e22e">通过</span> <span style="color:#a6e22e">HTTP</span> <span style="color:#a6e22e">的方式连接</span> <span style="color:#a6e22e">supervisord</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span>; <span style="color:#a6e22e">包含其他的配置文件</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span>[<span style="color:#a6e22e">include</span>]<span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#a6e22e">files</span> = <span style="color:#a6e22e">relative</span><span style="color:#e6db74">/directory/</span>*.<span style="color:#a6e22e">ini</span>    ; <span style="color:#a6e22e">可以是</span> *.<span style="color:#a6e22e">conf</span> <span style="color:#a6e22e">或</span> *.<span style="color:#a6e22e">ini</span></code></pre></div>
+<p>我们把上面这部分配置保存到 /etc/supervisord.conf（或其他任意有权限访问的文件），然后启动 supervisord（通过 -c 选项指定配置文件路径，如果不指定会按照这个顺序查找配置文件：$CWD/supervisord.conf, $CWD/etc/supervisord.conf, /etc/supervisord.conf）
+<code>supervisord -c /etc/supervisord.conf</code>
+查看 supervisord 是否在运行：
+<code>ps aux | grep supervisord</code></p>
+
+<h2 id="program-配置">program 配置</h2>
+
+<p>上面我们已经把 supervisrod 运行起来了，现在可以添加我们要管理的进程的配置文件。这些配置可以都写到 supervisord.conf 文件里，如果应用程序很多，最好通过 include 的方式把不同的程序（组）写到不同的配置文件里。</p>
+
+<p>为了举例，我们新建一个目录 /etc/supervisor/ 用于存放这些配置文件，相应的，把 /etc/supervisord.conf 里 include 部分的的配置修改一下：</p>
+
+<pre><code>[include]
+files = /etc/supervisor/*.conf
+</code></pre>
+
+<p>假设有个用 Flask 开发的用户系统 usercenter, 生产环境使用 gunicorn 运行。项目代码位于 /home/leon/projects/usercenter，WSGI 对象位于 wsgi.py。在命令行启动的方式是这样的：</p>
+
+<pre><code>cd /home/leon/projects/usercenter
+gunicorn -w 8 -b 0.0.0.0:17510 wsgi:app
+</code></pre>
+
+<p>对应的配置文件可能是：</p>
+
+<pre><code>[program:usercenter]
+directory = /home/leon/projects/usercenter ; 程序的启动目录
+command = gunicorn -w 8 -b 0.0.0.0:17510 wsgi:app  ; 启动命令
+autostart = true     ; 在 supervisord 启动的时候也自动启动
+startsecs = 5        ; 启动 5 秒后没有异常退出，就当作已经正常启动了
+autorestart = true   ; 程序异常退出后自动重启
+startretries = 3     ; 启动失败自动重试次数，默认是 3
+user = leon          ; 用哪个用户启动
+redirect_stderr = true  ; 把 stderr 重定向到 stdout，默认 false
+stdout_logfile_maxbytes = 20MB  ; stdout 日志文件大小，默认 50MB
+stdout_logfile_backups = 20     ; stdout 日志文件备份数
+; stdout 日志文件，需要注意当指定目录不存在时无法正常启动，所以需要手动创建目录（supervisord 会自动创建日志文件）
+stdout_logfile = /data/logs/usercenter_stdout.log
+</code></pre>
+
+<p>其中 [program:usercenter] 中的 usercenter 是应用程序的唯一标识，不能重复。对该程序的所有操作（start, restart 等）都通过名字来实现。</p>
+
+<h2 id="使用-supervisorctl">使用 supervisorctl</h2>
+
+<p>Supervisorctl 是 supervisord 的一个命令行客户端工具，启动时需要指定与 supervisord 使用同一份配置文件，否则与 supervisord 一样按照顺序查找配置文件。</p>
+
+<p><code>supervisorctl -c /etc/supervisord.conf</code>
+上面这个命令会进入 supervisorctl 的 shell 界面，然后可以执行不同的命令了：</p>
+
+<pre><code>&gt; status    # 查看程序状态
+&gt; stop usercenter   # 关闭 usercenter 程序
+&gt; start usercenter  # 启动 usercenter 程序
+&gt; restart usercenter    # 重启 usercenter 程序
+&gt; reread    ＃ 读取有更新（增加）的配置文件，不会启动新添加的程序
+&gt; update    ＃ 重启配置文件修改过的程序
+</code></pre>
+
+<p>上面这些命令都有相应的输出，除了进入 supervisorctl 的 shell 界面，也可以直接在 bash 终端运行：</p>
+
+<pre><code>$ supervisorctl status
+$ supervisorctl stop usercenter
+$ supervisorctl start usercenter
+$ supervisorctl restart usercenter
+$ supervisorctl reread
+$ supervisorctl update
+</code></pre>
+
+</div>
+
+  
+<footer class='entry-footer'>
+  <div class='container sep-before'><div class='categories'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <path d="M22,19a2,2,0,0,1-2,2H4a2,2,0,0,1-2-2V5A2,2,0,0,1,4,3H9l2,3h9a2,2,0,0,1,2,2Z"/>
+  
+</svg>
+<span class='screen-reader-text'>分类: </span><a class='category' href='/categories/supervisor.html'>Supervisor</a></div>
+<div class='tags'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <path d="M20.59,13.41l-7.17,7.17a2,2,0,0,1-2.83,0L2,12V2H12l8.59,8.59A2,2,0,0,1,20.59,13.41Z"/>
+  <line x1="7" y1="7" x2="7" y2="7"/>
+  
+</svg>
+<span class='screen-reader-text'>标签: </span><a class='tag' href='/tags/linux.html'>Linux</a></div>
+
+  </div>
+</footer>
+
+
+</article>
+
+<nav class='entry-nav'>
+  <div class='container'><div class='prev-entry sep-before'>
+      <a href='/post/c#%E7%BC%96%E7%A0%81%E8%A7%84%E8%8C%83.html'>
+        <span aria-hidden='true'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <line x1="20" y1="12" x2="4" y2="12"/>
+  <polyline points="10 18 4 12 10 6"/>
+  
+</svg>
+ 上一个</span>
+        <span class='screen-reader-text'>上一篇文章: </span>C#编码规范</a>
+    </div></div>
+</nav>
+
+
+
+
+      </main>
+
+      <footer id='footer' class='footer'>
+        <div class='container sep-before'><section class='widget widget-social_menu sep-after'><nav aria-label='社交菜单'>
+    <ul><li>
+        <a href='https://github.com/oneweek20169902' target='_blank' rel='noopener'>
+          <span class='screen-reader-text'>在新标签打开Github的账户</span><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+  
+</svg>
+</a>
+      </li><li>
+        <a href='mailto:liyingnet0721@gmail.com' target='_blank' rel='noopener'>
+          <span class='screen-reader-text'>通过邮件联系</span><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+  <polyline points="22,6 12,13 2,6"/>
+  
+</svg>
+</a>
+      </li></ul>
+  </nav>
+</section><div class='copyright'>
+  <p> &copy; 2019 李映 </p>
+</div>
+
+        </div>
+      </footer>
+
+    </div>
+  </div><script>window.__assets_js_src="/assets/js/"</script>
+
+<script src='/assets/js/main.9e5c4cf4.js'></script><script src='/js/custom.js'></script>
+
+</body>
+
+</html>
+
