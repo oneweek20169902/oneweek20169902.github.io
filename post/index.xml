@@ -5,10 +5,19 @@
     <link>https://oneweek20169902.github.io/post.html</link>
     <description>Recent content in Posts on Li&#39;Blog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Tue, 09 Jul 2019 15:53:12 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 11 Jul 2019 13:53:55 +0800</lastBuildDate>
     
 	<atom:link href="https://oneweek20169902.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Linux中文件夹的文件按照时间倒序或者升序排列</title>
+      <link>https://oneweek20169902.github.io/post/linux%E4%B8%AD%E6%96%87%E4%BB%B6%E5%A4%B9%E7%9A%84%E6%96%87%E4%BB%B6%E6%8C%89%E7%85%A7%E6%97%B6%E9%97%B4%E5%80%92%E5%BA%8F%E6%88%96%E8%80%85%E5%8D%87%E5%BA%8F%E6%8E%92%E5%88%97.html</link>
+      <pubDate>Thu, 11 Jul 2019 13:53:55 +0800</pubDate>
+      
+      <guid>https://oneweek20169902.github.io/post/linux%E4%B8%AD%E6%96%87%E4%BB%B6%E5%A4%B9%E7%9A%84%E6%96%87%E4%BB%B6%E6%8C%89%E7%85%A7%E6%97%B6%E9%97%B4%E5%80%92%E5%BA%8F%E6%88%96%E8%80%85%E5%8D%87%E5%BA%8F%E6%8E%92%E5%88%97.html</guid>
+      <description> 按时间升序 命令:ls -lrt 详细解释: -l use a long listing format 以长列表方式显示（详细信息方式） -t sort by modification time 按修改时间排序（最新的在最前面） -r reverse order while sorting （反序）  按时间降序 命令:ls -lt 详细解释: -l use a long listing format 以长列表方式显示（详细信息方式） -t sort by modification time 按修改时间排序（最新的在最前面）  查看目录文件的完整时间信息 命令： ls -l /etc/ --full-time  查看文件详细信息 命令：stat 文件名  </description>
+    </item>
     
     <item>
       <title>使用Supervisor管理进程</title>

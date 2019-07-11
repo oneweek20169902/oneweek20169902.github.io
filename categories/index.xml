@@ -5,10 +5,19 @@
     <link>https://oneweek20169902.github.io/categories.html</link>
     <description>Recent content in Categories on Li&#39;Blog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Tue, 09 Jul 2019 15:53:12 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 11 Jul 2019 13:53:55 +0800</lastBuildDate>
     
 	<atom:link href="https://oneweek20169902.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Linux</title>
+      <link>https://oneweek20169902.github.io/categories/linux.html</link>
+      <pubDate>Thu, 11 Jul 2019 13:53:55 +0800</pubDate>
+      
+      <guid>https://oneweek20169902.github.io/categories/linux.html</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Supervisor</title>

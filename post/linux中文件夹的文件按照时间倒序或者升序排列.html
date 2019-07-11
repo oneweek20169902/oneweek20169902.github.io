@@ -2,19 +2,19 @@
 <html lang='zh'><head>
   <meta charset='utf-8'>
 <meta name='viewport' content='width=device-width, initial-scale=1'>
-<meta name='description' content=' 编辑 Ctrl &#43; Space 代码完成 Ctrl &#43; Shift &#43; Space 代码完成 Ctrl &#43; Alt &#43; Space 代码完成 Ctrl &#43; P 显示参数信息 Alt &#43; Insert 生成构造函数，属性，重载成员函数，实现接口 Ctrl &#43; Alt &#43; J 生成 if,try..catch,#region 块 Ctrl &#43; / 注释及取消//注释 Ctrl &#43; Shift &#43; / 注释及取消/\*\*/注释 Ctrl &#43; W 增量选择块 Ctrl &#43; Shift &#43; W 增量反选 Alt &#43; Enter 显示错误的修正方法 Ctrl &#43; Alt &#43; F 格式化代码 Ctrl &#43; Alt &#43; O 根据指示修改优化 Ctrl &#43; D 复制当前行或选定的块  查找 Alt &#43; F7 查找变量，方法的引用 Alt &#43; Shift &#43; F7 在设定范围中查找 Ctrl &#43; Shift &#43; F7 高亮显示 Ctrl &#43; Alt &#43; Up / Down 定位到下/前一个引用 Ctrl &#43; Alt &#43; F7 快速定位引用位置 Ctrl &#43; Shift &#43; F4 关闭查找结果 tab Ctrl &#43; Alt &#43; U 定位到查找结果  导航 Ctrl &#43; N 定位到类型 Ctrl &#43; Shift &#43; N 根据文件名定位 Ctrl &#43; E 最近文件列表 Ctrl &#43; Shift &#43;Backspace 上次编辑位置 Ctrl &#43; B 跳到变量申明处 Ctrl &#43; Alt &#43; B 跳到继承类或接口处 Ctrl &#43; U 调到基类 Ctrl &#43; Shift &#43; T 跳到类型申明处 Alt &#43; Up / Down 跳到下/上一个方法 Ctrl &#43; F12 F2 / Shift &#43; F2 下/上一个高亮度显示的错误 Ctrl &#43; Shift &#43; E Stack Trace Refactoring F6 将类移入另外的命名空间 Shift &#43; F6 方法更名 Ctrl &#43; F6 更改签名 Ctrl &#43; Alt &#43; N Ctrl &#43; Alt &#43; M 将选定块抽取为一个方法 Ctrl &#43; Alt &#43; V 更改变量名称和类型  '>
+<meta name='description' content=' 按时间升序 命令:ls -lrt 详细解释: -l use a long listing format 以长列表方式显示（详细信息方式） -t sort by modification time 按修改时间排序（最新的在最前面） -r reverse order while sorting （反序）  按时间降序 命令:ls -lt 详细解释: -l use a long listing format 以长列表方式显示（详细信息方式） -t sort by modification time 按修改时间排序（最新的在最前面）  查看目录文件的完整时间信息 命令： ls -l /etc/ --full-time  查看文件详细信息 命令：stat 文件名  '>
 <meta name='theme-color' content='#ffcd00'>
 
-<meta property='og:title' content='Reshaper快捷键汇总 • Li&#39;Blog'>
-<meta property='og:description' content=' 编辑 Ctrl &#43; Space 代码完成 Ctrl &#43; Shift &#43; Space 代码完成 Ctrl &#43; Alt &#43; Space 代码完成 Ctrl &#43; P 显示参数信息 Alt &#43; Insert 生成构造函数，属性，重载成员函数，实现接口 Ctrl &#43; Alt &#43; J 生成 if,try..catch,#region 块 Ctrl &#43; / 注释及取消//注释 Ctrl &#43; Shift &#43; / 注释及取消/\*\*/注释 Ctrl &#43; W 增量选择块 Ctrl &#43; Shift &#43; W 增量反选 Alt &#43; Enter 显示错误的修正方法 Ctrl &#43; Alt &#43; F 格式化代码 Ctrl &#43; Alt &#43; O 根据指示修改优化 Ctrl &#43; D 复制当前行或选定的块  查找 Alt &#43; F7 查找变量，方法的引用 Alt &#43; Shift &#43; F7 在设定范围中查找 Ctrl &#43; Shift &#43; F7 高亮显示 Ctrl &#43; Alt &#43; Up / Down 定位到下/前一个引用 Ctrl &#43; Alt &#43; F7 快速定位引用位置 Ctrl &#43; Shift &#43; F4 关闭查找结果 tab Ctrl &#43; Alt &#43; U 定位到查找结果  导航 Ctrl &#43; N 定位到类型 Ctrl &#43; Shift &#43; N 根据文件名定位 Ctrl &#43; E 最近文件列表 Ctrl &#43; Shift &#43;Backspace 上次编辑位置 Ctrl &#43; B 跳到变量申明处 Ctrl &#43; Alt &#43; B 跳到继承类或接口处 Ctrl &#43; U 调到基类 Ctrl &#43; Shift &#43; T 跳到类型申明处 Alt &#43; Up / Down 跳到下/上一个方法 Ctrl &#43; F12 F2 / Shift &#43; F2 下/上一个高亮度显示的错误 Ctrl &#43; Shift &#43; E Stack Trace Refactoring F6 将类移入另外的命名空间 Shift &#43; F6 方法更名 Ctrl &#43; F6 更改签名 Ctrl &#43; Alt &#43; N Ctrl &#43; Alt &#43; M 将选定块抽取为一个方法 Ctrl &#43; Alt &#43; V 更改变量名称和类型  '>
-<meta property='og:url' content='https://oneweek20169902.github.io/post/reshaper%E5%BF%AB%E6%8D%B7%E9%94%AE%E6%B1%87%E6%80%BB.html'>
+<meta property='og:title' content='Linux中文件夹的文件按照时间倒序或者升序排列 • Li&#39;Blog'>
+<meta property='og:description' content=' 按时间升序 命令:ls -lrt 详细解释: -l use a long listing format 以长列表方式显示（详细信息方式） -t sort by modification time 按修改时间排序（最新的在最前面） -r reverse order while sorting （反序）  按时间降序 命令:ls -lt 详细解释: -l use a long listing format 以长列表方式显示（详细信息方式） -t sort by modification time 按修改时间排序（最新的在最前面）  查看目录文件的完整时间信息 命令： ls -l /etc/ --full-time  查看文件详细信息 命令：stat 文件名  '>
+<meta property='og:url' content='https://oneweek20169902.github.io/post/linux%E4%B8%AD%E6%96%87%E4%BB%B6%E5%A4%B9%E7%9A%84%E6%96%87%E4%BB%B6%E6%8C%89%E7%85%A7%E6%97%B6%E9%97%B4%E5%80%92%E5%BA%8F%E6%88%96%E8%80%85%E5%8D%87%E5%BA%8F%E6%8E%92%E5%88%97.html'>
 <meta property='og:site_name' content='Li&#39;Blog'>
-<meta property='og:type' content='article'><meta property='article:section' content='post'><meta property='article:tag' content='Reshaper'><meta property='article:published_time' content='2019-05-20T10:02:03&#43;08:00'/><meta property='article:modified_time' content='2019-05-20T10:02:03&#43;08:00'/><meta name='twitter:card' content='summary'>
+<meta property='og:type' content='article'><meta property='article:section' content='post'><meta property='article:tag' content='Linux'><meta property='article:published_time' content='2019-07-11T13:53:55&#43;08:00'/><meta property='article:modified_time' content='2019-07-11T13:53:55&#43;08:00'/><meta name='twitter:card' content='summary'>
 
 <meta name="generator" content="Hugo 0.55.5" />
 
-  <title>Reshaper快捷键汇总 • Li&#39;Blog</title>
-  <link rel='canonical' href='https://oneweek20169902.github.io/post/reshaper%E5%BF%AB%E6%8D%B7%E9%94%AE%E6%B1%87%E6%80%BB.html'>
+  <title>Linux中文件夹的文件按照时间倒序或者升序排列 • Li&#39;Blog</title>
+  <link rel='canonical' href='https://oneweek20169902.github.io/post/linux%E4%B8%AD%E6%96%87%E4%BB%B6%E5%A4%B9%E7%9A%84%E6%96%87%E4%BB%B6%E6%8C%89%E7%85%A7%E6%97%B6%E9%97%B4%E5%80%92%E5%BA%8F%E6%88%96%E8%80%85%E5%8D%87%E5%BA%8F%E6%8E%92%E5%88%97.html'>
   
   
   <link rel='icon' href='/favicon.ico'>
@@ -139,7 +139,7 @@
     <style>.widget-breadcrumbs li:after{content:'\2f '}</style>
   <section class='widget widget-breadcrumbs sep-after'>
     <nav id='breadcrumbs'>
-      <ol><li><a href='/'>Home</a></li><li><a href='/post.html'>Posts</a></li><li><span>Reshaper快捷键汇总</span></li></ol>
+      <ol><li><a href='/'>Home</a></li><li><a href='/post.html'>Posts</a></li><li><span>Linux中文件夹的文件按照时间倒序或者升序排列</span></li></ol>
     </nav>
   </section></div>
       </div>
@@ -158,7 +158,7 @@
   <header class='header entry-header'>
   <div class='container sep-after'>
     <div class='header-info'>
-      <h1 class='title'>Reshaper快捷键汇总</h1>
+      <h1 class='title'>Linux中文件夹的文件按照时间倒序或者升序排列</h1>
       
 
     </div>
@@ -172,7 +172,7 @@
   
 </svg>
 <span class='screen-reader-text'>发布 </span>
-  <time class='entry-date' datetime='2019-05-20T10:02:03&#43;08:00'>2019-05-20</time>
+  <time class='entry-date' datetime='2019-07-11T13:53:55&#43;08:00'>2019-07-11</time>
 </span>
 
   
@@ -203,9 +203,10 @@
 <ul>
 <li>
 <ul>
-<li><a href="#编辑">编辑</a></li>
-<li><a href="#查找">查找</a></li>
-<li><a href="#导航">导航</a></li>
+<li><a href="#按时间升序">按时间升序</a></li>
+<li><a href="#按时间降序">按时间降序</a></li>
+<li><a href="#查看目录文件的完整时间信息">查看目录文件的完整时间信息</a></li>
+<li><a href="#查看文件详细信息">查看文件详细信息</a></li>
 </ul></li>
 </ul>
 </nav>
@@ -215,56 +216,33 @@
   <div class='container entry-content'>
   
 
-<h2 id="编辑">编辑</h2>
+<h2 id="按时间升序">按时间升序</h2>
 
-<pre><code>Ctrl + Space 代码完成
-Ctrl + Shift + Space 代码完成
-Ctrl + Alt + Space 代码完成
-Ctrl + P 显示参数信息
-Alt + Insert 生成构造函数，属性，重载成员函数，实现接口
-Ctrl + Alt + J 生成 if,try..catch,#region 块
-Ctrl + / 注释及取消//注释
-Ctrl + Shift + / 注释及取消/\*\*/注释
-Ctrl + W 增量选择块
-Ctrl + Shift + W 增量反选
-Alt + Enter 显示错误的修正方法
-Ctrl + Alt + F 格式化代码
-Ctrl + Alt + O 根据指示修改优化
-Ctrl + D 复制当前行或选定的块
+<pre><code>命令:ls -lrt
+详细解释:
+
+-l     use a long listing format  以长列表方式显示（详细信息方式）
+-t     sort by modification time 按修改时间排序（最新的在最前面）
+-r     reverse order while sorting （反序）
 </code></pre>
 
-<h2 id="查找">查找</h2>
+<h2 id="按时间降序">按时间降序</h2>
 
-<pre><code>Alt + F7 查找变量，方法的引用
-Alt + Shift + F7 在设定范围中查找
-Ctrl + Shift + F7 高亮显示
-Ctrl + Alt + Up / Down 定位到下/前一个引用
-Ctrl + Alt + F7 快速定位引用位置
-Ctrl + Shift + F4 关闭查找结果 tab
-Ctrl + Alt + U 定位到查找结果
+<pre><code>命令:ls -lt
+详细解释:
+
+-l     use a long listing format  以长列表方式显示（详细信息方式）
+-t     sort by modification time 按修改时间排序（最新的在最前面）
 </code></pre>
 
-<h2 id="导航">导航</h2>
+<h2 id="查看目录文件的完整时间信息">查看目录文件的完整时间信息</h2>
 
-<pre><code>Ctrl + N 定位到类型
-Ctrl + Shift + N 根据文件名定位
-Ctrl + E 最近文件列表
-Ctrl + Shift +Backspace 上次编辑位置
-Ctrl + B 跳到变量申明处
-Ctrl + Alt + B 跳到继承类或接口处
-Ctrl + U 调到基类
-Ctrl + Shift + T 跳到类型申明处
-Alt + Up / Down 跳到下/上一个方法
-Ctrl + F12
-F2 / Shift + F2 下/上一个高亮度显示的错误
-Ctrl + Shift + E Stack Trace
-Refactoring
-F6 将类移入另外的命名空间
-Shift + F6 方法更名
-Ctrl + F6 更改签名
-Ctrl + Alt + N
-Ctrl + Alt + M 将选定块抽取为一个方法
-Ctrl + Alt + V 更改变量名称和类型
+<pre><code>命令： ls -l /etc/ --full-time
+</code></pre>
+
+<h2 id="查看文件详细信息">查看文件详细信息</h2>
+
+<pre><code>命令：stat 文件名
 </code></pre>
 
 </div>
@@ -276,14 +254,14 @@ Ctrl + Alt + V 更改变量名称和类型
   <path d="M22,19a2,2,0,0,1-2,2H4a2,2,0,0,1-2-2V5A2,2,0,0,1,4,3H9l2,3h9a2,2,0,0,1,2,2Z"/>
   
 </svg>
-<span class='screen-reader-text'>分类: </span><a class='category' href='/categories/tools.html'>Tools</a></div>
+<span class='screen-reader-text'>分类: </span><a class='category' href='/categories/linux.html'>Linux</a></div>
 <div class='tags'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
   
   <path d="M20.59,13.41l-7.17,7.17a2,2,0,0,1-2.83,0L2,12V2H12l8.59,8.59A2,2,0,0,1,20.59,13.41Z"/>
   <line x1="7" y1="7" x2="7" y2="7"/>
   
 </svg>
-<span class='screen-reader-text'>标签: </span><a class='tag' href='/tags/reshaper.html'>Reshaper</a></div>
+<span class='screen-reader-text'>标签: </span><a class='tag' href='/tags/linux.html'>Linux</a></div>
 
   </div>
 </footer>
@@ -293,7 +271,7 @@ Ctrl + Alt + V 更改变量名称和类型
 
 <nav class='entry-nav'>
   <div class='container'><div class='prev-entry sep-before'>
-      <a href='/post/hugo%E7%94%9F%E6%88%90%E9%9D%99%E6%80%81%E6%96%87%E4%BB%B6.html'>
+      <a href='/post/%E4%BD%BF%E7%94%A8supervisor%E7%AE%A1%E7%90%86%E8%BF%9B%E7%A8%8B.html'>
         <span aria-hidden='true'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
   
   <line x1="20" y1="12" x2="4" y2="12"/>
@@ -301,17 +279,7 @@ Ctrl + Alt + V 更改变量名称和类型
   
 </svg>
  上一个</span>
-        <span class='screen-reader-text'>上一篇文章: </span>Hugo命令清单</a>
-    </div><div class='next-entry sep-before'>
-      <a href='/post/c#%E7%BC%96%E7%A0%81%E8%A7%84%E8%8C%83.html'>
-        <span class='screen-reader-text'>下一篇文章: </span>C#编码规范<span aria-hidden='true'>下一个 <svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
-  
-  <line x1="4" y1="12" x2="20" y2="12"/>
-  <polyline points="14 6 20 12 14 18"/>
-  
-</svg>
-</span>
-      </a>
+        <span class='screen-reader-text'>上一篇文章: </span>使用Supervisor管理进程</a>
     </div></div>
 </nav>
 
