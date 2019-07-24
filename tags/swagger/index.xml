@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Swagger on Li&#39;Blog</title>
+    <link>https://oneweek20169902.github.io/tags/swagger.html</link>
+    <description>Recent content in Swagger on Li&#39;Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Wed, 24 Jul 2019 13:31:54 +0800</lastBuildDate>
+    
+	<atom:link href="https://oneweek20169902.github.io/tags/swagger/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Swagger生成请求model描述</title>
+      <link>https://oneweek20169902.github.io/post/swagger%E7%94%9F%E6%88%90%E8%AF%B7%E6%B1%82model%E6%8F%8F%E8%BF%B0.html</link>
+      <pubDate>Wed, 24 Jul 2019 13:31:54 +0800</pubDate>
+      
+      <guid>https://oneweek20169902.github.io/post/swagger%E7%94%9F%E6%88%90%E8%AF%B7%E6%B1%82model%E6%8F%8F%E8%BF%B0.html</guid>
+      <description>今天给大家分享 swagger 俩个冷门的小技巧
+ 获取控制器描述 将 IncludeXmlComments 方法第二个参数设置为 true 即可
+public static void IncludeXmlComments(filePath,true)  效果如图
+ 
+获取请求 model 的描述 这里有两种情况：
+a.请求的 model 跟控制器在同一目录下
+b.请求的 model 在其它类库下
+如果是第二种情况，则需要 model 所在的类库也生成跟控制器目录一样的 xml 描述文件，并且要在 startup 类下的 ConfigureServices 方法中加载此文件。
+//请求model所在的程序集 var assembly = Assembly.GetAssembly(typeof(BaseDto)); x.IncludeXmlComments(assembly.Location.Replace(&amp;#34;dll&amp;#34;, &amp;#34;xml&amp;#34;));  效果如图</description>
+    </item>
+    
+  </channel>
+</rss>

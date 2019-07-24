@@ -2,27 +2,35 @@
 <html lang='zh'><head>
   <meta charset='utf-8'>
 <meta name='viewport' content='width=device-width, initial-scale=1'>
-<meta name='description' content=' 查看版本 hugo version
-创建文件 hugo new 文件夹/文件名称.md，如 hugo new post/hugo生成静态文件.md
-编译生成静态文件 hugo --theme=主题名称 --buildDrafts --baseUrl=&quot;https://github用户名.github.io/&quot; 如 hugo --theme=minimo --buildDrafts --baseUrl=&quot;https://oneweek20169902.github.io/&quot;
-运行调试 hugo server
-常用参数介绍 --bind=&quot;127.0.0.1&quot; 服务监听 IP 地址； -p, --port=1313 服务监听端口； -w, --watch[=true] 监听站点目录，发现文件变更自动编译； -D, --buildDrafts 包括被标记为草稿的文章； -E, --buildExpired 包括已过期的文章； -F, --buildFuture 包括将在未来发布的文章； -b, --baseURL=&quot;www.datals.com&quot; 服务监听域名； --log[=false]: 开启日志； --logFile=&quot;/var/log/hugo.log&quot;: log 输出路径； -t, --theme=&quot;&quot; 指定主题； -v, --verbose[=false]: 输出详细信息  '>
+<meta name='description' content='今天给大家分享 swagger 俩个冷门的小技巧
+ 获取控制器描述 将 IncludeXmlComments 方法第二个参数设置为 true 即可
+public static void IncludeXmlComments(filePath,true)  效果如图
+ 
+获取请求 model 的描述 这里有两种情况：
+a.请求的 model 跟控制器在同一目录下
+b.请求的 model 在其它类库下
+如果是第二种情况，则需要 model 所在的类库也生成跟控制器目录一样的 xml 描述文件，并且要在 startup 类下的 ConfigureServices 方法中加载此文件。
+//请求model所在的程序集 var assembly = Assembly.GetAssembly(typeof(BaseDto)); x.IncludeXmlComments(assembly.Location.Replace(&#34;dll&#34;, &#34;xml&#34;));  效果如图'>
 <meta name='theme-color' content='#ffcd00'>
 
-<meta property='og:title' content='Hugo命令清单 • Li&#39;Blog'>
-<meta property='og:description' content=' 查看版本 hugo version
-创建文件 hugo new 文件夹/文件名称.md，如 hugo new post/hugo生成静态文件.md
-编译生成静态文件 hugo --theme=主题名称 --buildDrafts --baseUrl=&quot;https://github用户名.github.io/&quot; 如 hugo --theme=minimo --buildDrafts --baseUrl=&quot;https://oneweek20169902.github.io/&quot;
-运行调试 hugo server
-常用参数介绍 --bind=&quot;127.0.0.1&quot; 服务监听 IP 地址； -p, --port=1313 服务监听端口； -w, --watch[=true] 监听站点目录，发现文件变更自动编译； -D, --buildDrafts 包括被标记为草稿的文章； -E, --buildExpired 包括已过期的文章； -F, --buildFuture 包括将在未来发布的文章； -b, --baseURL=&quot;www.datals.com&quot; 服务监听域名； --log[=false]: 开启日志； --logFile=&quot;/var/log/hugo.log&quot;: log 输出路径； -t, --theme=&quot;&quot; 指定主题； -v, --verbose[=false]: 输出详细信息  '>
-<meta property='og:url' content='https://oneweek20169902.github.io/post/hugo%E7%94%9F%E6%88%90%E9%9D%99%E6%80%81%E6%96%87%E4%BB%B6.html'>
+<meta property='og:title' content='Swagger生成请求model描述 • Li&#39;Blog'>
+<meta property='og:description' content='今天给大家分享 swagger 俩个冷门的小技巧
+ 获取控制器描述 将 IncludeXmlComments 方法第二个参数设置为 true 即可
+public static void IncludeXmlComments(filePath,true)  效果如图
+ 
+获取请求 model 的描述 这里有两种情况：
+a.请求的 model 跟控制器在同一目录下
+b.请求的 model 在其它类库下
+如果是第二种情况，则需要 model 所在的类库也生成跟控制器目录一样的 xml 描述文件，并且要在 startup 类下的 ConfigureServices 方法中加载此文件。
+//请求model所在的程序集 var assembly = Assembly.GetAssembly(typeof(BaseDto)); x.IncludeXmlComments(assembly.Location.Replace(&#34;dll&#34;, &#34;xml&#34;));  效果如图'>
+<meta property='og:url' content='https://oneweek20169902.github.io/post/swagger%E7%94%9F%E6%88%90%E8%AF%B7%E6%B1%82model%E6%8F%8F%E8%BF%B0.html'>
 <meta property='og:site_name' content='Li&#39;Blog'>
-<meta property='og:type' content='article'><meta property='article:section' content='post'><meta property='article:tag' content='hugo'><meta property='article:published_time' content='2019-05-13T10:47:35&#43;08:00'/><meta property='article:modified_time' content='2019-05-13T10:47:35&#43;08:00'/><meta name='twitter:card' content='summary'>
+<meta property='og:type' content='article'><meta property='article:section' content='post'><meta property='article:tag' content='Swagger'><meta property='article:published_time' content='2019-07-24T13:31:54&#43;08:00'/><meta property='article:modified_time' content='2019-07-24T13:31:54&#43;08:00'/><meta name='twitter:card' content='summary'>
 
 <meta name="generator" content="Hugo 0.55.5" />
 
-  <title>Hugo命令清单 • Li&#39;Blog</title>
-  <link rel='canonical' href='https://oneweek20169902.github.io/post/hugo%E7%94%9F%E6%88%90%E9%9D%99%E6%80%81%E6%96%87%E4%BB%B6.html'>
+  <title>Swagger生成请求model描述 • Li&#39;Blog</title>
+  <link rel='canonical' href='https://oneweek20169902.github.io/post/swagger%E7%94%9F%E6%88%90%E8%AF%B7%E6%B1%82model%E6%8F%8F%E8%BF%B0.html'>
   
   
   <link rel='icon' href='/favicon.ico'>
@@ -151,7 +159,7 @@
     <style>.widget-breadcrumbs li:after{content:'\2f '}</style>
   <section class='widget widget-breadcrumbs sep-after'>
     <nav id='breadcrumbs'>
-      <ol><li><a href='/'>Home</a></li><li><a href='/post.html'>Posts</a></li><li><span>Hugo命令清单</span></li></ol>
+      <ol><li><a href='/'>Home</a></li><li><a href='/post.html'>Posts</a></li><li><span>Swagger生成请求model描述</span></li></ol>
     </nav>
   </section></div>
       </div>
@@ -170,7 +178,7 @@
   <header class='header entry-header'>
   <div class='container sep-after'>
     <div class='header-info'>
-      <h1 class='title'>Hugo命令清单</h1>
+      <h1 class='title'>Swagger生成请求model描述</h1>
       
 
     </div>
@@ -184,7 +192,7 @@
   
 </svg>
 <span class='screen-reader-text'>发布 </span>
-  <time class='entry-date' datetime='2019-05-13T10:47:35&#43;08:00'>2019-05-13</time>
+  <time class='entry-date' datetime='2019-07-24T13:31:54&#43;08:00'>2019-07-24</time>
 </span>
 
   
@@ -215,11 +223,8 @@
 <ul>
 <li>
 <ul>
-<li><a href="#查看版本">查看版本</a></li>
-<li><a href="#创建文件">创建文件</a></li>
-<li><a href="#编译生成静态文件">编译生成静态文件</a></li>
-<li><a href="#运行调试">运行调试</a></li>
-<li><a href="#常用参数介绍">常用参数介绍</a></li>
+<li><a href="#获取控制器描述">获取控制器描述</a></li>
+<li><a href="#获取请求-model-的描述">获取请求 model 的描述</a></li>
 </ul></li>
 </ul>
 </nav>
@@ -229,37 +234,41 @@
   <div class='container entry-content'>
   
 
-<h2 id="查看版本">查看版本</h2>
+<blockquote>
+<p>今天给大家分享 swagger 俩个冷门的小技巧</p>
+</blockquote>
 
-<p><code>hugo version</code></p>
+<h2 id="获取控制器描述">获取控制器描述</h2>
 
-<h2 id="创建文件">创建文件</h2>
+<p>将 IncludeXmlComments 方法第二个参数设置为 true 即可</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C#" data-lang="C#"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> IncludeXmlComments(filePath,<span style="color:#66d9ef">true</span>)
+</code></pre></div>
+<p>效果如图</p>
 
-<p><code>hugo new 文件夹/文件名称.md</code>，如 <code>hugo new post/hugo生成静态文件.md</code></p>
+<p><div align=center>
+<img src="/media/156394719922.png" alt="Example image" />
+ </div>
+</br></p>
 
-<h2 id="编译生成静态文件">编译生成静态文件</h2>
+<h2 id="获取请求-model-的描述">获取请求 model 的描述</h2>
 
-<p><code>hugo --theme=主题名称 --buildDrafts --baseUrl=&quot;https://github用户名.github.io/&quot;</code>
-如 <code>hugo --theme=minimo --buildDrafts --baseUrl=&quot;https://oneweek20169902.github.io/&quot;</code></p>
+<p>这里有两种情况：</p>
 
-<h2 id="运行调试">运行调试</h2>
+<p>a.请求的 model 跟控制器在同一目录下</p>
 
-<p><code>hugo server</code></p>
+<p>b.请求的 model 在其它类库下</p>
 
-<h2 id="常用参数介绍">常用参数介绍</h2>
+<p>如果是第二种情况，则需要 model 所在的类库也生成跟控制器目录一样的 xml 描述文件，并且要在 startup 类下的 ConfigureServices 方法中加载此文件。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C#" data-lang="C#"><span style="color:#75715e">//请求model所在的程序集
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">var</span> assembly = Assembly.GetAssembly(<span style="color:#66d9ef">typeof</span>(BaseDto));
+x.IncludeXmlComments(assembly.Location.Replace(<span style="color:#e6db74">&#34;dll&#34;</span>, <span style="color:#e6db74">&#34;xml&#34;</span>));
+</code></pre></div>
+<p>效果如图</p>
 
-<pre><code>--bind=&quot;127.0.0.1&quot; 服务监听 IP 地址；
--p, --port=1313 服务监听端口；
--w, --watch[=true] 监听站点目录，发现文件变更自动编译；
--D, --buildDrafts 包括被标记为草稿的文章；
--E, --buildExpired 包括已过期的文章；
--F, --buildFuture 包括将在未来发布的文章；
--b, --baseURL=&quot;www.datals.com&quot; 服务监听域名；
---log[=false]: 开启日志；
---logFile=&quot;/var/log/hugo.log&quot;: log 输出路径；
--t, --theme=&quot;&quot; 指定主题；
--v, --verbose[=false]: 输出详细信息
-</code></pre>
+<p><div align=center>
+<img src="/media/15639479569249.png" alt="Example image" />
+ </div>
+</br></p>
 
 </div>
 
@@ -270,14 +279,14 @@
   <path d="M22,19a2,2,0,0,1-2,2H4a2,2,0,0,1-2-2V5A2,2,0,0,1,4,3H9l2,3h9a2,2,0,0,1,2,2Z"/>
   
 </svg>
-<span class='screen-reader-text'>分类: </span><a class='category' href='/categories/tools.html'>Tools</a></div>
+<span class='screen-reader-text'>分类: </span><a class='category' href='/categories/aspnetcore.html'>ASPNETCORE</a></div>
 <div class='tags'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
   
   <path d="M20.59,13.41l-7.17,7.17a2,2,0,0,1-2.83,0L2,12V2H12l8.59,8.59A2,2,0,0,1,20.59,13.41Z"/>
   <line x1="7" y1="7" x2="7" y2="7"/>
   
 </svg>
-<span class='screen-reader-text'>标签: </span><a class='tag' href='/tags/hugo.html'>hugo</a></div>
+<span class='screen-reader-text'>标签: </span><a class='tag' href='/tags/swagger.html'>Swagger</a></div>
 
   </div>
 </footer>
@@ -287,7 +296,7 @@
 
 <nav class='entry-nav'>
   <div class='container'><div class='prev-entry sep-before'>
-      <a href='/post/%E5%B8%B8%E7%94%A8git%E5%91%BD%E4%BB%A4.html'>
+      <a href='/post/linux%E4%B8%AD%E6%96%87%E4%BB%B6%E5%A4%B9%E7%9A%84%E6%96%87%E4%BB%B6%E6%8C%89%E7%85%A7%E6%97%B6%E9%97%B4%E5%80%92%E5%BA%8F%E6%88%96%E8%80%85%E5%8D%87%E5%BA%8F%E6%8E%92%E5%88%97.html'>
         <span aria-hidden='true'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
   
   <line x1="20" y1="12" x2="4" y2="12"/>
@@ -295,10 +304,10 @@
   
 </svg>
  上一个</span>
-        <span class='screen-reader-text'>上一篇文章: </span>常用git命令整理</a>
+        <span class='screen-reader-text'>上一篇文章: </span>Linux中文件夹的文件按照时间倒序或者升序排列</a>
     </div><div class='next-entry sep-before'>
-      <a href='/post/reshaper%E5%BF%AB%E6%8D%B7%E9%94%AE%E6%B1%87%E6%80%BB.html'>
-        <span class='screen-reader-text'>下一篇文章: </span>Reshaper快捷键汇总<span aria-hidden='true'>下一个 <svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+      <a href='/post/c#%E5%A7%94%E6%89%98%E4%BB%8B%E7%BB%8D.html'>
+        <span class='screen-reader-text'>下一篇文章: </span>C#委托介绍<span aria-hidden='true'>下一个 <svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
   
   <line x1="4" y1="12" x2="20" y2="12"/>
   <polyline points="14 6 20 12 14 18"/>

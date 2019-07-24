@@ -5,17 +5,17 @@
     <link>https://oneweek20169902.github.io/tags/%E5%A7%94%E6%89%98.html</link>
     <description>Recent content in 委托 on Li&#39;Blog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Wed, 24 Jul 2019 10:53:05 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 24 Jul 2019 14:08:09 +0800</lastBuildDate>
     
 	<atom:link href="https://oneweek20169902.github.io/tags/%E5%A7%94%E6%89%98/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>C#各种委托介绍</title>
-      <link>https://oneweek20169902.github.io/post/c#%E5%90%84%E7%A7%8D%E5%A7%94%E6%89%98%E4%BB%8B%E7%BB%8D.html</link>
-      <pubDate>Wed, 24 Jul 2019 10:53:05 +0800</pubDate>
+      <title>C#委托介绍</title>
+      <link>https://oneweek20169902.github.io/post/c#%E5%A7%94%E6%89%98%E4%BB%8B%E7%BB%8D.html</link>
+      <pubDate>Wed, 24 Jul 2019 14:08:09 +0800</pubDate>
       
-      <guid>https://oneweek20169902.github.io/post/c#%E5%90%84%E7%A7%8D%E5%A7%94%E6%89%98%E4%BB%8B%E7%BB%8D.html</guid>
+      <guid>https://oneweek20169902.github.io/post/c#%E5%A7%94%E6%89%98%E4%BB%8B%E7%BB%8D.html</guid>
       <description>委托是一个类，它定义了方法的类型，使得可以将方法当作另一个方法的参数来进行传递。事件是一种特殊的委托。
 一、委托的声明 Delegate Delegate 我们常用到的一种声明 Delegate 至少 0 个参数，至多 32 个参数，可以无返回值，也可以指定返回值类型。
 public delegate int MethodtDelegate(int x, int y);表示有两个参数，并返回int型。  Action Action 是无返回值的泛型委托。 Action 表示无参，无返回值的委托。 Action 表示有传入参数 int,string 无返回值的委托。 Action 表示有传入参数 int,string,bool 无返回值的委托。 Action 表示有传入 4 个 int 型参数，无返回值的委托。 Action 至少 0 个参数，至多 16 个参数，无返回值。
